@@ -16,7 +16,7 @@
     transform: translate(-50%);
 
     display: flex;
-    flex-wrap: wrap; /*позволяет переносить элементы на новую строку */
+    flex-wrap: wrap;
     
     gap: 1rem;
 
@@ -44,8 +44,8 @@
 }
 
 .photo img:hover {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
 }
 
 .active_friends {
@@ -67,6 +67,11 @@
         height: 150px;
     }
 
+    .photo img:hover {
+        width: 300px;
+        height: 300px;
+    }
+
     .active_friends {
         display: none;
     }
@@ -77,59 +82,3 @@
         grid-template-columns: 75% 25%;
     }
 }
-
-/* @media (max-width: 550px) {
-    .photos {
-        width: 20rem;
-    }
-
-    .photo {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .photo img {
-        width: 150px;
-        height: 150px;
-    }
-}
-
-@media (max-width: 900px) {
-    .active_friends {
-        display: none;
-    }
-}
-
-@media (min-width: 550px) and (max-width: 1100px) {
-    .photos {
-        width: 33rem;
-    }
-}
-
-@media (min-width: 800px) {
-    .photosPage {
-        grid-template-columns: 32rem 20rem;
-    }
-}
-
-@media (min-width: 1100px) {
-    .photosPage {
-        grid-template-columns: 34rem 20rem;
-        left: 1rem;
-    }
-
-    .photos {
-        width: 40rem;
-    }
-}
-
-@media (min-width: 1500px) {
-    .photosPage {
-        grid-template-columns: 70% 30%;
-        left: 1rem;
-    }
-
-    .photos {
-        width: auto;
-    }
-} */

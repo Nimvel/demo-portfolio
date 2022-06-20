@@ -33,8 +33,7 @@ let images = {
     photos_active
 }
 
-let min_size = '30px'
-let size = '35px';
+let size = '30px'
 
 export const StyledNavLink = styled(NavLink)`
 ${props => props.name && css`
@@ -45,11 +44,9 @@ ${props => props.name && css`
         background-size: ${size};
         width: ${size};
         height: ${size};
-
     &:hover {
         background-image: url(${images[props.name + "_active"]});
         transform: scale(1.2);
-        
     }
     &.active{
         background-image: url(${images[props.name + "_active"]});
@@ -57,11 +54,6 @@ ${props => props.name && css`
     &.active:hover {
         transform: scale(1.2);
     }
-    @media (max-width: 1100px) {
-        background-size: ${min_size};
-        width: ${min_size};
-        height: ${min_size};
-    } 
 }
 `}`;
 
