@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import store from './redux/store';
 import { Provider } from 'react-redux';
 
@@ -13,11 +13,11 @@ export let rerender = () => {
   root.render(
     <React.StrictMode>
       <Provider store={store} >
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path='/*' element={<App state={store.getState()} dispatch={store.dispatch.bind(store)} />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </Provider>
     </React.StrictMode>
   );
