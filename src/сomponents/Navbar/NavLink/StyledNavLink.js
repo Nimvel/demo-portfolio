@@ -33,45 +33,50 @@ let images = {
     photos_active
 }
 
-let min_size = '25px'
+let min_size = '30px'
 let size = '35px';
-let size_active = '45px';
 
 export const StyledNavLink = styled(NavLink)`
 ${props => props.name && css`
         position: relative;
         background: url(${images[props.name]});
         display: block;
+        
         background-size: ${size};
         width: ${size};
         height: ${size};
+
     &:hover {
         background-image: url(${images[props.name + "_active"]});
-        background-size: ${size_active};
-        width: ${size_active};
-        height: ${size_active};
-        transform: translate(-5px);
+        transform: scale(1.2);
+        
     }
     &.active{
         background-image: url(${images[props.name + "_active"]});
-        background-size: ${size};
+        /* background-size: ${size};
         width: ${size};
-        height: ${size};
+        height: ${size}; */
     }
     &.active:hover {
-        background-size: ${size_active};
-        width: ${size_active};
-        height: ${size_active};
+        transform: scale(1.2);
     }
     @media (max-width: 1000px) {
         background-size: ${min_size};
         width: ${min_size};
-        height: ${min_size};  
-        &.active{
+        height: ${min_size};
+        /* left: 50%;
+        transform: translate(-50%);  */
+
+    /* &:hover {
+        /* transform: translate(-50%);  */
+        /* transform: scale(1.2); */
+    } */
+
+    /* &.active{
         background-size: ${min_size};
         width: ${min_size};
         height: ${min_size};  
-    }
-    }
-    `}`;
+    } */
+}
+`}`;
 
