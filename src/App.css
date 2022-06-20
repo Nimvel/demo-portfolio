@@ -66,6 +66,22 @@
   }
 } */
 
+@media (min-width: 576px) {
+  .App {
+    grid-template-columns: 4rem;
+  }  
+
+  .App textarea {
+    width: 10rem;
+    font-size: 15px;
+  
+    border: #c2c6c5 solid 0.1rem;
+    border-radius: 0.5rem;
+  }
+
+
+}
+
 @media (max-width: 1000px) {
   .App {
     grid-template-columns: 5rem;

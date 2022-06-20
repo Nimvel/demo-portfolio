@@ -33,6 +33,7 @@ let images = {
     photos_active
 }
 
+let min_size = '25px'
 let size = '35px';
 let size_active = '45px';
 
@@ -61,6 +62,16 @@ ${props => props.name && css`
         background-size: ${size_active};
         width: ${size_active};
         height: ${size_active};
+    }
+    @media (max-width: 1000px) {
+        background-size: ${min_size};
+        width: ${min_size};
+        height: ${min_size};  
+        &.active{
+        background-size: ${min_size};
+        width: ${min_size};
+        height: ${min_size};  
+    }
     }
     `}`;
 
