@@ -57,7 +57,7 @@
     color: #939393
 }
 
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
     .dialog {
         width: 10rem;
         grid-template-areas: 'img name';
@@ -74,7 +74,7 @@
     .comrade_message {
         display: none;
     }
-}
+} */
 
 
 
@@ -84,12 +84,12 @@
 
 @media (max-width: 600px) {
     .dialog {
-        width: 17rem;
+        width: 19rem;
         grid-template-areas: 'img name';
     }
 
     .dialog:hover {
-        width: 18rem;
+        width: 20rem;
     }
 
     .comrade_name {

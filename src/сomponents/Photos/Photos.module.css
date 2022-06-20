@@ -11,6 +11,8 @@
 .photos {
     grid-area: photos;
 
+    position: relative;
+
     display: flex;
     flex-wrap: wrap; /*позволяет переносить элементы на новую строку */
     
@@ -51,6 +53,8 @@
 @media (max-width: 550px) {
     .photos {
         width: 19rem;
+        left: 50%;
+        transform: translate(-50%);
     }
 }
 
