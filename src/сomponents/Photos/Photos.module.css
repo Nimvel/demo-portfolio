@@ -20,8 +20,8 @@
 }
 
 .photo {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 1rem;
     overflow: hidden;
 }
@@ -32,16 +32,16 @@
     left: 50%;
     transform: translate(-50%,-50%);
 
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     
     object-fit: cover;
     transition: 300ms;
 }
 
 .photo img:hover {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
 }
 
 .active_friends {
@@ -62,19 +62,19 @@
 
 @media (min-width: 550px) and (max-width: 1100px) {
     .photos {
-        width: 26rem;
+        width: 33rem;
     }
 }
 
 @media (min-width: 800px) {
     .photosPage {
-        grid-template-columns: 30rem 20rem;
+        grid-template-columns: 32rem 20rem;
     }
 }
 
 @media (min-width: 1100px) {
     .photosPage {
-        grid-template-columns: 40rem 20rem;
+        grid-template-columns: 34rem 20rem;
         left: 1rem;
     }
 
@@ -85,7 +85,7 @@
 
 @media (min-width: 1500px) {
     .photosPage {
-        grid-template-columns: 65% 35%;
+        grid-template-columns: 70% 30%;
         left: 1rem;
     }
 
