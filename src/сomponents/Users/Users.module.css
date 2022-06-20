@@ -29,7 +29,7 @@
     grid-template-areas: 
     'img name button'
     'img status button';
-    grid-template-columns: 60px 200px 30px;
+    grid-template-columns: 60px 180px 30px;
     grid-template-rows: 30px 30px;
 
     border: #c2c6c5 solid 1px;
