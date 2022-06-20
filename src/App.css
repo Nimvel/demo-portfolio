@@ -32,11 +32,19 @@
 }
 
 .App textarea {
-  width: 25rem;
   font-size: 15px;
 
   border: #c2c6c5 solid 0.1rem;
   border-radius: 0.5rem;
+}
+
+.App textarea:hover {
+  box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1);
+}
+
+.App textarea:focus  {
+  outline: none !important;
+  border: #715678 solid 0.1rem;
 }
 
 .header {
@@ -67,22 +75,34 @@
   }
 } */
 
-@media (max-width: 1100px) {
+@media (max-width: 600px) {
   .App {
     grid-template-columns: 4rem;
   }  
 
   .App textarea {
-    width: 18rem;
-    font-size: 15px;
-  
-    border: #c2c6c5 solid 0.1rem;
-    border-radius: 0.5rem;
+    width: 14rem;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1100px) {
+  .App {
+    grid-template-columns: 4rem;
+  }  
+
+  .App textarea {
+    width: 19rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .App textarea {
+    width: 25rem;
   }
 }
 
 @media (min-width: 1500px) {
   .App textarea {
-    width: 33rem;
+    width: 35rem;
   }
 }

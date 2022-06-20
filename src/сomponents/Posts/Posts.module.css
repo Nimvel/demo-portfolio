@@ -9,18 +9,14 @@
 }
 
 .posts {
-    width: 31rem;
-
     position: relative;
-    left: 50%;
-    transform: translate(-50%);
+    left: 1rem;
 
     cursor: default;
     user-select: none;
 }
 
 .post {
-    width: 30rem;
     min-height: 6rem;
     height: auto;
 
@@ -34,8 +30,6 @@
     'img likes';
     grid-template-columns: 4rem;
     grid-template-rows: 1.75rem;
-
-    transition: 1s;
     
     color: #939393;
     border: #c2c6c5 solid 0.1rem;
@@ -47,8 +41,6 @@
 }
 
 .new_post {
-    width: 31rem;
-
     display: grid;
     grid-template-columns: 25rem 5rem;
     gap: 1rem;
@@ -101,17 +93,33 @@
     grid-area: active_friends;
 }
 
+@media (max-width: 600px) {
+    .posts {
+        width: 20rem;
+    }
+    
+    .post {
+        width: 19rem;
+    }
+
+    .new_post {
+        width: 19rem;
+    
+        grid-template-columns: 14rem 5rem;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
 @media (max-width: 900px) {
     .active_friends {
         display: none;
     }
 }
 
-@media (max-width: 1100px) {
+@media (min-width: 600px) and (max-width: 1100px) {
     .posts {
         width: 25rem;
-        left: 1rem;
-        transform: translate(0);
     }
     
     .post {
@@ -121,7 +129,7 @@
     .new_post {
         width: 25rem;
     
-        grid-template-columns: 20rem 2rem;
+        grid-template-columns: 19rem 5rem;
         gap: 1rem;
         padding-bottom: 1rem;
     }
@@ -137,6 +145,24 @@
     .postsPage {
         grid-template-columns: 40rem 20rem;
     }
+
+    .posts {
+        width: 31rem;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .post {
+        width: 30rem;
+    }
+
+    .new_post {
+        width: 31rem;
+    
+        grid-template-columns: 25rem 5rem;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
 }
 
 @media (min-width: 1500px) {
@@ -145,11 +171,7 @@
     }
 
     .posts {
-    
         width: 41rem;
-
-        /* left: 50%;
-        transform: translate(-50%); */
     }
 
     .post {
@@ -159,7 +181,7 @@
     .new_post {
         width: 41rem;
     
-        grid-template-columns: 33rem 7rem;
+        grid-template-columns: 34rem 7rem;
         gap: 1rem;
         padding-bottom: 1rem;
     }
