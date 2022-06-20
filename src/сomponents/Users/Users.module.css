@@ -1,51 +1,50 @@
 .usersPage {
     position: relative;
-    top: 2rem;
+    top: 20px;
 
     display: grid;
-    grid-template-areas: 
-    'users active_friends';
-    grid-template-columns: 42rem;
+    grid-template-areas:'users active_friends';
+    grid-template-columns: 60% 40%;
 }
 
 .users {
     grid-area: users;
 
-    position: relative;
-    left: 2rem;
-    right: 2rem;
-    margin-right: 2rem;
+    width: 95%;
+    max-width: 500px;
 
-    border-right: rgb(194, 198, 197) solid 0.1rem;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .user {
-    width: 25rem;
-    height: 5rem;
+    width: 95%;
+    height: 70px;
 
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
+    padding: 10px;
 
     display: grid;
     grid-template-areas: 
     'img name button'
     'img status button';
-    grid-template-columns: 3.5rem 14rem 7.5rem;
-    grid-template-rows: 1.75;
+    grid-template-columns: 60px 200px 30px;
+    grid-template-rows: 30px 30px;
 
-    border: #c2c6c5 solid 0.1rem;
-    border-radius: 1rem;
+    border: #c2c6c5 solid 1px;
+    border-radius: 15px;
 }
 
 .user:hover {
     border-color: #715678;
-    box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1);
+    box-shadow: 0 0 10px 2px rgba(194, 194, 194, 1);
 }
 
 .user img{
     width: 50px;
     height: 50px;
 
-    
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
@@ -55,7 +54,7 @@
 
 .user_name {
     position: relative;
-    top: 0.5rem;
+    top: 10px;
 
     grid-area: name;
 }
@@ -63,7 +62,6 @@
 .user button {
     position: relative;
     top: 50%;
-    left: 1.5rem;
     transform: translate(0, -50%);
 
     grid-area: button;
@@ -71,18 +69,20 @@
 
 .active_friends {
     grid-area: active_friends;
-    
-    margin-left: 1rem;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 900px) {
     .usersPage {
-        grid-template-areas: 
-        'users';
-        grid-template-columns: 42rem;
+        grid-template-columns: 100%;
     }
 
     .active_friends {
         display: none;
     }
-  }
+}
+
+@media (min-width: 1500px) {
+    .usersPage {
+        grid-template-columns: 65% 35%;
+    }
+}
