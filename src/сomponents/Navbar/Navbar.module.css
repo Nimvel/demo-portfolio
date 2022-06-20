@@ -60,16 +60,16 @@
 
 @media (max-width: 1100px) {
     .navbar {
-        width: 4rem;
+        width: 3rem;
     }
 
     .denomination {
-        height: 13%;
+        height: 11%;
     }
 
     .denomination img {
-        height: 70px;
-        width: 70px;
+        height: 55px;
+        width: 55px;
     }
 
     .social_network_name {
@@ -83,7 +83,7 @@
     .navigation {
         width: 2rem;
 
-        top: 1rem;
+        top: 1.5rem;
         bottom: 0;
         left: 50%;
         transform: translate(-50%);

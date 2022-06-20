@@ -1,9 +1,10 @@
 import style from './Header.module.css'
 
 const Header = () => {
+
     return (
         <div>
-            Header
+           Header
         </div>
     )
 }

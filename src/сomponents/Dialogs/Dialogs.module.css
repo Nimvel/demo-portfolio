@@ -1,33 +1,30 @@
 .dialogs {
     position: relative;
     top: 2rem;
-    left: 2rem;
 
     height: 100%;
 
     display: grid;
-    grid-template-areas:
-    'comrades messages';
-    grid-template-columns: 25rem;
+    grid-template-areas: 'comrades messages';
     
     cursor: default;
 }
 
 .comrades {
     grid-area: comrades;
-    width: 20rem;
+    position: relative;
+    left: 0.5rem;
+
+    user-select: none;
 }
 
 .messages {
     grid-area: messages;
 
-    width: 30rem;
-    height: 45rem;
+    height: auto;
     padding: 1rem;
 
     position: relative;
-    left: 50%;
-    transform: translate(-50%);
 
     background: linear-gradient(45deg, #c1b0c8, #715678);
     border: #c2c6c5 solid 0.1rem;
@@ -59,34 +56,89 @@
 }
 
 .new_message button {
-
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
 }
 
-@media (min-width: 1500px) {
-    .messages {
-        width: 45rem;
+
+@media (max-width: 550px) {
+    .comrades {
+        width: 18rem;
+        left: 0;
+    }
+    
+
+    .new_message {
+        width: 17rem;
+    
+        grid-template-columns: 12rem 5rem;
+        gap: 1rem;
+        padding-bottom: 1rem;
     }
 }
 
-@media (min-width: 1000px) and (max-width: 1250px) {
-    .dialogs {
-        grid-template-columns: 20rem;
-    }
-
+@media (max-width: 900px) {
     .messages {
+        display: none;
+    }
+}
+
+@media (min-width: 550px) and (max-width: 1100px) {
+    .comrades {
         width: 25rem;
     }
+
+    .new_message {
+        width: 25rem;
+    
+        grid-template-columns: 19rem 5rem;
+        padding-bottom: 1rem;
+    }
 }
 
-@media (max-width: 1000px) {
+@media (min-width: 800px) {
     .dialogs {
-        grid-template-columns: 10rem;
+        grid-template-columns: 27rem 25rem;
+    }
+}
+
+@media (min-width: 1100px) {
+    .dialogs {
+        grid-template-columns: 33rem 20rem;
     }
 
     .comrades {
-        width: 10rem;
+        width: 31rem;
+    }
+
+    .new_message {
+        width: 31rem;
+    
+        grid-template-columns: 25rem 5rem;
+        gap: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width: 1500px) {
+    .dialogs {
+        grid-template-columns: 44rem;
+    }
+
+    .comrades {
+        width: 41rem;
+    }
+
+    .messages {
+        right: 1rem;
+    }
+
+    .new_message {
+        width: 41rem;
+    
+        grid-template-columns: 34rem 7rem;
+        gap: 1rem;
+        padding-bottom: 1rem;
     }
 }

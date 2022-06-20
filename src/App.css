@@ -3,7 +3,7 @@
   grid-template-areas: 
   'navbar header'
   'navbar content';
-  grid-template-columns: 15rem;
+  grid-template-columns: 16rem;
   grid-template-rows: 7% 93%;
   position: fixed;
   width: 100%;
@@ -75,17 +75,17 @@
   }
 } */
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
   .App {
     grid-template-columns: 4rem;
   }  
 
   .App textarea {
-    width: 14rem;
+    width: 12rem;
   }
 }
 
-@media (min-width: 600px) and (max-width: 1100px) {
+@media (min-width: 550px) and (max-width: 1100px) {
   .App {
     grid-template-columns: 4rem;
   }  

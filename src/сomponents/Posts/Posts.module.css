@@ -13,7 +13,6 @@
     left: 1rem;
 
     cursor: default;
-    user-select: none;
 }
 
 .post {
@@ -66,6 +65,8 @@
 
 .comrade_name {
     grid-area: name;
+
+    user-select: none;
 }
 
 .comrade_message {
@@ -93,19 +94,19 @@
     grid-area: active_friends;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 550px) {
     .posts {
-        width: 20rem;
+        width: 18rem;
     }
     
     .post {
-        width: 19rem;
+        width: 17rem;
     }
 
     .new_post {
-        width: 19rem;
+        width: 17rem;
     
-        grid-template-columns: 14rem 5rem;
+        grid-template-columns: 12rem 5rem;
         gap: 1rem;
         padding-bottom: 1rem;
     }
@@ -117,7 +118,7 @@
     }
 }
 
-@media (min-width: 600px) and (max-width: 1100px) {
+@media (min-width: 550px) and (max-width: 1100px) {
     .posts {
         width: 25rem;
     }
@@ -130,7 +131,6 @@
         width: 25rem;
     
         grid-template-columns: 19rem 5rem;
-        gap: 1rem;
         padding-bottom: 1rem;
     }
 }
