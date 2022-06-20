@@ -79,7 +79,47 @@
 .settings { grid-area: settings; }
 .photos { grid-area: photos; }
 
-@media (max-width: 1000px) {
+@media (min-width: 576px) {
+    .navbar {
+        width: 4rem;
+    }
+
+    .denomination {
+        height: 15%;
+    }
+
+    .logo {
+        padding-top: 0;
+        width: 50px;
+        top: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .social_network_name {
+        display: none;
+    }
+
+    .login_or_profile {
+        display: none;
+    }
+
+    .navigation {
+        width: 50px;
+        top: 2rem;
+        bottom: 0;
+        transform: translate(-50%) ;
+        display: grid;
+        grid-template-areas: 
+        'profile' 'posts' 'dialogs' 'friends' 'photos' 'users' 'settings';
+        grid-template-rows: 4rem 4rem 4rem 4rem 4rem 4rem;
+        gap: 1rem;
+    }
+
+/* @media (max-width: 1000px) {
     .navbar {
         width: 5rem;
     }
@@ -118,4 +158,4 @@
         grid-template-rows: 4rem 4rem 4rem 4rem 4rem 4rem;
         gap: 1rem;
     }
-}
+} */
