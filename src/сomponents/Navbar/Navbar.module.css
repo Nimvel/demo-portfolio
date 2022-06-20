@@ -79,9 +79,9 @@
 .settings { grid-area: settings; }
 .photos { grid-area: photos; }
 
-@media (min-width: 576px) {
+@media (max-width: 1000px) {
     .navbar {
-        width: 4rem;
+        width: 3rem;
     }
 
     .denomination {
@@ -111,13 +111,17 @@
         width: 50px;
         top: 2rem;
         bottom: 0;
-        transform: translate(-50%) ;
+
+        position: relative;
+        left: 50%;
+        /* transform: translate(-50%); */
         display: grid;
         grid-template-areas: 
         'profile' 'posts' 'dialogs' 'friends' 'photos' 'users' 'settings';
         grid-template-rows: 4rem 4rem 4rem 4rem 4rem 4rem;
         gap: 1rem;
     }
+}
 
 /* @media (max-width: 1000px) {
     .navbar {
