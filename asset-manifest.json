@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/demo-portfolio/static/css/main.941bfb32.css",
+    "main.js": "/demo-portfolio/static/js/main.d6266c2b.js",
+    "static/js/787.39666eb0.chunk.js": "/demo-portfolio/static/js/787.39666eb0.chunk.js",
+    "static/media/logo.png": "/demo-portfolio/static/media/logo.9b4e05ad32125a3204e7.png",
+    "static/media/img_2.jpg": "/demo-portfolio/static/media/img_2.4ef8d069ec3644065467.jpg",
+    "static/media/img_6.jpg": "/demo-portfolio/static/media/img_6.317b4403cb41c1fd0886.jpg",
+    "static/media/img_1.jpg": "/demo-portfolio/static/media/img_1.5ae9b942172343db7849.jpg",
+    "static/media/img_3.jpg": "/demo-portfolio/static/media/img_3.01c46d3ee5c55129769d.jpg",
+    "static/media/img_4.jpg": "/demo-portfolio/static/media/img_4.fd74d94035e04fac0f01.jpg",
+    "static/media/img_5.jpg": "/demo-portfolio/static/media/img_5.85b99fb78283af5b5815.jpg",
+    "static/media/lucifer_face.jpg": "/demo-portfolio/static/media/lucifer_face.fc81ac0c73a44d35a4e3.jpg",
+    "static/media/lady_Maria_face.jpg": "/demo-portfolio/static/media/lady_Maria_face.1b76dbeae576e208ecfa.jpg",
+    "static/media/kurapika_face.jpg": "/demo-portfolio/static/media/kurapika_face.388752bd4e37532af75f.jpg",
+    "static/media/settings.png": "/demo-portfolio/static/media/settings.463e79d6f7297b9d5805.png",
+    "static/media/photos.png": "/demo-portfolio/static/media/photos.403421b74393e3d6c192.png",
+    "static/media/settings_active.png": "/demo-portfolio/static/media/settings_active.5bd3144d73743b70b2d5.png",
+    "static/media/photos_active.png": "/demo-portfolio/static/media/photos_active.d0216a975d6869018f5e.png",
+    "static/media/comrade.png": "/demo-portfolio/static/media/comrade.8e85e522489ce1fb5f29.png",
+    "static/media/users.png": "/demo-portfolio/static/media/users.eee32ac3e294b9c296b5.png",
+    "static/media/friends.png": "/demo-portfolio/static/media/friends.04243f5914d8ba74ccbb.png",
+    "static/media/friends_active.png": "/demo-portfolio/static/media/friends_active.d7979c0e4a0311a04bca.png",
+    "static/media/users_active.png": "/demo-portfolio/static/media/users_active.641ed601a4e96c21e96c.png",
+    "static/media/dialogs.png": "/demo-portfolio/static/media/dialogs.f2dbb4c7ffefdc91cf9b.png",
+    "static/media/dialogs_active.png": "/demo-portfolio/static/media/dialogs_active.e5e2024dbadb7f90945c.png",
+    "static/media/posts.png": "/demo-portfolio/static/media/posts.577d8c988a8d83efa87d.png",
+    "static/media/profile_active.png": "/demo-portfolio/static/media/profile_active.0353cefe1af1e5d4ebc2.png",
+    "static/media/posts_active.png": "/demo-portfolio/static/media/posts_active.de559f58ba9732bdacfb.png",
+    "static/media/profile.png": "/demo-portfolio/static/media/profile.0fe4586109bb35c9d5e9.png",
+    "index.html": "/demo-portfolio/index.html",
+    "main.941bfb32.css.map": "/demo-portfolio/static/css/main.941bfb32.css.map",
+    "main.d6266c2b.js.map": "/demo-portfolio/static/js/main.d6266c2b.js.map",
+    "787.39666eb0.chunk.js.map": "/demo-portfolio/static/js/787.39666eb0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.941bfb32.css",
+    "static/js/main.d6266c2b.js"
+  ]
+}
