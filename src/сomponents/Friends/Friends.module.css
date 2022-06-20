@@ -1,0 +1,18 @@
+.active_friends {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+    padding-top: 1rem;
+    width: 17rem;
+    height: 25rem;
+
+    background-color: #f4f4f4;
+    border-radius: 1rem;
+    
+    text-align: center;
+}
+
+.friend_list {
+    border-top: rgb(194, 198, 197) solid 0.1rem;
+}

@@ -1,0 +1,88 @@
+.usersPage {
+    position: relative;
+    top: 2rem;
+
+    display: grid;
+    grid-template-areas: 
+    'users active_friends';
+    grid-template-columns: 42rem;
+}
+
+.users {
+    grid-area: users;
+
+    position: relative;
+    left: 2rem;
+    right: 2rem;
+    margin-right: 2rem;
+
+    border-right: rgb(194, 198, 197) solid 0.1rem;
+}
+
+.user {
+    width: 25rem;
+    height: 5rem;
+
+    margin-bottom: 1rem;
+
+    display: grid;
+    grid-template-areas: 
+    'img name button'
+    'img status button';
+    grid-template-columns: 3.5rem 14rem 7.5rem;
+    grid-template-rows: 1.75;
+
+    border: #c2c6c5 solid 0.1rem;
+    border-radius: 1rem;
+}
+
+.user:hover {
+    border-color: #715678;
+    box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1);
+}
+
+.user img{
+    width: 50px;
+    height: 50px;
+
+    
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    grid-area: img;
+}
+
+.user_name {
+    position: relative;
+    top: 0.5rem;
+
+    grid-area: name;
+}
+
+.user button {
+    position: relative;
+    top: 50%;
+    left: 1.5rem;
+    transform: translate(0, -50%);
+
+    grid-area: button;
+}
+
+.active_friends {
+    grid-area: active_friends;
+    
+    margin-left: 1rem;
+}
+
+@media (max-width: 1250px) {
+    .usersPage {
+        grid-template-areas: 
+        'users';
+        grid-template-columns: 42rem;
+    }
+
+    .active_friends {
+        display: none;
+    }
+  }

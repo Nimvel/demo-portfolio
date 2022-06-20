@@ -1,0 +1,72 @@
+.photosPage {
+    position: relative;
+    top: 2rem;
+    left: 1rem;
+
+    display: grid;
+    grid-template-areas: 
+    'photos active_friends';
+    grid-template-columns: 41rem;
+}
+
+.photos {
+    grid-area: photos;
+
+    display: flex;
+    flex-wrap: wrap; /*позволяет переносить элементы на новую строку */
+    
+    gap: 1rem;
+
+    border-right: rgb(194, 198, 197) solid 0.1rem;
+}
+
+.photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.photo img {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    width: 200px;
+    height: 200px;
+    
+    object-fit: cover;
+    transition: 300ms;
+}
+
+.photo img:hover {
+    width: 250px;
+    height: 250px;
+}
+
+.active_friends {
+    grid-area: active_friends;
+}
+
+@media (max-width: 1250px) {
+    .photosPage {
+        grid-template-areas: 
+        'photos';
+        grid-template-columns: 42rem;
+    }
+
+    .photos {
+        border-right: none;
+    }
+
+    .active_friends {
+        display: none;
+    }
+}
+
+@media (min-width: 1500px) {
+    .photosPage {
+        grid-template-columns: 60rem;
+    }
+}

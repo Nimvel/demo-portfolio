@@ -1,0 +1,131 @@
+.postsPage {
+    position: relative;
+    top: 2rem;
+    left: 1rem;
+
+    display: grid;
+    grid-template-areas:
+    'posts active_friends';
+    grid-template-columns: 40rem;
+}
+
+.posts {
+    position: relative;
+    left: 1rem;
+
+    border-right: rgb(194, 198, 197) solid 0.1rem;
+
+    cursor: default;
+    user-select: none;
+}
+
+.post {
+    position: relative;
+    top: 1rem;
+
+    width: 30rem;
+    min-height: 6rem;
+    height: auto;
+
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+
+    display: grid;
+    grid-template-areas: 
+    'img name'
+    'img message'
+    'img likes';
+    grid-template-columns: 4rem;
+    grid-template-rows: 1.75rem;
+    
+    color: #939393;
+    border: #c2c6c5 solid 0.1rem;
+    border-radius: 1rem;
+}
+
+.post:hover {
+    box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1);
+}
+
+.new_post {
+    width: 40rem;
+
+    display: grid;
+    grid-template-columns: 15rem 5rem;
+    gap: 1rem;
+}
+
+.new_post button {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.comrade_img {
+    grid-area: img;
+
+    border-radius: 3rem;
+    width: 50px;
+    height: 50px;
+
+    user-select: none;
+}
+
+.comrade_name {
+    grid-area: name;
+}
+
+.comrade_message {
+    grid-area: message;
+    color: #939393
+}
+
+.likes {
+    grid-area: likes;
+
+    position: relative;
+    width: 5rem;
+    left: 70%;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.likes:hover {
+    color: #715678;
+    font-size: 21px;
+}
+
+.active_friends {
+    grid-area: active_friends;
+
+    position: relative;
+    top: 0;    
+    margin-left: 1rem;
+    transition: 2s;
+}
+
+@media (min-width: 1500px) {
+    .postsPage {
+        grid-template-columns: 60rem;
+    }
+}
+
+@media (max-width: 1250px) {
+    .postsPage {
+        grid-template-areas:
+        'posts';
+        grid-template-columns: 42rem;
+    }
+
+    .active_friends {
+        position: absolute;
+        transform: translate(100%);
+
+        display: none;
+    }
+
+    .posts {
+        border-right: none;
+    }
+}

@@ -1,0 +1,76 @@
+.item {
+    color: #939393;
+    text-decoration: none;
+}
+
+.item:hover {
+    color: #715678;
+}
+
+.active {
+    text-decoration: none;
+    color: #715678;
+}
+
+.dialog {
+    width: 20rem;
+    height: 3.5rem;
+
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
+
+    display: grid;
+    grid-template-areas: 
+    'img name'
+    'img message';
+    grid-template-columns: 4rem;
+    grid-template-rows: 1.75rem;
+
+    border: #c2c6c5 solid 0.1rem;
+    border-radius: 1rem;
+
+    transition: 250ms;
+}
+
+.dialog:hover {
+    width: 21rem;
+    border-color: #715678;
+    box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1);
+}
+
+.comrade_img {
+    grid-area: img;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 3rem;
+}
+
+.comrade_name {
+    grid-area: name;
+}
+
+.comrade_message {
+    grid-area: message;
+    
+    color: #939393
+}
+
+@media (max-width: 1000px) {
+    .dialog {
+        width: 10rem;
+        grid-template-areas: 'img name';
+    }
+
+    .dialog:hover {
+        width: 11rem;
+    }
+
+    .comrade_name {
+        padding-top: 0.5rem;
+    }    
+
+    .comrade_message {
+        display: none;
+    }
+}
