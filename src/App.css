@@ -28,10 +28,11 @@
 .App button:hover {
   font-size: 14px;
   background: #715678;
-  animation: pulsing 2s infinite linear;
+  /* animation: pulsing 2s infinite linear; */
 }
 
 .App textarea {
+  width: 25rem;
   font-size: 15px;
 
   border: #c2c6c5 solid 0.1rem;
@@ -66,24 +67,22 @@
   }
 } */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .App {
     grid-template-columns: 4rem;
   }  
 
   .App textarea {
-    width: 10rem;
+    width: 18rem;
     font-size: 15px;
   
     border: #c2c6c5 solid 0.1rem;
     border-radius: 0.5rem;
   }
-
-
 }
 
-/* @media (max-width: 1000px) {
-  .App {
-    grid-template-columns: 5rem;
-  }  
-} */
+@media (min-width: 1500px) {
+  .App textarea {
+    width: 33rem;
+  }
+}

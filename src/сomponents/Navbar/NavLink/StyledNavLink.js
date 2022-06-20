@@ -53,30 +53,15 @@ ${props => props.name && css`
     }
     &.active{
         background-image: url(${images[props.name + "_active"]});
-        /* background-size: ${size};
-        width: ${size};
-        height: ${size}; */
     }
     &.active:hover {
         transform: scale(1.2);
     }
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
         background-size: ${min_size};
         width: ${min_size};
         height: ${min_size};
-        /* left: 50%;
-        transform: translate(-50%);  */
-
-    /* &:hover {
-        /* transform: translate(-50%);  */
-        /* transform: scale(1.2); */
-    } */
-
-    /* &.active{
-        background-size: ${min_size};
-        width: ${min_size};
-        height: ${min_size};  
-    } */
+    } 
 }
 `}`;
 
