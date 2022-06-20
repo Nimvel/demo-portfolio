@@ -1,7 +1,6 @@
 .photosPage {
     position: relative;
     top: 2rem;
-    left: 1rem;
 
     display: grid;
     grid-template-areas: 
@@ -17,7 +16,7 @@
     
     gap: 1rem;
 
-    border-right: rgb(194, 198, 197) solid 0.1rem;
+    /* border-right: rgb(194, 198, 197) solid 0.1rem; */
 }
 
 .photo {
@@ -49,24 +48,48 @@
     grid-area: active_friends;
 }
 
-@media (max-width: 1250px) {
-    .photosPage {
-        grid-template-areas: 
-        'photos';
-        grid-template-columns: 42rem;
-    }
-
+@media (max-width: 550px) {
     .photos {
-        border-right: none;
+        width: 19rem;
     }
+}
 
+@media (max-width: 900px) {
     .active_friends {
         display: none;
     }
 }
 
+@media (min-width: 550px) and (max-width: 1100px) {
+    .photos {
+        width: 26rem;
+    }
+}
+
+@media (min-width: 800px) {
+    .photosPage {
+        grid-template-columns: 30rem 20rem;
+    }
+}
+
+@media (min-width: 1100px) {
+    .photosPage {
+        grid-template-columns: 40rem 20rem;
+        left: 1rem;
+    }
+
+    .photos {
+        width: 40rem;
+    }
+}
+
 @media (min-width: 1500px) {
     .photosPage {
-        grid-template-columns: 60rem;
+        grid-template-columns: 65% 35%;
+        left: 1rem;
+    }
+
+    .photos {
+        width: auto;
     }
 }

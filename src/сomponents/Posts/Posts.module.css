@@ -10,7 +10,7 @@
 
 .posts {
     position: relative;
-    left: 1rem;
+    /* left: 1rem; */
 
     cursor: default;
 }
@@ -96,17 +96,17 @@
 
 @media (max-width: 550px) {
     .posts {
-        width: 18rem;
+        width: 19rem;
     }
     
     .post {
-        width: 17rem;
+        width: 18rem;
     }
 
     .new_post {
-        width: 17rem;
+        width: 18rem;
     
-        grid-template-columns: 12rem 5rem;
+        grid-template-columns: 13rem 5rem;
         gap: 1rem;
         padding-bottom: 1rem;
     }

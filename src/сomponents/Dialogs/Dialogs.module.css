@@ -64,15 +64,15 @@
 
 @media (max-width: 550px) {
     .comrades {
-        width: 18rem;
+        width: 19rem;
         left: 0;
     }
     
 
     .new_message {
-        width: 17rem;
+        width: 18rem;
     
-        grid-template-columns: 12rem 5rem;
+        grid-template-columns: 13rem 5rem;
         gap: 1rem;
         padding-bottom: 1rem;
     }
