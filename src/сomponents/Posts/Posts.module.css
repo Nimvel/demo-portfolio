@@ -1,49 +1,59 @@
 .postsPage {
     position: relative;
-    top: 2rem;
+    top: 20px;
+    left: 0;
+    right: 15px;
 
     display: grid;
     grid-template-areas: 'posts active_friends';
+    grid-template-columns: 60% 40%;
 
     transition: 2s;
 }
 
 .posts {
+    width: 95%;
+    max-width: 500px;
+
     position: relative;
-    /* left: 1rem; */
+    left: 50%;
+    transform: translate(-50%);
 
     cursor: default;
 }
 
 .post {
-    min-height: 6rem;
+    min-height: 50px;
+    width: 95%;
     height: auto;
 
-    margin-bottom: 1rem;
-    padding: 0.5rem;
+    margin-bottom: 15px;
+    padding: 10px;
 
     display: grid;
     grid-template-areas: 
     'img name'
     'img message'
     'img likes';
-    grid-template-columns: 4rem;
-    grid-template-rows: 1.75rem;
+    grid-template-columns: 60px;
+    grid-template-rows: 30px auto 30px;
     
     color: #939393;
-    border: #c2c6c5 solid 0.1rem;
-    border-radius: 1rem;
+    border: #c2c6c5 solid 1px;
+    border-radius: 15px;
 }
 
 .post:hover {
-    box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1);
+    box-shadow: 0 0 10px 2px rgba(194, 194, 194, 1);
 }
 
 .new_post {
+    width: 95%;
+
     display: grid;
-    grid-template-columns: 25rem 5rem;
-    gap: 1rem;
-    padding-bottom: 1rem;
+    grid-template-columns: 85% 15%;
+    gap: 3%;
+    padding-bottom: 5%;
 }
 
 .new_post button {
@@ -56,7 +66,7 @@
 .comrade_img {
     grid-area: img;
 
-    border-radius: 3rem;
+    border-radius: 50%;
     width: 50px;
     height: 50px;
 
@@ -78,7 +88,6 @@
     grid-area: likes;
 
     position: relative;
-    width: 5rem;
     left: 70%;
 
     cursor: pointer;
@@ -94,95 +103,19 @@
     grid-area: active_friends;
 }
 
-@media (max-width: 550px) {
-    .posts {
-        width: 19rem;
-    }
-    
-    .post {
-        width: 18rem;
-    }
-
-    .new_post {
-        width: 18rem;
-    
-        grid-template-columns: 13rem 5rem;
-        gap: 1rem;
-        padding-bottom: 1rem;
-    }
-}
 
 @media (max-width: 900px) {
+    .postsPage {
+        grid-template-columns: 100%;
+    }
+
     .active_friends {
         display: none;
-    }
-}
-
-@media (min-width: 550px) and (max-width: 1100px) {
-    .posts {
-        width: 25rem;
-    }
-    
-    .post {
-        width: 24rem;
-    }
-
-    .new_post {
-        width: 25rem;
-    
-        grid-template-columns: 19rem 5rem;
-        padding-bottom: 1rem;
-    }
-}
-
-@media (min-width: 800px) {
-    .postsPage {
-        grid-template-columns: 30rem 20rem;
-    }
-}
-
-@media (min-width: 1100px) {
-    .postsPage {
-        grid-template-columns: 40rem 20rem;
-    }
-
-    .posts {
-        width: 31rem;
-        left: 50%;
-        transform: translate(-50%);
-    }
-
-    .post {
-        width: 30rem;
-    }
-
-    .new_post {
-        width: 31rem;
-    
-        grid-template-columns: 25rem 5rem;
-        gap: 1rem;
-        padding-bottom: 1rem;
     }
 }
 
 @media (min-width: 1500px) {
     .postsPage {
         grid-template-columns: 65% 35%;
-    }
-
-    .posts {
-        width: 41rem;
-    }
-
-    .post {
-        width: 40rem;
-    }
-
-    .new_post {
-        width: 41rem;
-    
-        grid-template-columns: 34rem 7rem;
-        gap: 1rem;
-        padding-bottom: 1rem;
     }
 }

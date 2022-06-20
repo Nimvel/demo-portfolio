@@ -13,7 +13,7 @@ const Dialogs = ({ comradesData, messagesData, newMessageText, sendMessage, onMe
         </div>)
 
     return (
-        <div className={style.dialogs}>
+        <div className={style.dialogsPage}>
             <div className={style.comrades}>
                 {comradesElements}
             </div>

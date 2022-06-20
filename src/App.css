@@ -13,14 +13,14 @@
 }
 
 .App button {
-    width: 5rem;
-    height: 2rem;
+    width: 70px;
+    height: 30px;
     font-size: 13px;
 
     background: #c1b0c8;
     color: white;
-    border: #c2c6c5 solid 0.1rem;
-    border-radius: 0.5rem;
+    border: #c2c6c5 solid 1px;
+    border-radius: 10px;
     
     user-select: none;
 }
@@ -32,10 +32,12 @@
 }
 
 .App textarea {
+  width: auto;
+
   font-size: 15px;
 
-  border: #c2c6c5 solid 0.1rem;
-  border-radius: 0.5rem;
+  border: #c2c6c5 solid 1px;
+  border-radius: 10px;
 }
 
 .App textarea:hover {
@@ -48,11 +50,11 @@
 }
 
 .header {
-  position: relative;
   grid-area: header;
-  padding-top: 1rem;
-  left: 1rem;
-  border-bottom: rgb(194, 198, 197) solid 0.1rem;
+  position: relative;
+  left: 10px;
+  padding-top: 15px;
+  border-bottom: rgb(194, 198, 197) solid 1px;
 }
 
 .content {
@@ -75,34 +77,8 @@
   }
 } */
 
-@media (max-width: 550px) {
+@media (max-width: 1100px) {
   .App {
-    grid-template-columns: 4rem;
+    grid-template-columns: 10%;
   }  
-
-  .App textarea {
-    width: 13rem;
-  }
-}
-
-@media (min-width: 550px) and (max-width: 1100px) {
-  .App {
-    grid-template-columns: 4rem;
-  }  
-
-  .App textarea {
-    width: 19rem;
-  }
-}
-
-@media (min-width: 1100px) {
-  .App textarea {
-    width: 25rem;
-  }
-}
-
-@media (min-width: 1500px) {
-  .App textarea {
-    width: 35rem;
-  }
 }

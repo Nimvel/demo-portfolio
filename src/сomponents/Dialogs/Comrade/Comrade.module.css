@@ -13,30 +13,31 @@
 }
 
 .dialog {
-    width: 20rem;
-    height: 3.5rem;
+    width: 95%;
+    height: auto;
+    min-height: 55px;
 
-    margin-bottom: 0.5rem;
-    padding: 0.2rem;
+    margin-bottom: 15px;
+    padding: 10px;
 
     display: grid;
     grid-template-areas: 
     'img name'
     'img message';
-    grid-template-columns: 4rem;
-    grid-template-rows: 1.75rem;
+    grid-template-columns: 60px;
+    grid-template-rows: 30px;
 
-    border: #c2c6c5 solid 0.1rem;
-    border-radius: 1rem;
+    border: #c2c6c5 solid 1px;
+    border-radius: 15px;
 
     transition: 250ms;
 }
 
 .dialog:hover {
-    /* width: 21rem; */
-    transform: translate(-0.5rem);
+    width: 97%;
+    transform: translate(-1%);
     border-color: #715678;
-    box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1);
+    box-shadow: 0 0 10px 2px rgba(194, 194, 194, 1);
 }
 
 .comrade_img {
@@ -44,7 +45,7 @@
 
     width: 50px;
     height: 50px;
-    border-radius: 3rem;
+    border-radius: 50%;
 }
 
 .comrade_name {
@@ -55,80 +56,4 @@
     grid-area: message;
     
     color: #939393
-}
-
-/* @media (max-width: 1000px) {
-    .dialog {
-        width: 10rem;
-        grid-template-areas: 'img name';
-    }
-
-    .dialog:hover {
-        width: 11rem;
-    }
-
-    .comrade_name {
-        padding-top: 0.5rem;
-    }    
-
-    .comrade_message {
-        display: none;
-    }
-} */
-
-
-
-
-
-
-
-@media (max-width: 600px) {
-    .dialog {
-        width: 19rem;
-        grid-template-areas: 'img name';
-    }
-
-    .dialog:hover {
-        width: 20rem;
-    }
-
-    .comrade_name {
-        padding-top: 0.5rem;
-    }    
-
-    .comrade_message {
-        display: none;
-    }
-}
-
-
-@media (min-width: 600px) and (max-width: 1100px) {
-    .dialog {
-        width: 24rem;
-    }
-
-    .dialog:hover {
-        width: 25rem;
-    }
-}
-
-@media (min-width: 1100px) {
-    .dialog {
-        width: 30rem;
-    }
-
-    .dialog:hover {
-        width: 31rem;
-    }
-}
-
-@media (min-width: 1500px) {
-
-    .dialog {
-        width: 40rem;
-    }
-
-    .dialog:hover {
-        width: 41rem;
-    }
 }

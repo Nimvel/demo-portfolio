@@ -1,19 +1,26 @@
-.dialogs {
+.dialogsPage {
     position: relative;
-    top: 2rem;
+    top: 20px;
 
     height: 100%;
 
     display: grid;
     grid-template-areas: 'comrades messages';
+    grid-template-columns: 35% 65%;
+    gap: 2%;
     
     cursor: default;
 }
 
 .comrades {
+    max-width: 400px;
+    width: 95%;
+
     grid-area: comrades;
+
     position: relative;
-    left: 0.5rem;
+    left: 50%;
+    transform: translate(-50%);
 
     user-select: none;
 }
@@ -21,29 +28,32 @@
 .messages {
     grid-area: messages;
 
+    width: 90%;
     height: auto;
-    padding: 1rem;
 
     position: relative;
+    right: 1%;
+    padding: 15px;
 
     background: linear-gradient(45deg, #c1b0c8, #715678);
-    border: #c2c6c5 solid 0.1rem;
-    border-radius: 1rem;
+    border: #c2c6c5 solid 1px;
+    border-radius: 15px;
 
     transition: 250ms;
 }
 
 .message {
-    width: 15rem;
-    padding: 0.3rem;
-    margin-bottom: 0.5rem;
+    width: 70%;
+    max-width: 400px;
+    padding: 5px;
+    margin-bottom: 10px;
 
     position: relative;
     
 
     background: white;
-    border: #939393 solid 0.1rem;
-    border-radius: 1rem;
+    border: #939393 solid 1px;
+    border-radius: 15px;
 }
 
 .new_message {
@@ -51,8 +61,8 @@
     bottom: 0;
     
     display: grid;
-    grid-template-columns: 15rem 5rem;
-    gap: 1rem;
+    grid-template-columns: 90% 10%;
+    gap: 3%;
 }
 
 .new_message button {
@@ -61,84 +71,12 @@
     transform: translate(0, -50%);
 }
 
-
-@media (max-width: 550px) {
-    .comrades {
-        width: 19rem;
-        left: 0;
+@media (max-width: 750px) {
+    .dialogsPage {
+        grid-template-columns: 100%;
     }
-    
 
-    .new_message {
-        width: 18rem;
-    
-        grid-template-columns: 13rem 5rem;
-        gap: 1rem;
-        padding-bottom: 1rem;
-    }
-}
-
-@media (max-width: 900px) {
     .messages {
         display: none;
-    }
-}
-
-@media (min-width: 550px) and (max-width: 1100px) {
-    .comrades {
-        width: 25rem;
-    }
-
-    .new_message {
-        width: 25rem;
-    
-        grid-template-columns: 19rem 5rem;
-        padding-bottom: 1rem;
-    }
-}
-
-@media (min-width: 800px) {
-    .dialogs {
-        grid-template-columns: 27rem 25rem;
-    }
-}
-
-@media (min-width: 1100px) {
-    .dialogs {
-        grid-template-columns: 33rem 20rem;
-    }
-
-    .comrades {
-        width: 31rem;
-    }
-
-    .new_message {
-        width: 31rem;
-    
-        grid-template-columns: 25rem 5rem;
-        gap: 1rem;
-        padding-bottom: 1rem;
-    }
-}
-
-@media (min-width: 1500px) {
-    .dialogs {
-        grid-template-columns: 44rem;
-    }
-
-    .comrades {
-        width: 41rem;
-    }
-
-    .messages {
-        right: 1rem;
-    }
-
-    .new_message {
-        width: 41rem;
-    
-        grid-template-columns: 34rem 7rem;
-        gap: 1rem;
-        padding-bottom: 1rem;
     }
 }
