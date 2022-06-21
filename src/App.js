@@ -3,7 +3,7 @@ import './App.css';
 import Friends from './сomponents/Friends/Friends';
 import Header from './сomponents/Header/Header';
 import Navbar from './сomponents/Navbar/Navbar';
-import Profile from './сomponents/Profile/Profile';
+import ProfileContainer from './сomponents/Profile/ProfileContainer';
 import Photos from './сomponents/Photos/Photos';
 import Settings from './сomponents/Settings/Settings';
 import PostsContainer from './сomponents/Posts/PostsContainer';
@@ -21,9 +21,7 @@ function App( {state, dispatch, ...props} ) {
       </div>
       <div className='content'>
         <Routes>
-          <Route path='/profile' element={<Profile
-            profilePage={state.profilePage}
-            dispatch={dispatch} />} />
+          <Route path='/profile' element={<ProfileContainer />} />
           <Route path='/posts' element={<PostsContainer />} />
           <Route path='/dialogs/*' element={<DialogsContainer />} />
           <Route path='/friends' element={<Friends />} />

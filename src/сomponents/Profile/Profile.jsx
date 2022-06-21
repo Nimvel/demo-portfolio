@@ -1,9 +1,31 @@
 import style from './Profile.module.css';
 
-const Profile = ({ profilePage, dispatch, ...props }) => {
+const Profile = ({ profileData }) => {
+    let lastSkill = profileData.skills.length;
+    let lastFeature = profileData.aboutMe.length;
+
+    let skills = profileData.skills.map( s => s.id != lastSkill
+        ? <span className={style.skill} key={s.id}> {s.skill},</span>
+        : <span className={style.skill} key={s.id}> {s.skill}.</span> )
+
+    let aboutMe = profileData.aboutMe.map( f => f.id != lastFeature
+        ? <span className={style.feature} key={f.id}> {f.feature},</span>
+        : <span className={style.feature} key={f.id}> {f.feature}.</span> )
+
     return (
         <div className={style.profilePage}>
-            Profile
+            <div className={style.short_description}>
+                <div className={style.avatar}>
+                    <img src={profileData.avatarULR} />
+                </div>
+                <div className={style.name}>{profileData.userName}</div>
+                <div className={style.job_title}>{profileData.jobTitle}</div>
+                <div className={style.status}>{profileData.status}</div>
+            </div>
+            <div className={style.description}>
+                <div className={style.skills}>Навыки: {skills}</div>
+                <div className={style.about_me}>О себе: {aboutMe}</div>
+            </div>
         </div>
     )
 }

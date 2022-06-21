@@ -1,0 +1,138 @@
+.profilePage {
+    position: relative;
+    top: 20px;
+    left: 15px;
+    color: #939393;
+    cursor: default;
+    display: grid;
+    grid-template-areas: 'short_description' 'description';
+    /* grid-template-columns: 750px; */
+    grid-template-rows: 300px;
+    gap: 15px;
+}
+
+.short_description {
+    grid-area: short_description;
+
+    display: grid;
+    grid-template-areas:
+    'avatar name'
+    'avatar job_title'
+    'avatar status'
+    'skills skills';
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 30px 30px 30px;
+    gap: 10px;
+
+}
+
+.avatar {
+    width: 200px;
+    height: 300px;
+
+
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+    grid-area: avatar;
+    border-radius: 15px;
+    overflow: hidden;
+    user-select: none;
+}
+
+.avatar img {
+    width: 200px;
+    height: 300px;
+
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    object-fit: cover;
+    transition: 300ms;
+}
+
+.avatar img:hover {
+    width: 250px;
+    height: 350px;
+}
+
+.name {
+    grid-area: name;
+    color: #715678;
+}
+
+.job_title {
+    grid-area: job_title;
+}
+.job_title:hover {
+    color: #715678;
+}
+
+.status {
+    grid-area: status;
+}
+.status:hover {
+    color: #715678;
+}
+
+.description {
+    grid-area: description;
+    display: grid;
+    grid-template-areas: 'skills' 'about_me';
+    grid-template-rows: 35px;
+    gap: 5px;
+}
+
+.skills {
+    min-height: 25px;
+}
+.skill:hover {
+    color: #715678;
+    font-size: 21px;
+}
+
+.about_me {
+    min-height: 25px;
+}
+.feature:hover {
+    color: #715678;
+    font-size: 21px;
+
+}
+
+@media (max-width: 700px) {
+    .profilePage {
+        grid-template-rows: 100px;
+    }
+    
+    .short_description {
+        grid-template-columns: 25% 75%;
+        grid-template-rows: 30px 30px 30px;
+        gap: 7px;
+    }
+
+    .avatar {
+        width: 100px;
+        height: 100px;
+
+        border-radius: 50%;
+    }
+    
+    .avatar img {
+        width: 100px;
+        height: 150px;
+        top: 75%;
+    }
+    
+    .avatar img:hover {
+        width: 100px;
+        height: 175px;
+    }
+
+    .description {
+        grid-template-rows: auto;
+    }
+}
