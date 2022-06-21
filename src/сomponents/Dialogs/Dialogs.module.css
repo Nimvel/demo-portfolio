@@ -73,7 +73,7 @@
 
 @media (max-width: 750px) {
     .dialogsPage {
-        grid-template-columns: 100%;
+        grid-template-columns: 97%;
     }
 
     .messages {

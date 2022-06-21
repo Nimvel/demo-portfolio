@@ -40,7 +40,7 @@ ${props => props.name && css`
         position: relative;
         background: url(${images[props.name]});
         display: block;
-        
+        user-select: none;
         background-size: ${size};
         width: ${size};
         height: ${size};
@@ -50,6 +50,7 @@ ${props => props.name && css`
     }
     &.active{
         background-image: url(${images[props.name + "_active"]});
+        user-select: none;
     }
     &.active:hover {
         transform: scale(1.2);
