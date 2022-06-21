@@ -165,7 +165,7 @@
     'about_me';
     grid-template-columns: auto;
     /* grid-template-rows: 20% 15%; */
-        grid-template-rows: 25% 15% 10%;
+        grid-template-rows: 30% 20% 10%;
     }
 
     .skills {
