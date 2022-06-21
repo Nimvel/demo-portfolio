@@ -86,7 +86,7 @@
     grid-template-areas: 
     'skills education'
     'skills languages'
-    'skills about_me';
+    'about_me about_me';
     grid-template-columns: 25%;
     grid-template-rows: 20% 15%;
     gap: 10px;
@@ -95,7 +95,7 @@
 .skills {
     grid-area: skills;
     padding: 5px;
-    border-right: #c2c6c5 solid 1px;
+    /* border-right: #c2c6c5 solid 1px; */
 }
 .skill:hover {
     color: #715678;
@@ -114,13 +114,13 @@
 .languages {
     grid-area: languages;
     padding: 15px 5px;
-    border-top: #c2c6c5 solid 1px;
+    /* border-top: #c2c6c5 solid 1px; */
 }
 
 .about_me {
     grid-area: about_me;
     padding: 15px 5px;
-    border-top: #c2c6c5 solid 1px;
+    /* border-top: #c2c6c5 solid 1px; */
 }
 
 @media (max-width: 700px) {
@@ -181,6 +181,7 @@
     }
     
     .languages {
+        border-top: #c2c6c5 solid 1px;
     }
     
     .about_me {

@@ -48,7 +48,7 @@
     height: 350px;
 }
 
-.big_photo {
+.full_screen {
     position: absolute;
     top: 0;
     left: 0;
@@ -60,7 +60,7 @@
     z-index: 1;
 }
 
-.big_photo img {
+.full_screen img {
     width: 650px;
     height: 800px;
 
@@ -92,13 +92,13 @@
         height: 300px;
     }
 
-    .big_photo {
+    .full_screen {
         width: 100%;
         height: 650px;
         background-color: black;
     }
     
-    .big_photo img {
+    .full_screen img {
         /* width: 100%; */
         height: 900px;
     }
@@ -106,7 +106,7 @@
 
 @media (max-width: 1200px) {
     .photosPage {
-        grid-template-columns: 100%;
+        grid-template-columns: 90%;
     }
     .active_friends {
         display: none;

@@ -48,7 +48,7 @@
 .App textarea:focus  {
   outline: none !important;
   border: #715678 solid 0.1rem;
-}
+} 
 
 .header {
   grid-area: header;

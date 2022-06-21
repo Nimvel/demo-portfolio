@@ -6,15 +6,16 @@ import img_5 from '../assets/images/img_5.jpg';
 import img_6 from '../assets/images/img_6.jpg';
 
 let BIG_PHOTO = 'BIG_PHOTO';
+let FULL_SCREEN = 'FULL_SCREEN';
 
 let initialState = {
     photosData: [
-        { id: 1, photo: img_1, classes: 'photo', isClicked: false },
-        { id: 2, photo: img_2, classes: 'photo', isClicked: false },
-        { id: 3, photo: img_3, classes: 'photo', isClicked: false },
-        { id: 4, photo: img_4, classes: 'photo', isClicked: false },
-        { id: 5, photo: img_5, classes: 'photo', isClicked: false },
-        { id: 6, photo: img_6, classes: 'photo', isClicked: false }
+        { id: 1, photo: img_1, classes: 'photo', screenStyle: '', isClicked: false },
+        { id: 2, photo: img_2, classes: 'photo', screenStyle: '', isClicked: false },
+        { id: 3, photo: img_3, classes: 'photo', screenStyle: '', isClicked: false },
+        { id: 4, photo: img_4, classes: 'photo', screenStyle: '', isClicked: false },
+        { id: 5, photo: img_5, classes: 'photo', screenStyle: '', isClicked: false },
+        { id: 6, photo: img_6, classes: 'photo', screenStyle: '', isClicked: false }
     ]
 }
 
@@ -28,11 +29,13 @@ const photosReducer = (state = initialState, action) => {
             }
             if (!stateCopy.photosData[photoId].isClicked) {
                 stateCopy.photosData[photoId].isClicked = true;
-                stateCopy.photosData[photoId].classes = 'big_photo';
+                stateCopy.photosData[photoId].classes = 'full_screen';
+                // stateCopy.photosData[photoId].screenStyle = 'full_screen';
             }
             else {
                 stateCopy.photosData[photoId].isClicked = false;
                 stateCopy.photosData[photoId].classes = 'photo';
+                // stateCopy.photosData[photoId].screenStyle = '';
             }
             return stateCopy
 
@@ -41,5 +44,6 @@ const photosReducer = (state = initialState, action) => {
 }
 
 export const bigPhotoActionCreator = (id) => ({ type: BIG_PHOTO, id });
+export const fullScreenActionCreator = (id) => ({ type: FULL_SCREEN, id });
 
 export default photosReducer;
