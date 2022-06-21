@@ -79,13 +79,16 @@
     display: grid;
     grid-template-areas: 
     'skills'
-    'about_me';
-    grid-template-rows: 35px;
+    'about_me'
+    'education'
+    'languages';
     gap: 10px;
 }
 
 .skills {
-    min-height: 25px;
+    grid-area: skills;
+    min-height: 30px;
+    padding: 5px;
 }
 .skill:hover {
     color: #715678;
@@ -93,12 +96,34 @@
 }
 
 .about_me {
-    min-height: 25px;
+    grid-area: about_me;
+    min-height: 30px;
+    padding: 5px;
+    border-top: #c2c6c5 solid 1px;
 }
 .feature:hover {
     color: #715678;
     font-size: 21px;
+}
 
+.education {
+    grid-area: education;
+    padding: 5px;
+    border-top: #c2c6c5 solid 1px;
+}
+.speciality:hover {
+    color: #715678;
+    font-size: 21px;
+}
+
+.languages {
+    grid-area: languages;
+    padding: 5px;
+    border-top: #c2c6c5 solid 1px;
+}
+.language:hover {
+    color: #715678;
+    font-size: 21px;
 }
 
 @media (max-width: 700px) {
@@ -114,7 +139,6 @@
         'status status' ;
 
         grid-template-columns: 15% 85%;
-        grid-template-rows: 30px 30px 30px;
         gap: 5px;
     }
 
@@ -138,5 +162,10 @@
 
     .description {
         grid-template-rows: auto;
+    }
+
+    .skills {
+        padding-top: 5px;
+        border-top: #c2c6c5 solid 1px
     }
 }

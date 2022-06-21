@@ -17,6 +17,14 @@ let initialState = {
             {id: 3, feature: 'организованность'},
             {id: 4, feature: 'аккуратность'},
         ],
+        education: [
+            {id: 1, level: 'ССО', educationalInstitution: 'МГКЭ', speciality: 'ОЭВМ и ОПП'},
+            {id: 2, level: 'неоконченное высшее', educationalInstitution: 'БГТУ', speciality: 'ПОИТ'},
+            // {id: 3, level: 'неоконченное высшее', educationalInstitution: 'МГЛУ', speciality: 'переводчик'}
+        ],
+        languages: [
+            {id: 1, language: 'английский', level: 'A1'}
+        ]
     }
     ]
 }
