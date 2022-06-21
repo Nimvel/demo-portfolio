@@ -22,6 +22,7 @@
     border: #c2c6c5 solid 1px;
     border-radius: 10px;
     
+    cursor: pointer;
     user-select: none;
 }
 

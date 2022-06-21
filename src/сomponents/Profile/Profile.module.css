@@ -1,4 +1,5 @@
 .profilePage {
+    height: 100%;
     position: relative;
     top: 20px;
     left: 15px;
@@ -7,12 +8,17 @@
     grid-template-areas: 
     'short_description'
     'description';
-    grid-template-rows: 300px;
+    grid-template-rows: 40% 60%;
     gap: 15px;
 
     cursor: default;
     user-select: none;
 
+    color: #939393;
+}
+
+.profilePage a{
+    text-decoration: none;
     color: #939393;
 }
 
@@ -78,30 +84,20 @@
     grid-area: description;
     display: grid;
     grid-template-areas: 
-    'skills'
-    'about_me'
-    'education'
-    'languages';
+    'skills education'
+    'skills languages'
+    'skills about_me';
+    grid-template-columns: 25%;
+    grid-template-rows: 20% 15%;
     gap: 10px;
 }
 
 .skills {
     grid-area: skills;
-    min-height: 30px;
     padding: 5px;
+    border-right: #c2c6c5 solid 1px;
 }
 .skill:hover {
-    color: #715678;
-    font-size: 21px;
-}
-
-.about_me {
-    grid-area: about_me;
-    min-height: 30px;
-    padding: 5px;
-    border-top: #c2c6c5 solid 1px;
-}
-.feature:hover {
     color: #715678;
     font-size: 21px;
 }
@@ -109,7 +105,6 @@
 .education {
     grid-area: education;
     padding: 5px;
-    border-top: #c2c6c5 solid 1px;
 }
 .speciality:hover {
     color: #715678;
@@ -118,12 +113,14 @@
 
 .languages {
     grid-area: languages;
-    padding: 5px;
+    padding: 15px 5px;
     border-top: #c2c6c5 solid 1px;
 }
-.language:hover {
-    color: #715678;
-    font-size: 21px;
+
+.about_me {
+    grid-area: about_me;
+    padding: 15px 5px;
+    border-top: #c2c6c5 solid 1px;
 }
 
 @media (max-width: 700px) {
@@ -161,11 +158,32 @@
     }
 
     .description {
-        grid-template-rows: auto;
+        grid-template-areas: 
+    'skills'
+    'education'
+    'languages'
+    'about_me';
+    grid-template-columns: auto;
+    /* grid-template-rows: 20% 15%; */
+        grid-template-rows: 25% 15% 10%;
     }
 
     .skills {
-        padding-top: 5px;
-        border-top: #c2c6c5 solid 1px
+        padding: 15px 5px;
+
+        border-top: #c2c6c5 solid 1px;
+    }
+    
+    .education {
+        border-top: #c2c6c5 solid 1px;
+        padding: 15px 5px;
+
+    }
+    
+    .languages {
+    }
+    
+    .about_me {
+        border-top: #c2c6c5 solid 1px;
     }
 }
