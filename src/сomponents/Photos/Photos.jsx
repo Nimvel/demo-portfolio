@@ -2,8 +2,10 @@ import style from './Photos.module.css';
 import Photo from './Photo';
 import ActiveFriends from '../Friends/ActiveFriends';
 
-const Photos = ( {photosPage, ...props} ) =>  {
-    let photosElements = photosPage.photosData.map (p => <Photo key={p.id} photo={p.photo}/>)
+const Photos = ({ photosData, bigPhoto }) => {
+    let photosElements = photosData.map(p => <Photo key={p.id} id={p.id} 
+        photo={p.photo} classes={p.classes} bigPhoto={bigPhoto} />)
+        
     return (
         <div className={style.photosPage}>
             <div className={style.photos}>

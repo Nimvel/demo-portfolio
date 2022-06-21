@@ -35,24 +35,7 @@ const postsReducer = (state = initialState, action) => {
             };
 
         case LIKE: {
-            // let arr = state.postsData.forEach( p => {
-            //     if (p.id === action.id) {
-            //         if (p.isLiked) {
-            //             p.likesCount++;
-            //             p.isLiked = false
-            //         }
-            //         else {
-            //             p.likesCount--;
-            //             p.isLiked = true
-            //         }
-            //     }
-            // })
-            // return { 
-            //     ...state,
-            //     postsData: arr
-            // }
-            let stateCopy = { ...state };
-            stateCopy.postsData = [...state.postsData];
+            let stateCopy = { ...state, postsData: [...state.postsData]};
             let idLike;
             for (let i = 0; i < stateCopy.postsData.length; i++) {
                 if (stateCopy.postsData[i].id === action.id) idLike = i;
@@ -68,8 +51,7 @@ const postsReducer = (state = initialState, action) => {
             return stateCopy;
         }
 
-        default:
-            return state;
+        default: return state;
     }
 }
 

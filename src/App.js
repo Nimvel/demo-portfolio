@@ -4,7 +4,7 @@ import Friends from './сomponents/Friends/Friends';
 import Header from './сomponents/Header/Header';
 import Navbar from './сomponents/Navbar/Navbar';
 import ProfileContainer from './сomponents/Profile/ProfileContainer';
-import Photos from './сomponents/Photos/Photos';
+import PhotosContainer from './сomponents/Photos/PhotosContainer';
 import Settings from './сomponents/Settings/Settings';
 import PostsContainer from './сomponents/Posts/PostsContainer';
 import DialogsContainer from './сomponents/Dialogs/DialogsContainer';
@@ -25,7 +25,7 @@ function App( {state, dispatch, ...props} ) {
           <Route path='/posts' element={<PostsContainer />} />
           <Route path='/dialogs/*' element={<DialogsContainer />} />
           <Route path='/friends' element={<Friends />} />
-          <Route path='/photos' element={<Photos photosPage={state.photosPage} />} />
+          <Route path='/photos' element={<PhotosContainer />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/users' element={<UsersContainer />} />
         </Routes>
