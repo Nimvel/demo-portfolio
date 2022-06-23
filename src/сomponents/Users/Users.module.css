@@ -3,8 +3,24 @@
     top: 20px;
 
     display: grid;
-    grid-template-areas:'users active_friends';
+    grid-template-areas:
+    'button active_friends'
+    'users active_friends';
     grid-template-columns: 60% 40%;
+    grid-template-rows: 35px;
+    gap: 10px;
+}
+
+.get_users {
+    grid-area: button;
+
+    width: 150px;
+
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+
+    background-color: #715678;
 }
 
 .users {
