@@ -11,16 +11,18 @@
     gap: 10px;
 }
 
-.get_users {
-    grid-area: button;
+.usersPage span {
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+}
 
-    width: 150px;
+.usersPage span:hover {
+    font-size: 20px;
+}
 
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-
-    background-color: #715678;
+.selectedPage {
+    font-weight: bold;
 }
 
 .users {

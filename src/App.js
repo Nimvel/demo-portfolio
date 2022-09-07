@@ -21,7 +21,8 @@ function App( {state, dispatch, ...props} ) {
       </div>
       <div className='content'>
         <Routes>
-          <Route path='/profile' element={<ProfileContainer />} />
+          <Route path='/profile/:userId' element={<ProfileContainer />} />
+          <Route path='/profile/*' element={<ProfileContainer />} />
           <Route path='/posts' element={<PostsContainer />} />
           <Route path='/dialogs/*' element={<DialogsContainer />} />
           <Route path='/friends' element={<Friends />} />
