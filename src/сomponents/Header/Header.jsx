@@ -1,10 +1,12 @@
 import style from './Header.module.css'
+import HeaderLogin from './HeaderLogin';
 
-const Header = () => {
-
+const Header = (props) => {
     return (
         <div>
-           Header
+           <div className={style.login}>
+               <HeaderLogin {...props} />
+           </div>
         </div>
     )
 }

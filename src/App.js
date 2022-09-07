@@ -1,20 +1,26 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Friends from './сomponents/Friends/Friends';
-import Header from './сomponents/Header/Header';
+// import style from './components/Navbar/Navbar.module.css';
+
+import HeaderContainer from './сomponents/Header/HeaderContainer';
+import LoginContainer from './сomponents/Login/LoginContainer';
 import Navbar from './сomponents/Navbar/Navbar';
 import ProfileContainer from './сomponents/Profile/ProfileContainer';
-import PhotosContainer from './сomponents/Photos/PhotosContainer';
-import Settings from './сomponents/Settings/Settings';
 import PostsContainer from './сomponents/Posts/PostsContainer';
+import PhotosContainer from './сomponents/Photos/PhotosContainer';
 import DialogsContainer from './сomponents/Dialogs/DialogsContainer';
+import Friends from './сomponents/Friends/Friends';
 import UsersContainer from './сomponents/Users/UsersContainer';
+import Settings from './сomponents/Settings/Settings';
 
-function App( {state, dispatch, ...props} ) {
+function App({ state, dispatch, ...props }) {
   return (
     <div className='App'>
       <div className='header'>
-        <Header />
+        <HeaderContainer />
+      </div>
+      <div className='login_or_profile'>
+        <LoginContainer />
       </div>
       <div>
         <Navbar navigationPage={state.navigationPage} />

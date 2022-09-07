@@ -6,6 +6,7 @@ import photosReducer from './photos-reducer';
 import usersReducer from './users-reducer';
 
 import { combineReducers, legacy_createStore as createStore } from 'redux';
+import authReducer from './auth-reducer';
 
 let reducers = combineReducers({
     navigationPage: navigationReducer ,
@@ -13,7 +14,8 @@ let reducers = combineReducers({
     postsPage: postsReducer,
     dialogsPage: dialogsReducer,
     photosPage: photosReducer,
-    usersPage: usersReducer
+    usersPage: usersReducer,
+    auth: authReducer
 })
 
 let store = createStore(reducers);

@@ -53,9 +53,26 @@
 .header {
   grid-area: header;
   position: relative;
+  width: 1000px;
   left: 10px;
   padding-top: 15px;
   border-bottom: rgb(194, 198, 197) solid 1px;
+}
+
+.login_or_profile {
+  width: 200px;
+  height: 25%;
+
+  position: absolute;
+  left: 125px;
+  bottom: 50%;
+  transform: translate(-50%);
+
+  background-color: white;
+  border-radius: 15px;
+  
+  cursor: default;
+  z-index: 1;
 }
 
 .content {
@@ -82,4 +99,8 @@
   .App {
     grid-template-columns: 60px;
   }  
+
+  .login_or_profile {
+    display: none;
+  }
 }

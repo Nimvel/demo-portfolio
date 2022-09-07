@@ -11,9 +11,9 @@ const Navbar = ({ navigationPage }) => {
                     social network
                 </div>
             </div>
-            <div className={style.login_or_profile}>
-                login or profile
-            </div>
+            {/* <div className={style.login_or_profile}>
+                Login
+            </div> */}
             <NavigationLink navData={navigationPage.navData} />
         </div>
     )
