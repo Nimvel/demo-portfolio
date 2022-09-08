@@ -1,30 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-
-import { friendsAPI } from "../../api/api";
-import { setFriends, setCurrentPage, setTotalCount, toggleIsFetching
-    // follow, unfollow, followingInProgress
- } from '../../redux/friends-reducer';
+import { getFriends } from '../../redux/friends-reducer';
 
 import Preloader from "../common/Preloader/Preloader";
 import Friends from "./Friends";
 
 class FriendsContainer extends React.Component {
     componentDidMount() {
-        friendsAPI.getFriends(this.props.currentPage, this.props.size).then(data => {
-            this.props.setFriends(data.items);
-            this.props.setTotalCount(data.totalCount);
-            this.props.toggleIsFetching(false);
-        })
+        this.props.getFriends(this.props.currentPage, this.props.size)
     }
 
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.toggleIsFetching(true);
-        friendsAPI.getFriends(pageNumber, this.props.size).then(data => {
-            this.props.setFriends(data.items);
-            this.props.toggleIsFetching(false);
-        })
+        this.props.getFriends(pageNumber, this.props.size)
     }
 
     render() {
@@ -32,12 +19,12 @@ class FriendsContainer extends React.Component {
             {this.props.isFetching
                 ? <Preloader />
                 : <Friends friends={this.props.friends}
-                    
-                currentPage={this.props.currentPage}
-                count={this.props.count}
-                size={this.props.size}
-                isFetching={this.props.isFetching}
-                onPageChanged={this.onPageChanged} />
+                    currentPage={this.props.currentPage}
+                    count={this.props.count}
+                    size={this.props.size}
+                    isFetching={this.props.isFetching}
+
+                    onPageChanged={this.onPageChanged} />
             }
         </>
     }
@@ -49,11 +36,8 @@ const mapStateToProps = (state) => {
         currentPage: state.friendsPage.currentPage,
         size: state.friendsPage.size,
         count: state.friendsPage.count,
-        isFetching: state.friendsPage.isFetching,
-        // isFollowing: state.friendsPage.isFollowing
+        isFetching: state.friendsPage.isFetching
     }
 }
 
-export default connect(mapStateToProps, { setFriends, setCurrentPage, setTotalCount, toggleIsFetching
-    // follow, unfollow, followingInProgress
- })(FriendsContainer);
+export default connect(mapStateToProps, { getFriends })(FriendsContainer);

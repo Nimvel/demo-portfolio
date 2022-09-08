@@ -8,12 +8,7 @@ const Friends = ({ currentPage, onPageChanged, ...props }) => {
         friendId={f.id}
         friendName={f.name}
         friendImg={f.photos.small}
-
-        // isFollowing={props.isFollowing}
-
         isFollowed={f.followed}
-    // follow={props.follow} unfollow={props.unfollow}
-    // followingInProgress={props.followingInProgress}
     />)
 
     let pages = [];
@@ -25,17 +20,6 @@ const Friends = ({ currentPage, onPageChanged, ...props }) => {
     return (
         <div className={style.usersPage}>
             <Paginator pages={pages} currentPage={currentPage} onPageChanged={onPageChanged} />
-            {/* <div>
-                    {pages.map( p => {
-                        if (p === 1 || ( p >= props.currentPage - 2 && p <= props.currentPage + 2 ) || p === pages.length ) {
-                            return <span className={props.currentPage === p ? style.selectedPage : ''} 
-                            onClick={(e) => { props.onPageChanged(p) }} > {p} </span>
-                        }
-
-                        else if (p === props.currentPage - 3 || p === props.currentPage + 3) {
-                            return <span>...</span>
-                        }})}
-                </div> */}
 
             <div className={style.users}>
                 {friendsElenemts}

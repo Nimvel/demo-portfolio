@@ -7,7 +7,8 @@ import friendsReducer from './friends-reducer';
 import usersReducer from './users-reducer';
 import followReducer from './follow-reducer';
 
-import { combineReducers, legacy_createStore as createStore } from 'redux';
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
+import thunkMiddleWare from 'redux-thunk' 
 import authReducer from './auth-reducer';
 
 let reducers = combineReducers({
@@ -22,7 +23,7 @@ let reducers = combineReducers({
     auth: authReducer
 })
 
-let store = createStore(reducers);
+let store = createStore(reducers, applyMiddleware(thunkMiddleWare));
 
 export default store;
 

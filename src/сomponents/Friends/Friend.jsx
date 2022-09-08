@@ -3,9 +3,7 @@ import style from './../Users/Users.module.css';
 import userPhoto from '../../assets/icons/comrade.png';
 import FollowContainer from '../Follow/FollowContainer';
 
-const Friend = ({ friendId, friendName, friendImg, 
-    // isFollowing, followingInProgress, follow, unfollow, 
-    isFollowed }) => {
+const Friend = ({ friendId, friendName, friendImg, isFollowed }) => {
     return (
         <div className={style.user}>
             <NavLink to={'/profile/' + friendId}>
