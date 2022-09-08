@@ -11,7 +11,9 @@ const Users = (props) => {
                 userId={u.id} userName={u.name}
                 userImg={u.photos.small}
                 isFollowed={u.followed}
-                follow={props.follow} unfollow={props.unfollow} />
+                follow={props.follow} unfollow={props.unfollow}
+                isFollowing={props.isFollowing}
+                followingInProgress={props.followingInProgress} />
             )
 
         let pages = [];

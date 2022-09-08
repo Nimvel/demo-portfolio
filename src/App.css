@@ -17,7 +17,7 @@
     height: 30px;
     font-size: 13px;
 
-    background: #c1b0c8;
+    background: #715678;
     color: white;
     border: #c2c6c5 solid 1px;
     border-radius: 10px;
@@ -26,9 +26,9 @@
     user-select: none;
 }
 
-.App button:hover {
-  font-size: 14px;
-  background: #715678;
+.App button:disabled {
+  /* font-size: 14px; */
+  background: #c1b0c8;
   /* animation: pulsing 2s infinite linear; */
 }
 
