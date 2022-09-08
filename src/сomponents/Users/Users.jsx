@@ -1,32 +1,35 @@
 import React from 'react';
+import Paginator from '../common/Paginator/Paginator';
 
 import ActiveFriends from '../Friends/ActiveFriends';
 import User from './User/User';
 
 import style from './Users.module.css';
 
-const Users = (props) => {
-        let usersElements =
-            props.usersData.map(u => <User key={u.id}
-                userId={u.id} userName={u.name}
-                userImg={u.photos.small}
-                isFollowed={u.followed}
-                follow={props.follow} unfollow={props.unfollow}
-                isFollowing={props.isFollowing}
-                followingInProgress={props.followingInProgress} />
-            )
+const Users = ({ currentPage, onPageChanged, usersData, ...props }) => {
+    let usersElements =
+        usersData.map(u => <User key={u.id}
+            userId={u.id} userName={u.name}
+            userImg={u.photos.small}
 
-        let pages = [];
-        let pagesCount = Math.ceil(props.count / props.size);
+            isFollowed={u.followed}
+        // follow={props.follow} unfollow={props.unfollow}
+        // isFollowing={props.isFollowing}
+        // followingInProgress={props.followingInProgress} 
+        />
+        )
 
-        for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i)
-        }
+    let pages = [];
+    let pagesCount = Math.ceil(props.count / props.size);
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
+    }
 
-        return (
-            <div className={style.usersPage}>
-                <div>
-                    {pages.map( p => {
+    return (
+        <div className={style.usersPage}>
+            <div>
+                <Paginator pages={pages} currentPage={currentPage} onPageChanged={onPageChanged} />
+                {/* {pages.map( p => {
                         if (p === 1 || ( p >= props.currentPage - 2 && p <= props.currentPage + 2 ) || p === pages.length ) {
                             return <span className={props.currentPage === p ? style.selectedPage : ''} 
                             onClick={(e) => { props.onPageChanged(p) }} > {p} </span>
@@ -34,17 +37,17 @@ const Users = (props) => {
 
                         else if (p === props.currentPage - 3 || p === props.currentPage + 3) {
                             return <span>...</span>
-                        }})}
-                </div>
-
-                <div className={style.users}>
-                    {usersElements}
-                </div>
-                <div className={style.active_friends}>
-                    <ActiveFriends />
-                </div>
+                        }})} */}
             </div>
-        )
+
+            <div className={style.users}>
+                {usersElements}
+            </div>
+            <div className={style.active_friends}>
+                <ActiveFriends />
+            </div>
+        </div>
+    )
 }
 
 export default Users;

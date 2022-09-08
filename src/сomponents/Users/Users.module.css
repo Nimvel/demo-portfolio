@@ -31,9 +31,13 @@
     width: 95%;
     max-width: 500px;
 
+    /* height: 10rem; */
+
     position: relative;
     left: 50%;
     transform: translate(-50%);
+
+    overflow: scroll;
 }
 
 .user {

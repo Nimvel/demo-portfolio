@@ -1,0 +1,13 @@
+.paginator span {
+    cursor: pointer;
+    font-size: 15px;
+    user-select: none;
+}
+
+.paginator span:hover {
+    font-size: 20px;
+}
+
+.selectedPage {
+    font-weight: bold;
+}

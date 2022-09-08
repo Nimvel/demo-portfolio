@@ -3,7 +3,9 @@ import profileReducer from './profile-reducer';
 import postsReducer from './posts-reducer';
 import dialogsReducer from './dialogs-reducer';
 import photosReducer from './photos-reducer';
+import friendsReducer from './friends-reducer';
 import usersReducer from './users-reducer';
+import followReducer from './follow-reducer';
 
 import { combineReducers, legacy_createStore as createStore } from 'redux';
 import authReducer from './auth-reducer';
@@ -14,7 +16,9 @@ let reducers = combineReducers({
     postsPage: postsReducer,
     dialogsPage: dialogsReducer,
     photosPage: photosReducer,
+    friendsPage: friendsReducer,
     usersPage: usersReducer,
+    followButton: followReducer,
     auth: authReducer
 })
 

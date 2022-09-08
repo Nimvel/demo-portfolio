@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-// import style from './components/Navbar/Navbar.module.css';
 
 import HeaderContainer from './сomponents/Header/HeaderContainer';
 import LoginContainer from './сomponents/Login/LoginContainer';
@@ -9,7 +8,7 @@ import ProfileContainer from './сomponents/Profile/ProfileContainer';
 import PostsContainer from './сomponents/Posts/PostsContainer';
 import PhotosContainer from './сomponents/Photos/PhotosContainer';
 import DialogsContainer from './сomponents/Dialogs/DialogsContainer';
-import Friends from './сomponents/Friends/Friends';
+import FriendsContainer from './сomponents/Friends/FriendsContainer';
 import UsersContainer from './сomponents/Users/UsersContainer';
 import Settings from './сomponents/Settings/Settings';
 
@@ -31,7 +30,7 @@ function App({ state, dispatch, ...props }) {
           <Route path='/profile/*' element={<ProfileContainer />} />
           <Route path='/posts' element={<PostsContainer />} />
           <Route path='/dialogs/*' element={<DialogsContainer />} />
-          <Route path='/friends' element={<Friends />} />
+          <Route path='/friends' element={<FriendsContainer />} />
           <Route path='/photos' element={<PhotosContainer />} />
           <Route path='/settings' element={<Settings />} />
           <Route path='/users' element={<UsersContainer />} />
