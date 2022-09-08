@@ -1,43 +1,43 @@
 import React from 'react';
-import * as axios from 'axios';
-
 import { connect } from 'react-redux';
+
+import { usersAPI } from '../../api/api';
 import { follow, unfollow, setCurrentPage, setTotalCount, setUsers, toggleIsFetching } from '../../redux/users-reducer';
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
 
-
 class UsersContainer extends React.Component {
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.size}`, { withCredentials: true })
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.setTotalCount(response.data.totalCount);
-                this.props.toggleIsFetching(false);
-            })
+        usersAPI.getUsers(this.props.currentPage, this.props.size).then(data => {
+            this.props.setUsers(data.items);
+            this.props.setTotalCount(data.totalCount);
+            this.props.toggleIsFetching(false);
+        })
     }
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.size}`, { withCredentials: true })
-            .then(response => { this.props.setUsers(response.data.items) })
+        this.props.toggleIsFetching(true);
+        usersAPI.getUsers(pageNumber, this.props.size).then(data => {
+            this.props.setUsers(data.items);
+            this.props.toggleIsFetching(false);
+        })
     }
 
     render() {
         return <>
-            { this.props.isFetching
-            ? <Preloader />
-            : <Users
-                usersData={this.props.usersData}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
-                currentPage={this.props.currentPage}
-                count={this.props.count}
-                size={this.props.size}
-                isFetching={this.props.isFetching}
-                onPageChanged={this.onPageChanged} /> }
+            {this.props.isFetching
+                ? <Preloader />
+                : <Users
+                    usersData={this.props.usersData}
+                    follow={this.props.follow}
+                    unfollow={this.props.unfollow}
+                    currentPage={this.props.currentPage}
+                    count={this.props.count}
+                    size={this.props.size}
+                    isFetching={this.props.isFetching}
+                    onPageChanged={this.onPageChanged} />}
         </>
-
     }
 }
 
