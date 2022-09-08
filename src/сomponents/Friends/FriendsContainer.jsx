@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import { friendsAPI } from "../../api/api";
-import { setFriends, setCurrentPage, setTotalCount
+import { setFriends, setCurrentPage, setTotalCount, toggleIsFetching
     // follow, unfollow, followingInProgress
  } from '../../redux/friends-reducer';
 
@@ -11,9 +11,10 @@ import Friends from "./Friends";
 
 class FriendsContainer extends React.Component {
     componentDidMount() {
-        friendsAPI.getFriends().then(data => {
+        friendsAPI.getFriends(this.props.currentPage, this.props.size).then(data => {
             this.props.setFriends(data.items);
             this.props.setTotalCount(data.totalCount);
+            this.props.toggleIsFetching(false);
         })
     }
 
@@ -21,7 +22,7 @@ class FriendsContainer extends React.Component {
         this.props.setCurrentPage(pageNumber);
         this.props.toggleIsFetching(true);
         friendsAPI.getFriends(pageNumber, this.props.size).then(data => {
-            this.props.setUsers(data.items);
+            this.props.setFriends(data.items);
             this.props.toggleIsFetching(false);
         })
     }
@@ -53,6 +54,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { setFriends, setCurrentPage, setTotalCount
+export default connect(mapStateToProps, { setFriends, setCurrentPage, setTotalCount, toggleIsFetching
     // follow, unfollow, followingInProgress
  })(FriendsContainer);

@@ -11,6 +11,7 @@ import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
 
 class UsersContainer extends React.Component {
+
     componentDidMount() {
         usersAPI.getUsers(this.props.currentPage, this.props.size).then(data => {
             this.props.setUsers(data.items);
@@ -64,6 +65,6 @@ let mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, { 
     // follow, unfollow, 
-    setUsers, setCurrentPage, setTotalCount, toggleIsFetching, 
+    setUsers, setCurrentPage, setTotalCount, toggleIsFetching,
     // followingInProgress
  })(UsersContainer)
