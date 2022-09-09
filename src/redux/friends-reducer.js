@@ -1,4 +1,4 @@
-import { friendsAPI } from "../api/api";
+import { usersAPI } from "../api/api";
 
 const SET_FRIENDS = 'SET_FRIENDS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
@@ -44,7 +44,7 @@ export const setFriendFollowed = (userId, followed) => ({ type: SET_FRIEND_FOLLO
 export const getFriends = (pageNumber, size) => (dispatch) => {
     dispatch(setCurrentPage(pageNumber));
     dispatch(toggleIsFetching(true));
-    return friendsAPI.getFriends(pageNumber, size).then(data => {
+    return usersAPI.getFriends(pageNumber, size).then(data => {
         dispatch(setFriends(data.items));
         dispatch(setTotalCount(data.totalCount));
         dispatch(toggleIsFetching(false));

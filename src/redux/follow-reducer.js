@@ -1,3 +1,7 @@
+import { usersAPI } from "../api/api";
+import { setFriendFollowed } from "./friends-reducer";
+import { setUserFollowed } from "./users-reducer";
+
 const FOLLOWING_IN_PROGRESS = 'FOLLOWING_IN_PROGRESS';
 
 let initialState = {
@@ -21,4 +25,24 @@ const followReducer = (state = initialState, action) => {
 
 export const followingInProgress = (isFetching, userId) => ({ type: FOLLOWING_IN_PROGRESS, isFetching, userId});
 
+export const getFollowButton = (param, userId) => (dispatch) => {
+    dispatch(followingInProgress(true, userId));
+
+    return usersAPI[param](userId).then(data => {
+        if (param === 'follow') {
+            if (data.resultCode === 0) {
+                dispatch(setUserFollowed(userId, true));
+                dispatch(setFriendFollowed(userId, true));
+            }
+        }
+        else {
+            if (data.resultCode === 0) {
+                dispatch(setUserFollowed(userId, false));
+                dispatch(setFriendFollowed(userId, false));
+            }
+        }
+        dispatch(followingInProgress(false, userId));
+    });
+}
+ 
 export default followReducer;

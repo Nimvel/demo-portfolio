@@ -12,9 +12,12 @@ export const usersAPI = {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
         .then(response => response.data)
     },
-}
 
-export const followAPI = {
+    getFriends(currentPage = 1, pageSize = 7) {
+        return instance.get(`users?friend=true&page=${currentPage}&count=${pageSize}`)
+        .then(response => response.data)
+    },
+
     follow(userId) {
         return instance.post(`follow/${userId}`).then(response => response.data)
     },
@@ -24,9 +27,19 @@ export const followAPI = {
     }
 }
 
-export const friendsAPI = {
-    getFriends(currentPage = 1, pageSize = 7) {
-        return instance.get(`users?friend=true&page=${currentPage}&count=${pageSize}`)
-        .then(response => response.data)
-    }
-}
+// export const followAPI = {
+//     follow(userId) {
+//         return instance.post(`follow/${userId}`).then(response => response.data)
+//     },
+
+//     unfollow(userId) {
+//         return instance.delete(`follow/${userId}`).then(response => response.data)
+//     }
+// }
+
+// export const friendsAPI = {
+//     getFriends(currentPage = 1, pageSize = 7) {
+//         return instance.get(`users?friend=true&page=${currentPage}&count=${pageSize}`)
+//         .then(response => response.data)
+//     }
+// }
