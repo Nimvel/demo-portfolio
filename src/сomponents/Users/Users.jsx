@@ -11,9 +11,7 @@ const Users = ({ currentPage, onPageChanged, usersData, ...props }) => {
         usersData.map(u => <User key={u.id}
             userId={u.id} userName={u.name}
             userImg={u.photos.small}
-            isFollowed={u.followed}
-        />
-        )
+            isFollowed={u.followed} /> )
 
     let pages = [];
     let pagesCount = Math.ceil(props.count / props.size);

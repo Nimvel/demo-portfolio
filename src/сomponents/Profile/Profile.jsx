@@ -1,8 +1,9 @@
 import Preloader from '../common/Preloader/Preloader';
 import style from './Profile.module.css';
+import ProfileStatus from './ProfileStatus';
 
-const Profile = (props) => {
-    if (!props.profile) {
+const Profile = ({ profile, status, updateStatus, getStatus }) => {
+    if (!profile) {
         return <Preloader />
     }
     // let lastFeature = profileData.aboutMe.length;
@@ -28,14 +29,17 @@ const Profile = (props) => {
     return (
         <div className={style.profilePage}>
             <div>
-                <img src={props.profile.photos.large} />
+                <img src={profile.photos.large} />
             </div>
             <div>
                 <div>
-                    {props.profile.fullName}
+                    {profile.fullName}
                 </div>
                 <div>
-                    {props.profile.aboutMe}
+                    {profile.aboutMe}
+                </div>
+                <div className={style.status}>
+                    <ProfileStatus status={status} updateStatus={updateStatus} getStatus={getStatus} />
                 </div>
             </div>
 

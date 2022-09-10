@@ -1,14 +1,10 @@
+import { NavLink } from 'react-router-dom';
 import style from './Header.module.css'
-import HeaderLogin from './HeaderLogin';
 
-const Header = (props) => {
-    return (
-        <div>
-           <div className={style.login}>
-               <HeaderLogin {...props} />
-           </div>
-        </div>
-    )
+const Header = ({ isAuth, login }) => {
+    return <div className={style.login}>
+        {!isAuth ? <NavLink to='/login'>Log in</NavLink> : login}
+    </div>
 }
 
 export default Header;

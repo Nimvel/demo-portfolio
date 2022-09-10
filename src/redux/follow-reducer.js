@@ -1,6 +1,5 @@
 import { usersAPI } from "../api/api";
-import { setFriendFollowed } from "./friends-reducer";
-import { setUserFollowed } from "./users-reducer";
+import { setFriendFollowed, setUserFollowed } from "./users-reducer";
 
 const FOLLOWING_IN_PROGRESS = 'FOLLOWING_IN_PROGRESS';
 

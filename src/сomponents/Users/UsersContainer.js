@@ -1,44 +1,63 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getUsers } from '../../redux/users-reducer';
+import { getUsers, getFriends } from '../../redux/users-reducer';
 import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.size);
+        this.props.getUsers(this.props.usersCurrentPage, this.props.size)
+        this.props.getFriends(this.props.friendsCurrentPage, this.props.size)
     }
 
-    onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.size);
+    onUsersPageChanged = (pageNumber) => {
+        this.props.getUsers(pageNumber, this.props.size)
+    }
+
+    onFriendsPageChanged = (pageNumber) => {
+        this.props.getFriends(pageNumber, this.props.size)
     }
 
     render() {
-        return <>
-            {this.props.isFetching
-                ? <Preloader />
-                : <Users
+        if (this.props.isFetching) {
+            return <Preloader />
+        } else {
+            return this.props.getPeople === 'getUsers'
+
+                ? <Users
                     usersData={this.props.usersData}
-                    currentPage={this.props.currentPage}
+                    currentPage={this.props.usersCurrentPage}
                     size={this.props.size}
-                    count={this.props.count}
+                    count={this.props.totalUsersCount}
                     isFetching={this.props.isFetching}
-                    
-                    onPageChanged={this.onPageChanged}
-                />}
-        </>
+                    onPageChanged={this.onUsersPageChanged} />
+
+                : <Users
+                    usersData={this.props.friendsData}
+                    currentPage={this.props.friendsCurrentPage}
+                    size={this.props.size}
+                    count={this.props.totalFriendsCount}
+                    isFetching={this.props.isFetching}
+                    onPageChanged={this.onFriendsPageChanged} />
+        }
     }
 }
 
 let mapStateToProps = (state) => {
     return {
         usersData: state.usersPage.usersData,
-        currentPage: state.usersPage.currentPage,
+        friendsData: state.usersPage.friendsData,
+
+        usersCurrentPage: state.usersPage.usersCurrentPage,
+        friendsCurrentPage: state.usersPage.friendsCurrentPage,
+
+        totalUsersCount: state.usersPage.totalUsersCount,
+        totalFriendsCount: state.usersPage.totalFriendsCount,
+
         size: state.usersPage.size,
-        count: state.usersPage.count,
         isFetching: state.usersPage.isFetching
     }
 }
 
-export default connect(mapStateToProps, { getUsers })(UsersContainer)
+export default connect(mapStateToProps, { getUsers, getFriends })(UsersContainer)

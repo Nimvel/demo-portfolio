@@ -22,7 +22,7 @@
     color: #939393;
 }
 
-.short_description {
+/* .short_description {
     grid-area: short_description;
 
     display: grid;
@@ -95,7 +95,6 @@
 .skills {
     grid-area: skills;
     padding: 5px;
-    /* border-right: #c2c6c5 solid 1px; */
 }
 .skill:hover {
     color: #715678;
@@ -114,14 +113,12 @@
 .languages {
     grid-area: languages;
     padding: 15px 5px;
-    /* border-top: #c2c6c5 solid 1px; */
 }
 
 .about_me {
     grid-area: about_me;
     padding: 15px 5px;
-    /* border-top: #c2c6c5 solid 1px; */
-}
+} */
 
 @media (max-width: 700px) {
     .profilePage {
@@ -129,7 +126,7 @@
         gap: 5px;
     }
     
-    .short_description {
+    /* .short_description {
         grid-template-areas:
         'avatar name'
         'avatar job_title'
@@ -164,7 +161,6 @@
     'languages'
     'about_me';
     grid-template-columns: auto;
-    /* grid-template-rows: 20% 15%; */
         grid-template-rows: 30% 20% 10%;
     }
 
@@ -186,5 +182,5 @@
     
     .about_me {
         border-top: #c2c6c5 solid 1px;
-    }
+    } */
 }

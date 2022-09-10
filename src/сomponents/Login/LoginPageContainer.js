@@ -1,16 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
-import { authMe } from '../../redux/auth-reducer';
-import Header from "./Header";
 
-class HeaderContainer extends React.Component {
+import { authMe } from '../../redux/auth-reducer';
+import LoginPage from "./LoginPage";
+
+class LoginPageContainer extends React.Component {
     componentDidMount() {
-        this.props.authMe();
+        this.props.authMe()
     }
 
     render() {
         return (
-            <Header isAuth={this.props.isAuth} login={this.props.login} />
+            <LoginPage isAuth={this.props.isAuth} login={this.props.login} />
         )
     }
 }
@@ -20,4 +21,4 @@ const mapStateToProps = (state) => ({
     login: state.auth.login
 })
 
-export default connect(mapStateToProps, { authMe })(HeaderContainer);
+export default connect(mapStateToProps, { authMe })(LoginPageContainer);
