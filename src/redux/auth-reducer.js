@@ -32,4 +32,12 @@ export const authMe = () => (dispatch) => {
     })
 }
 
+export const logIn = ({ email, password, rememberMe }) => (dispatch) => {
+    return authAPI.logIn({ email, password, rememberMe }).then(data => {
+        if (data.resultCode === 0) {
+            dispatch(authMe());
+        }
+    })
+}
+
 export default authReducer;
