@@ -17,7 +17,7 @@ let LoginForm = (props) => {
             <Field component="input" type="checkbox" name="checkbox" />remember me
         </div>
         <div>
-            <button type="submit">Submit</button>
+            <button type="submit">Login</button>
         </div>
     </form>
 }

@@ -1,16 +1,24 @@
+import React from 'react';
+
 import style from './Dialogs.module.css';
 import Comrade from './Comrade/Comrade';
-import NewMessage from './Message/NewMessage';
 
-const Dialogs = ({ comradesData, messagesData, newMessageText, sendMessage, onMessageChange }) => {
+import EnterNewTextForm from '../EnterNewTextForm/EnterNewTextForm';
 
-    let comradesElements = comradesData.map(c =>
-        <Comrade comradeImg={c.comradeImg} comradeName={c.comradeName} comradeId={c.comradeId} lastMessage={c.lastMessage} key={c.id} />);
+const Dialogs = ({ comradesData, messagesData, sendMessage }) => {
+
+    let comradesElements = comradesData.map(c => <Comrade
+        comradeImg={c.comradeImg} comradeName={c.comradeName}
+        comradeId={c.comradeId} lastMessage={c.lastMessage} key={c.id} />);
 
     let messagesElements = messagesData.map(m =>
         <div className={style.message} key={m.id}>
             {m.message}
         </div>)
+
+    let onSubmit = (values) => {
+        sendMessage(values.newText)
+    }
 
     return (
         <div className={style.dialogsPage}>
@@ -19,9 +27,7 @@ const Dialogs = ({ comradesData, messagesData, newMessageText, sendMessage, onMe
             </div>
             <div className={style.messages}>
                 {messagesElements}
-                <div className={style.new_message}>
-                    <NewMessage newMessageText={newMessageText} sendMessage={sendMessage} onMessageChange={onMessageChange} />
-                </div>
+                <EnterNewTextForm onSubmit={onSubmit} />
             </div>
         </div>
     )

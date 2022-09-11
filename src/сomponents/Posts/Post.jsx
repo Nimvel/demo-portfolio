@@ -1,4 +1,4 @@
-import style from '../Posts.module.css';
+import style from './Posts.module.css';
 
 const Post = ({ id, like, comradeImg, comradeName, message, likes }) => {
     let onClick = () => {

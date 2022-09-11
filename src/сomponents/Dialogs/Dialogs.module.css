@@ -56,21 +56,6 @@
     border-radius: 15px;
 }
 
-.new_message {
-    position: relative;
-    bottom: 0;
-    
-    display: grid;
-    grid-template-columns: 90% 10%;
-    gap: 3%;
-}
-
-.new_message button {
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
-}
-
 @media (max-width: 750px) {
     .dialogsPage {
         grid-template-columns: 97%;

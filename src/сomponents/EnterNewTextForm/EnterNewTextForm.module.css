@@ -1,0 +1,21 @@
+.new_text {
+    width: 95%;
+
+    display: grid;
+    grid-template-columns: 85% 15%;
+    gap: 3%;
+    padding-bottom: 5%;
+}
+
+.new_text button {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 900px) {
+    .new_text {
+        grid-template-columns: 80% 20%;
+    }
+}
