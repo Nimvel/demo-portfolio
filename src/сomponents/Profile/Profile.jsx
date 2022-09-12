@@ -29,7 +29,7 @@ const Profile = ({ profile, status, updateStatus, getStatus }) => {
     return (
         <div className={style.profilePage}>
             <div>
-                <img src={profile.photos.large} />
+                <img src={profile.photos.large} />Large photo
             </div>
             <div>
                 <div>

@@ -10,8 +10,10 @@ import photosReducer from './photos-reducer';
 import usersReducer from './users-reducer';
 import followReducer from './follow-reducer';
 import authReducer from './auth-reducer';
+import appReducer from './app-reducer';
 
 let reducers = combineReducers({
+    app: appReducer,
     navigationPage: navigationReducer ,
     profilePage: profileReducer,
     postsPage: postsReducer,

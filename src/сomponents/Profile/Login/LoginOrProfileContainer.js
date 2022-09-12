@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getProfile, getStatus, updateStatus } from '../../../redux/profile-reducer';
+import { getAuthUserProfile, getAuthUserStatus, updateStatus } from '../../../redux/profile-reducer';
 import { logIn } from '../../../redux/auth-reducer';
 
 import LoginOrProfile from './LoginOrProfile';
@@ -9,22 +9,24 @@ import LoginOrProfile from './LoginOrProfile';
 class LoginOrProfileContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getProfile(this.props.userId);
-        this.props.getStatus(this.props.userId);
+        this.props.getAuthUserProfile(this.props.authUserId);
+        this.props.getAuthUserStatus(this.props.authUserId);
     }
 
     render() {
-        return <LoginOrProfile isAuth={this.props.isAuth} profile={this.props.profile} status={this.props.status}
-        logIn={this.props.logIn} updateStatus={this.props.updateStatus} getStatus={this.props.getStatus} />
+        return <LoginOrProfile isAuth={this.props.isAuth} 
+        profile={this.props.profile} status={this.props.status}
+        logIn={this.props.logIn} updateStatus={this.props.updateStatus} getStatus={this.props.getAuthUserStatus} />
     }
 }
 
 const mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
-        profile: state.profilePage.profileData,
-        status: state.profilePage.status
+        profile: state.profilePage.authUserProfileData,
+        status: state.profilePage.authUserStatus,
+        authUserId: state.auth.id
     }
 }
 
-export default connect(mapStateToProps, { getProfile, getStatus, updateStatus, logIn })(LoginOrProfileContainer);
+export default connect(mapStateToProps, { getAuthUserProfile, getAuthUserStatus, updateStatus, logIn })(LoginOrProfileContainer);
