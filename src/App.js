@@ -4,6 +4,8 @@ import './App.css';
 import HeaderContainer from './сomponents/Header/HeaderContainer';
 import LoginPageContainer from './сomponents/Login/LoginPageContainer';
 import Navbar from './сomponents/Navbar/Navbar';
+
+import LoginOrProfileContainer from './сomponents/Profile/Login/LoginOrProfileContainer';
 import ProfileContainer from './сomponents/Profile/ProfileContainer';
 import PostsContainer from './сomponents/Posts/PostsContainer';
 import PhotosContainer from './сomponents/Photos/PhotosContainer';
@@ -18,14 +20,13 @@ function App({ state, dispatch, ...props }) {
         <HeaderContainer />
       </div>
       <div className='login_or_profile'>
-        <LoginPageContainer />
+        <LoginOrProfileContainer userId={22798} />
       </div>
       <div>
         <Navbar navigationPage={state.navigationPage} />
       </div>
       <div className='content'>
         <Routes>
-          <Route path='/login' element={<LoginPageContainer />} />
           <Route path='/profile/:userId' element={<ProfileContainer />} />
           <Route path='/profile/*' element={<ProfileContainer />} />
           <Route path='/posts' element={<PostsContainer />} />
@@ -36,6 +37,8 @@ function App({ state, dispatch, ...props }) {
 
           <Route path='/photos' element={<PhotosContainer />} />
           <Route path='/settings' element={<Settings />} />
+
+          <Route path='/login' element={<LoginPageContainer />} />
         </Routes>
       </div>
     </div>

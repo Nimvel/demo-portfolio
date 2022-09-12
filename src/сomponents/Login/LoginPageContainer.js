@@ -11,14 +11,13 @@ class LoginPageContainer extends React.Component {
 
     render() {
         return (
-            <LoginPage isAuth={this.props.isAuth} login={this.props.login} logIn={this.props.logIn} />
+            <LoginPage isAuth={this.props.isAuth} logIn={this.props.logIn} />
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    isAuth: state.auth.isAuth,
-    login: state.auth.login
+    isAuth: state.auth.isAuth
 })
 
 export default connect(mapStateToProps, { authMe, logIn })(LoginPageContainer);
