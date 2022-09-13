@@ -5,6 +5,7 @@ import Users from './Users'
 import Preloader from '../common/Preloader/Preloader';
 import { compose } from 'redux';
 import { withAuthRedirect } from '../hoc/withAuthRedirect';
+import { getFriendsCurrentPage, getFriendsData, getIsFetching, getSize, getTotalFriendsCount, getTotalUsersCount, getUsersCurrentPage, getUsersData } from '../../redux/users-selectors';
 
 class UsersContainer extends React.Component {
 
@@ -48,17 +49,17 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        usersData: state.usersPage.usersData,
-        friendsData: state.usersPage.friendsData,
+        usersData:  getUsersData(state),
+        friendsData: getFriendsData(state),
 
-        usersCurrentPage: state.usersPage.usersCurrentPage,
-        friendsCurrentPage: state.usersPage.friendsCurrentPage,
+        usersCurrentPage: getUsersCurrentPage(state),
+        friendsCurrentPage: getFriendsCurrentPage(state),
 
-        totalUsersCount: state.usersPage.totalUsersCount,
-        totalFriendsCount: state.usersPage.totalFriendsCount,
+        totalUsersCount: getTotalUsersCount(state),
+        totalFriendsCount: getTotalFriendsCount(state),
 
-        size: state.usersPage.size,
-        isFetching: state.usersPage.isFetching
+        size: getSize(state),
+        isFetching: getIsFetching(state)
     }
 }
 
