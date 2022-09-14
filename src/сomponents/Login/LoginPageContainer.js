@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { logIn } from '../../redux/auth-reducer';
-import { getIsAuth } from "../../redux/auth-selectors";
+import { logIn } from '../../redux/auth/auth-reducer';
+import { getIsAuth } from "../../redux/auth/auth-selectors";
 
 import LoginPage from "./LoginPage";
 

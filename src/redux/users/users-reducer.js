@@ -1,5 +1,5 @@
-import { usersAPI } from '../api/api';
-import { updateObjInState } from '../helpers';
+import { usersAPI } from '../../api/api';
+import { updateObjInState } from '../../helpers';
 
 const SET_USERS = 'users/SET_USERS';
 const SET_FRIENDS = 'users/SET_FRIENDS';

@@ -1,4 +1,4 @@
-import { profileAPI } from "../api/api";
+import { profileAPI } from "../../api/api";
 
 let SET_AUTH_PROFILE = 'profile/SET_AUTH_PROFILE';
 let SET_AUTH_USER_STATUS = 'profile/SET_AUTH_STATUS';

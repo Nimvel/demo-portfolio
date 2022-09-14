@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-import { getProfile, getStatus, updateStatus } from '../../redux/profile-reducer';
-import { getAuthUserId, getProfileData, getProfileStatus } from '../../redux/profile-selectors';
+import { getProfile, getStatus, updateStatus } from '../../redux/profile/profile-reducer';
+import { getAuthUserId, getProfileData, getProfileStatus } from '../../redux/profile/profile-selectors';
 
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 

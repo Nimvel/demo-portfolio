@@ -1,10 +1,10 @@
-import { Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 
-import {initializeApp} from './redux/app-reducer'
-import { getAuthUserData } from './redux/auth-reducer';
+import { initializeApp } from './redux/app-reducer'
+import { getAuthUserData } from './redux/auth/auth-reducer';
 
 import './App.css';
 
@@ -20,11 +20,12 @@ import UsersContainer from './сomponents/Users/UsersContainer';
 import Settings from './сomponents/Settings/Settings';
 import React from 'react';
 import Preloader from './сomponents/common/Preloader/Preloader';
+import store from './redux/store';
 
 class App extends React.Component {
   componentDidMount() {
     this.props.initializeApp();
-}
+  }
 
   render() {
     if (!this.props.initialized) {
@@ -48,13 +49,13 @@ class App extends React.Component {
             <Route path='/profile/*' element={<ProfileContainer />} />
             <Route path='/posts' element={<PostsContainer />} />
             <Route path='/dialogs/*' element={<DialogsContainer />} />
-  
+
             <Route path='/friends' element={<UsersContainer getPeople={'getFriends'} />} />
             <Route path='/users' element={<UsersContainer getPeople={'getUsers'} />} />
-  
+
             <Route path='/photos' element={<PhotosContainer />} />
             <Route path='/settings' element={<Settings />} />
-  
+
             <Route path='/login' element={<LoginPageContainer />} />
           </Routes>
         </div>
@@ -65,15 +66,15 @@ class App extends React.Component {
 
 export const withRouter = (Component) => {
   function ComponentWithRouterProp(props) {
-      let location = useLocation();
-      let navigate = useNavigate();
-      let params = useParams();
-      return (
-          <Component
-              {...props}
-              router={{ location, navigate, params }}
-          />
-      );
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+    return (
+      <Component
+        {...props}
+        router={{ location, navigate, params }}
+      />
+    );
   }
   return ComponentWithRouterProp;
 }
@@ -82,4 +83,18 @@ const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-export default withRouter(connect(mapStateToProps, {getAuthUserData, initializeApp})(App));
+const AppContainer = withRouter(connect(mapStateToProps, { getAuthUserData, initializeApp })(App));
+
+const MainApp = (props) => {
+  return <React.StrictMode>
+    <Provider store={store} >
+      <HashRouter>
+        <Routes>
+          <Route path='/*' element={<AppContainer state={store.getState()}/>} />
+        </Routes>
+      </HashRouter>
+    </Provider>
+  </React.StrictMode>
+}
+
+export default MainApp;

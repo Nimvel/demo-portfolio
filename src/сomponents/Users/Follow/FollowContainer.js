@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getFollowButton } from '../../../redux/users-reducer';
-import { getIsFollowing } from '../../../redux/users-selectors';
+import { getFollowButton } from '../../../redux/users/users-reducer';
+import { getIsFollowing } from '../../../redux/users/users-selectors';
 
 import FollowButton from './FollowButton';
 

@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { getUsers, getFriends } from '../../redux/users-reducer';
+import { getUsers, getFriends } from '../../redux/users/users-reducer';
 import {
     getFriendsCurrentPage, getFriendsData, getIsFetching, getSize, 
     getTotalFriendsCount, getTotalUsersCount, getUsersCurrentPage, getUsersData
-} from '../../redux/users-selectors';
+} from '../../redux/users/users-selectors';
 
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import Preloader from '../common/Preloader/Preloader';

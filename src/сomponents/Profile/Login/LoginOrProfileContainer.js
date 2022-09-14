@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getAuthUserProfile, getAuthUserStatus, updateStatus } from '../../../redux/profile-reducer';
-import { logIn } from '../../../redux/auth-reducer';
+import { getAuthUserProfile, getAuthUserStatus, updateStatus } from '../../../redux/profile/profile-reducer';
+import { logIn } from '../../../redux/auth/auth-reducer';
 
 import LoginOrProfile from './LoginOrProfile';
 
