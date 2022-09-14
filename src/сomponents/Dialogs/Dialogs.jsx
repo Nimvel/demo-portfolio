@@ -3,7 +3,7 @@ import React from 'react';
 import style from './Dialogs.module.css';
 import Comrade from './Comrade/Comrade';
 
-import EnterNewTextForm from '../EnterNewTextForm/EnterNewTextForm';
+import AddNewTextForm from '../common/FormsControls/AddNewTextForm/AddNewTextForm';
 
 const Dialogs = ({ comradesData, messagesData, sendMessage }) => {
 
@@ -27,7 +27,7 @@ const Dialogs = ({ comradesData, messagesData, sendMessage }) => {
             </div>
             <div className={style.messages}>
                 {messagesElements}
-                <EnterNewTextForm onSubmit={onSubmit} />
+                <AddNewTextForm onSubmit={onSubmit} />
             </div>
         </div>
     )

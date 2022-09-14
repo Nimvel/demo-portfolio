@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getFollowButton } from '../../redux/follow-reducer';
+import { getFollowButton } from '../../../redux/users-reducer';
+import { getIsFollowing } from '../../../redux/users-selectors';
 
 import FollowButton from './FollowButton';
 
@@ -16,7 +17,7 @@ class FollowContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        isFollowing: state.followButton.isFollowing
+        isFollowing: getIsFollowing(state)
     }
 }
 

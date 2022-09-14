@@ -1,10 +1,10 @@
 import React from 'react'
 import { Navigate } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
-import { FormElement } from '../FormsControls/FormsControls'
-import { maxLengthCreator, required } from '../FormsControls/validators/validators'
+import { FormElement } from '../common/FormsControls/FormsControls'
+import { maxLengthCreator, required } from '../common/FormsControls/validators/validators'
 
-import styles from '../FormsControls/FormsControls.module.css'
+import styles from '../common/FormsControls/FormsControls.module.css'
 
 let LoginForm = (props) => {
     const maxLength50 = maxLengthCreator(50);

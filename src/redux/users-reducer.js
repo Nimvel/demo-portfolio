@@ -1,18 +1,20 @@
 import { usersAPI } from '../api/api';
+import { updateObjInState } from '../helpers';
 
-const SET_USERS = 'SET_USERS';
-const SET_FRIENDS = 'SET_FRIENDS';
+const SET_USERS = 'users/SET_USERS';
+const SET_FRIENDS = 'users/SET_FRIENDS';
 
-const SET_USERS_CURRENT_PAGE = 'SET_USERS_CURRENT_PAGE';
-const SET_FRIENS_CURRENT_PAGE = 'SET_FRIENS_CURRENT_PAGE';
+const SET_USERS_CURRENT_PAGE = 'users/SET_USERS_CURRENT_PAGE';
+const SET_FRIENS_CURRENT_PAGE = 'users/SET_FRIENS_CURRENT_PAGE';
 
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const SET_TOTAL_FRIENDS_COUNT = 'SET_TOTAL_FRIENDS_COUNT';
+const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
+const SET_TOTAL_FRIENDS_COUNT = 'users/SET_TOTAL_FRIENDS_COUNT';
 
-const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
+const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING';
 
-const SET_USER_FOLLOWED = 'SET_USER_FOLLOWED';
-const SET_FRIEND_FOLLOWED = 'SET_FRIEND_FOLLOWED';
+const SET_FOLLOWED = 'users/SET_FOLLOWED';
+
+const FOLLOWING_IN_PROGRESS = 'follow/FOLLOWING_IN_PROGRESS';
 
 let initialState = {
     usersData: [],
@@ -20,12 +22,13 @@ let initialState = {
 
     usersCurrentPage: 1,
     friendsCurrentPage: 1,
-    
+
     totalUsersCount: 0,
     totalFriendsCount: 0,
 
     size: 7,
-    isFetching: true
+    isFetching: true,
+    isFollowing: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -51,11 +54,20 @@ const usersReducer = (state = initialState, action) => {
         case TOGGLE_IS_FETCHING:
             return { ...state, isFetching: action.isFetching }
 
-        case SET_USER_FOLLOWED:
-            return { ...state, usersData: state.usersData.map(u => u.id === action.userId ? { ...u, followed: action.followed } : u) }
+        case SET_FOLLOWED:
+            return {
+                ...state,
+                usersData: updateObjInState(state.usersData, 'id', action.userId, {followed: action.followed}),
+                friendsData: updateObjInState(state.friendsData, 'id', action.userId, {followed: action.followed})
+            }
 
-        case SET_FRIEND_FOLLOWED:
-            return { ...state, friendsData: state.friendsData.map(u => u.id === action.userId ? { ...u, followed: action.followed } : u) }
+        case FOLLOWING_IN_PROGRESS:
+            return {
+                ...state, isFollowing:
+                    action.isFetching
+                        ? [...state.isFollowing, action.userId] //если идет загрузка, то добавляем id пользователя, на которого подписываемся
+                        : state.isFollowing.filter(i => i != action.userId) //если загрузка завершена, то убираем пользователя, на которого проводилась подписка
+            }
     }
     return state;
 }
@@ -71,27 +83,41 @@ export const setTotalFriendsCount = (count) => ({ type: SET_TOTAL_FRIENDS_COUNT,
 
 export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isFetching });
 
-export const setUserFollowed = (userId, followed) => ({ type: SET_USER_FOLLOWED, userId, followed });
-export const setFriendFollowed = (userId, followed) => ({ type: SET_FRIEND_FOLLOWED, userId, followed });
+export const setFollowed = (userId, followed) => ({ type: SET_FOLLOWED, userId, followed });
 
-export const getUsers = (pageNumber, size) => (dispatch) => {
+export const followingInProgress = (isFetching, userId) => ({ type: FOLLOWING_IN_PROGRESS, isFetching, userId });
+
+export const getUsers = (pageNumber, size) => async (dispatch) => {
     dispatch(setUsersCurrentPage(pageNumber));
     dispatch(toggleIsFetching(true));
-    return usersAPI.getUsers(pageNumber, size).then(data => {
-            dispatch(setUsers(data.items));
-            dispatch(setTotalUsersCount(data.totalCount));
-            dispatch(toggleIsFetching(false));
-        })
+    let data = await usersAPI.getUsers(pageNumber, size);
+    dispatch(setUsers(data.items));
+    dispatch(setTotalUsersCount(data.totalCount));
+    dispatch(toggleIsFetching(false));
 }
 
-export const getFriends = (pageNumber, size) => (dispatch) => {
+export const getFriends = (pageNumber, size) => async (dispatch) => {
     dispatch(setFriendsCurrentPage(pageNumber));
     dispatch(toggleIsFetching(true));
-    return usersAPI.getFriends(pageNumber, size).then(data => {
-            dispatch(setFriends(data.items));
-            dispatch(setTotalFriendsCount(data.totalCount));
-            dispatch(toggleIsFetching(false));
-        })
+    let data = await usersAPI.getFriends(pageNumber, size);
+    dispatch(setFriends(data.items));
+    dispatch(setTotalFriendsCount(data.totalCount));
+    dispatch(toggleIsFetching(false));
+}
+
+export const getFollowButton = (param, userId) => async (dispatch) => {
+    dispatch(followingInProgress(true, userId));
+
+    let data = await usersAPI[param](userId);
+    if (data.resultCode === 0) {
+        if (param === 'follow') {
+            dispatch(setFollowed(userId, true));
+        }
+        else {
+            dispatch(setFollowed(userId, false));
+        }
+    }
+    dispatch(followingInProgress(false, userId));
 }
 
 export default usersReducer;

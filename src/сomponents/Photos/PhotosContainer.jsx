@@ -4,7 +4,7 @@ import { bigPhotoActionCreator, fullScreenActionCreator } from '../../redux/phot
 
 let mapStateToProps = (state) => {
     return {
-        photosData: state.photosPage.photosData,
+        photosData: state.photos.photosData,
     }
 }
 

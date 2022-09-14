@@ -5,8 +5,8 @@ import img_4 from '../assets/images/img_4.jpg';
 import img_5 from '../assets/images/img_5.jpg';
 import img_6 from '../assets/images/img_6.jpg';
 
-let BIG_PHOTO = 'BIG_PHOTO';
-let FULL_SCREEN = 'FULL_SCREEN';
+let BIG_PHOTO = 'photos/BIG_PHOTO';
+let FULL_SCREEN = 'photos/FULL_SCREEN';
 
 let initialState = {
     photosData: [

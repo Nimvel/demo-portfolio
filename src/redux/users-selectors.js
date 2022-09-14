@@ -1,7 +1,7 @@
 // import { createSelector } from "reselect"
 
 export const getUsersData = (state) => {
-    return state.usersPage.usersData
+    return state.users.usersData
 }
 
 // export const getUsersDataSelector = createSelector(getUsersData, (usersData) => {
@@ -9,29 +9,33 @@ export const getUsersData = (state) => {
 // })
 
 export const getFriendsData = (state) => {
-    return state.usersPage.friendsData
+    return state.users.friendsData
 }
 
 export const getUsersCurrentPage = (state) => {
-    return state.usersPage.usersCurrentPage
+    return state.users.usersCurrentPage
 }
 
 export const getFriendsCurrentPage = (state) => {
-    return state.usersPage.friendsCurrentPage
+    return state.users.friendsCurrentPage
 }
 
 export const getTotalUsersCount = (state) => {
-    return state.usersPage.totalUsersCount
+    return state.users.totalUsersCount
 }
 
 export const getTotalFriendsCount = (state) => {
-    return state.usersPage.totalFriendsCount
+    return state.users.totalFriendsCount
 }
 
 export const getSize = (state) => {
-    return state.usersPage.size
+    return state.users.size
 }
 
 export const getIsFetching = (state) => {
-    return state.usersPage.isFetching
+    return state.users.isFetching
+}
+
+export const getIsFollowing = (state) => {
+    return state.users.isFollowing
 }

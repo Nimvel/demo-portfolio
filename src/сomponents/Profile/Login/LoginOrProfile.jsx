@@ -22,7 +22,7 @@ const LoginOrProfile = ({ isAuth, logIn, profile, status, updateStatus, getStatu
                     {profile.fullName}
                 </div>
                 <div className={style.status}>
-                    <ProfileStatus status={status} updateStatus={updateStatus} getStatus={getStatus} />
+                    <ProfileStatus status={status} updateStatus={updateStatus} />
                 </div>
             </div>
         </div>

@@ -40,7 +40,7 @@ class App extends React.Component {
           <LoginOrProfileContainer />
         </div>
         <div>
-          <Navbar navigationPage={this.props.state.navigationPage} />
+          <Navbar navigation={this.props.state.navigation} />
         </div>
         <div className='content'>
           <Routes>

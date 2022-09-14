@@ -1,7 +1,8 @@
 import style from '../Users.module.css';
-import userPhoto from '../../../assets/icons/comrade.png';
 import { NavLink } from 'react-router-dom';
-import FollowContainer from '../../Follow/FollowContainer';
+
+import FollowContainer from '../Follow/FollowContainer';
+import userPhoto from '../../../assets/icons/comrade.png';
 
 const User = ({ userId, userName, userImg, isFollowed }) => {
     return (

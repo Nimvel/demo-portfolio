@@ -22,6 +22,11 @@
     color: #939393;
 }
 
+.profilePage img {
+    max-width: 300px;
+    max-height: 450px;
+}
+
 /* .short_description {
     grid-area: short_description;
 

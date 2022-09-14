@@ -1,6 +1,8 @@
 import Preloader from '../common/Preloader/Preloader';
 import style from './Profile.module.css';
 import ProfileStatus from './ProfileStatus';
+import userPhoto from '../../assets/icons/comrade.png';
+
 
 const Profile = ({ profile, status, updateStatus, getStatus }) => {
     if (!profile) {
@@ -29,7 +31,7 @@ const Profile = ({ profile, status, updateStatus, getStatus }) => {
     return (
         <div className={style.profilePage}>
             <div>
-                <img src={profile.photos.large} />Large photo
+                <img src={profile.photos.large ? profile.photos.large : userPhoto} alt='avatar' />
             </div>
             <div>
                 <div>
@@ -39,7 +41,7 @@ const Profile = ({ profile, status, updateStatus, getStatus }) => {
                     {profile.aboutMe}
                 </div>
                 <div className={style.status}>
-                    <ProfileStatus status={status} updateStatus={updateStatus} getStatus={getStatus} />
+                    <ProfileStatus status={status} updateStatus={updateStatus} />
                 </div>
             </div>
 

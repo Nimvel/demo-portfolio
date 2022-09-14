@@ -16,15 +16,15 @@ class LoginOrProfileContainer extends React.Component {
     render() {
         return <LoginOrProfile isAuth={this.props.isAuth} 
         profile={this.props.profile} status={this.props.status}
-        logIn={this.props.logIn} updateStatus={this.props.updateStatus} getStatus={this.props.getAuthUserStatus} />
+        logIn={this.props.logIn} updateStatus={this.props.updateStatus} />
     }
 }
 
 const mapStateToProps = (state) => {
     return {
         isAuth: state.auth.isAuth,
-        profile: state.profilePage.authUserProfileData,
-        status: state.profilePage.authUserStatus,
+        profile: state.profile.authUserProfileData,
+        status: state.profile.authUserStatus,
         authUserId: state.auth.id
     }
 }

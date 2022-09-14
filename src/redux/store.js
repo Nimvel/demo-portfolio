@@ -8,19 +8,17 @@ import postsReducer from './posts-reducer';
 import dialogsReducer from './dialogs-reducer';
 import photosReducer from './photos-reducer';
 import usersReducer from './users-reducer';
-import followReducer from './follow-reducer';
 import authReducer from './auth-reducer';
 import appReducer from './app-reducer';
 
 let reducers = combineReducers({
     app: appReducer,
-    navigationPage: navigationReducer ,
-    profilePage: profileReducer,
-    postsPage: postsReducer,
-    dialogsPage: dialogsReducer,
-    photosPage: photosReducer,
-    usersPage: usersReducer,
-    followButton: followReducer,
+    navigation: navigationReducer ,
+    profile: profileReducer,
+    posts: postsReducer,
+    dialogs: dialogsReducer,
+    photos: photosReducer,
+    users: usersReducer,
     auth: authReducer,
     form: formReducer
 })

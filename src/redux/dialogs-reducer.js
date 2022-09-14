@@ -2,7 +2,7 @@ import kurapika from '../assets/avatars/kurapika_face.jpg';
 import ladyMaria from '../assets/avatars/lady_Maria_face.jpg';
 import lucifer from '../assets/avatars/lucifer_face.jpg';
 
-const SEND_MESSAGE = 'SEND_MESSAGE';
+const SEND_MESSAGE = 'dialogs/SEND_MESSAGE';
 
 let initialState = {
     comradesData: [

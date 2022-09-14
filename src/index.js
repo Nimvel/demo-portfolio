@@ -9,26 +9,17 @@ import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-export let rerender = () => {
-  root.render(
-    <React.StrictMode>
-      <Provider store={store} >
-        <HashRouter>
-          <Routes>
-            <Route path='/*' element={<App state={store.getState()} dispatch={store.dispatch.bind(store)} />} />
-          </Routes>
-        </HashRouter>
-      </Provider>
-    </React.StrictMode>
-  );
-}
-
-rerender(store.getState());
-
-store.subscribe(() => {
-  let state = store.getState();
-  rerender(state);
-});
+root.render(
+  <React.StrictMode>
+    <Provider store={store} >
+      <HashRouter>
+        <Routes>
+          <Route path='/*' element={<App state={store.getState()} dispatch={store.dispatch.bind(store)} />} />
+        </Routes>
+      </HashRouter>
+    </Provider>
+  </React.StrictMode>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

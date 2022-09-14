@@ -5,8 +5,8 @@ import lucifer from '../assets/avatars/lucifer_face.jpg';
 import comrade from '../assets/icons/comrade.png';
 
 
-const ADD_NEW_POST = 'ADD_NEW_POST';
-const LIKE = 'LIKE';
+const ADD_NEW_POST = 'posts/ADD_NEW_POST';
+const LIKE = 'posts/LIKE';
 
 let initialState = {
     postsData: [

@@ -2,7 +2,7 @@ import style from './Navbar.module.css';
 import NavigationLink from './NavLink/NavigationLink';
 import logo from '../../assets/icons/logo.png';
 
-const Navbar = ({ navigationPage }) => {
+const Navbar = ({ navigation }) => {
     return (
         <div className={style.navbar}>
             <div className={style.denomination}>
@@ -14,7 +14,7 @@ const Navbar = ({ navigationPage }) => {
             {/* <div className={style.login_or_profile}>
                 Login
             </div> */}
-            <NavigationLink navData={navigationPage.navData} />
+            <NavigationLink navData={navigation.navData} />
         </div>
     )
 }
