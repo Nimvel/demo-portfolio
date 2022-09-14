@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { getUsers, getFriends } from '../../redux/users/users-reducer';
+import { getUsers, getFriends, setUsersCurrentPage, setFriendsCurrentPage } from '../../redux/users/users-reducer';
 import {
-    getFriendsCurrentPage, getFriendsData, getIsFetching, getSize, 
+    getFriendsCurrentPage, getFriendsData, getIsFetching, getSize,
     getTotalFriendsCount, getTotalUsersCount, getUsersCurrentPage, getUsersData
 } from '../../redux/users/users-selectors';
 
@@ -35,16 +35,20 @@ class UsersContainer extends React.Component {
             return this.props.getPeople === 'getUsers'
 
                 ? <Users
+                    getUsers={this.props.getUsers}
                     usersData={this.props.usersData}
                     currentPage={this.props.usersCurrentPage}
+                    setCurrentPage={this.props.setUsersCurrentPage}
                     size={this.props.size}
                     count={this.props.totalUsersCount}
                     isFetching={this.props.isFetching}
                     onPageChanged={this.onUsersPageChanged} />
 
                 : <Users
+                    getUsers={this.props.getFriends}
                     usersData={this.props.friendsData}
                     currentPage={this.props.friendsCurrentPage}
+                    setCurrentPage={this.props.setFriendsCurrentPage}
                     size={this.props.size}
                     count={this.props.totalFriendsCount}
                     isFetching={this.props.isFetching}
@@ -70,6 +74,6 @@ let mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, { getUsers, getFriends }),
+    connect(mapStateToProps, { getUsers, getFriends, setUsersCurrentPage, setFriendsCurrentPage }),
     withAuthRedirect
 )(UsersContainer)
