@@ -4,7 +4,8 @@ const ProfileStatus = (props) => {
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status);
 
-    useEffect( () => {setStatus(props.status)}, [props.status])
+    useEffect(() => { console.log('Profile status - status changed')}, [props.status]);
+    useEffect( () => {setStatus(props.status)}, [props.status]);
 
     const turnOnEditMode = () => {
         setEditMode(true)

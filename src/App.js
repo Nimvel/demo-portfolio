@@ -1,3 +1,4 @@
+import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
@@ -5,22 +6,25 @@ import { connect, Provider } from 'react-redux';
 
 import { initializeApp } from './redux/app-reducer'
 import { getAuthUserData } from './redux/auth/auth-reducer';
+import store from './redux/store';
+
+import { withSuspense } from './hoc/withSuspense';
 
 import './App.css';
 
+import Preloader from './сomponents/common/Preloader/Preloader';
 import HeaderContainer from './сomponents/Header/HeaderContainer';
-import LoginPageContainer from './сomponents/Login/LoginPageContainer';
 import Navbar from './сomponents/Navbar/Navbar';
 import LoginOrProfileContainer from './сomponents/Profile/Login/LoginOrProfileContainer';
+
 import ProfileContainer from './сomponents/Profile/ProfileContainer';
-import PostsContainer from './сomponents/Posts/PostsContainer';
-import PhotosContainer from './сomponents/Photos/PhotosContainer';
-import DialogsContainer from './сomponents/Dialogs/DialogsContainer';
-import UsersContainer from './сomponents/Users/UsersContainer';
 import Settings from './сomponents/Settings/Settings';
-import React from 'react';
-import Preloader from './сomponents/common/Preloader/Preloader';
-import store from './redux/store';
+
+const PostsContainer = React.lazy(() => import('./сomponents/Posts/PostsContainer'));
+const DialogsContainer = React.lazy(() => import('./сomponents/Dialogs/DialogsContainer'));
+const PhotosContainer = React.lazy(() => import('./сomponents/Photos/PhotosContainer'));
+const UsersContainer = React.lazy(() => import('./сomponents/Users/UsersContainer'));
+const LoginPageContainer = React.lazy(() => import('./сomponents/Login/LoginPageContainer'));
 
 class App extends React.Component {
   componentDidMount() {
@@ -47,16 +51,16 @@ class App extends React.Component {
           <Routes>
             <Route path='/profile/:userId' element={<ProfileContainer />} />
             <Route path='/profile/*' element={<ProfileContainer />} />
-            <Route path='/posts' element={<PostsContainer />} />
-            <Route path='/dialogs/*' element={<DialogsContainer />} />
+            <Route path='/posts' element={withSuspense(PostsContainer)} />
+            <Route path='/dialogs/*' element={withSuspense(DialogsContainer)} />
 
-            <Route path='/friends' element={<UsersContainer getPeople={'getFriends'} />} />
-            <Route path='/users' element={<UsersContainer getPeople={'getUsers'} />} />
+            <Route path='/friends' element={withSuspense(UsersContainer, {getPeople: 'getFriends'})} />
+            <Route path='/users' element={withSuspense(UsersContainer, {getPeople: 'getUsers'})} />
 
-            <Route path='/photos' element={<PhotosContainer />} />
+            <Route path='/photos' element={withSuspense(PhotosContainer)} />
             <Route path='/settings' element={<Settings />} />
 
-            <Route path='/login' element={<LoginPageContainer />} />
+            <Route path='/login' element={withSuspense(LoginPageContainer)} />
           </Routes>
         </div>
       </div>
@@ -90,7 +94,7 @@ const MainApp = (props) => {
     <Provider store={store} >
       <HashRouter>
         <Routes>
-          <Route path='/*' element={<AppContainer state={store.getState()}/>} />
+          <Route path='/*' element={<AppContainer state={store.getState()} />} />
         </Routes>
       </HashRouter>
     </Provider>
