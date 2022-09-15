@@ -4,28 +4,23 @@ import { Field, reduxForm } from 'redux-form'
 import { FormElement } from '../common/FormsControls/FormsControls'
 import { maxLengthCreator, required } from '../common/FormsControls/validators/validators'
 
-import styles from '../common/FormsControls/FormsControls.module.css'
+import styleError from '../common/FormsControls/FormsControls.module.css'
+import styles from './LoginPage.module.css'
 
 let LoginForm = (props) => {
     const maxLength50 = maxLengthCreator(50);
     const Input = FormElement('input');
 
-    return <form onSubmit={props.handleSubmit}>
-        <div>
+    return <form onSubmit={props.handleSubmit} className={styles.login_form}>
             <label>Email:</label>
             <Field component={Input} validate={[required, maxLength50]} type="email" name="email" placeholder="Enter your email" />
-        </div>
-        <div>
             <label>Password:</label>
             <Field component={Input} validate={[required, maxLength50]} type="password" name="password" placeholder="Enter your password" />
-        </div>
-        <div>
+        <div className={styles.login_form_checkbox}>
             <Field component="input" type="checkbox" name="rememberMe" />remember me
         </div>
-        {props.error && <span className={styles.loginFormError} >{props.error}</span>}
-        <div>
-            <button type="submit">Login</button>
-        </div>
+        {props.error && <span className={styleError.loginFormError} >{props.error}</span>}
+            <button className={styles.login_form_button} type="submit">Login</button>
     </form>
 }
 
