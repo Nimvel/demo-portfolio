@@ -6,6 +6,8 @@ let SET_AUTH_USER_STATUS = 'profile/SET_AUTH_STATUS';
 let SET_PROFILE = 'profile/SET_USER_PROFILE';
 let SET_STATUS = 'profile/SET_USER_STATUS';
 
+let SET_NEW_PROFILE_PHOTO = 'profile/SET_NEW_PROFILE_PHOTO';
+
 let initialState = {
     authUserProfileData: null,
     authUserStatus: '',
@@ -28,6 +30,12 @@ const profileReducer = (state = initialState, action) => {
         case SET_STATUS:
             return { ...state, status: action.status };
 
+        case SET_NEW_PROFILE_PHOTO:
+            return { ...state, 
+                authUserProfileData: {...state.authUserProfileData, photos: action.photos},
+                profileData: {...state.profileData, photos: action.photos},
+            };
+
         default:
             return state;
     }
@@ -38,6 +46,8 @@ export const setAuthUserStatus = (status) => ({ type: SET_AUTH_USER_STATUS, stat
 
 export const setProfile = (profile) => ({ type: SET_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
+
+export const setNewProfilePhoto = (photos) => ({ type: SET_NEW_PROFILE_PHOTO, photos });
 
 export const getAuthUserProfile = (userId) => async (dispatch) => {
     let data = await profileAPI.getPropfile(userId);
@@ -63,6 +73,13 @@ export const updateStatus = (status) => async (dispatch) => {
     let data = await profileAPI.updateStatus(status)
     if (data.resultCode === 0) {
         dispatch(setAuthUserStatus(status));
+    }
+}
+
+export const saveNewProfilePhoto = (photo) => async (dispatch) => {
+    let data = await profileAPI.sevePhoto(photo);
+    if (data.resultCode === 0) {
+        dispatch(setNewProfilePhoto(data.data.photos));
     }
 }
 

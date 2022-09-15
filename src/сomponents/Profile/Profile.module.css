@@ -6,9 +6,9 @@
     
     display: grid;
     grid-template-areas: 
-    'short_description'
-    'description';
-    grid-template-rows: 40% 60%;
+    'photo' 'name'
+    'photo' 'status';
+    grid-template-columns: 35% 65%;
     gap: 15px;
 
     cursor: default;
@@ -17,112 +17,78 @@
     color: #939393;
 }
 
-.profilePage a{
-    text-decoration: none;
-    color: #939393;
-}
-
-.profilePage img {
-    max-width: 300px;
-    max-height: 450px;
-}
-
-/* .short_description {
-    grid-area: short_description;
-
-    display: grid;
-    grid-template-areas:
-    'avatar name'
-    'avatar job_title'
-    'avatar status';
-    grid-template-columns: 30% 70%;
-    grid-template-rows: 30px 30px 30px;
-    gap: 10px;
-}
-
-.avatar {
-    width: 200px;
-    height: 300px;
-
-
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-
-    grid-area: avatar;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.avatar img {
-    width: 200px;
-    height: 300px;
-
-    position: relative;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-
-    object-fit: cover;
-    transition: 300ms;
-}
-
-.avatar img:hover {
-    width: 250px;
-    height: 350px;
-}
-
 .name {
-    grid-area: name;
+    grid-area: 'name';
     color: #715678;
-}
-
-.job_title {
-    grid-area: job_title;
+    padding-bottom: 20px;
 }
 
 .status {
-    grid-area: status;
+    grid-area: 'status';
 }
 
-.description {
-    grid-area: description;
-    display: grid;
-    grid-template-areas: 
-    'skills education'
-    'skills languages'
-    'about_me about_me';
-    grid-template-columns: 25%;
-    grid-template-rows: 20% 15%;
-    gap: 10px;
+.holder {
+    position: absolute;
 }
 
-.skills {
-    grid-area: skills;
-    padding: 5px;
-}
-.skill:hover {
-    color: #715678;
-    font-size: 21px;
+.holder img {
+    grid-area: 'photo';
+    width: auto;
+    height: auto;
+    max-width: 300px;
+    max-height: 450px;
+
 }
 
-.education {
-    grid-area: education;
-    padding: 5px;
-}
-.speciality:hover {
-    color: #715678;
-    font-size: 21px;
+.block {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    background:rgba(255,255,255, 0.7);
+    padding-top: 15px;
+    padding-bottom: 20px;
+    display: none;
 }
 
-.languages {
-    grid-area: languages;
-    padding: 15px 5px;
+.holder:hover .block{
+    display: block;
 }
 
-.about_me {
-    grid-area: about_me;
-    padding: 15px 5px;
+.file__input {
+    opacity: 0;
+    position: relative;
+    z-index: -1;
+    overflow: hidden;
+    width: 0.1px;
+    height: 0.1px;
+}
+
+.file__label {
+    position: relative;
+    left: 110px;    
+    font-size: 13px;
+    padding: 5px 10px;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: #715678;
+    color: white;
+    border: #c2c6c5 solid 1px;
+    border-radius: 10px;
+    
+    cursor: pointer;
+    user-select: none;
+}
+
+/* .file__label .file__text {
+    transition: .025s ease;
+}
+
+.file__label:hover .file__text {
+    top: 100px;
 } */
 
 @media (max-width: 700px) {
@@ -130,62 +96,4 @@
         grid-template-rows: 100px;
         gap: 5px;
     }
-    
-    /* .short_description {
-        grid-template-areas:
-        'avatar name'
-        'avatar job_title'
-        'status status' ;
-
-        grid-template-columns: 15% 85%;
-        gap: 5px;
-    }
-
-    .avatar {
-        width: 50px;
-        height: 50px;
-
-        border-radius: 50%;
-    }
-    
-    .avatar img {
-        width: 50px;
-        height: 100px;
-        top: 75%;
-    }
-    
-    .avatar img:hover {
-        width: 65px;
-        height: 115px;
-    }
-
-    .description {
-        grid-template-areas: 
-    'skills'
-    'education'
-    'languages'
-    'about_me';
-    grid-template-columns: auto;
-        grid-template-rows: 30% 20% 10%;
-    }
-
-    .skills {
-        padding: 15px 5px;
-
-        border-top: #c2c6c5 solid 1px;
-    }
-    
-    .education {
-        border-top: #c2c6c5 solid 1px;
-        padding: 15px 5px;
-
-    }
-    
-    .languages {
-        border-top: #c2c6c5 solid 1px;
-    }
-    
-    .about_me {
-        border-top: #c2c6c5 solid 1px;
-    } */
 }

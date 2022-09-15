@@ -6,21 +6,17 @@ const MiniAuthUserProfile = ({ profile, status, updateStatus }) => {
     if (!profile) {
         return <Preloader />
     }
-
-        return <div className={style.profilePage}>
-            <div>
-                <img src={profile.photos.small} /> Small photo
-            </div>
-            <div>
-                <div>
-                    {profile.fullName}
-                </div>
-                <div className={style.status}>
-                    <ProfileStatus status={status} updateStatus={updateStatus} />
-                </div>
-            </div>
+    return <div className={style.profilePage}>
+        <div className={style.profileSmallPhoto}>
+            <img src={profile.photos.small} />
         </div>
-    
+            <div className={style.login}>
+                {profile.fullName}
+            </div>
+            <div className={style.status}>
+                <ProfileStatus status={status} updateStatus={updateStatus} />
+        </div>
+    </div>
 }
 
 export default MiniAuthUserProfile;

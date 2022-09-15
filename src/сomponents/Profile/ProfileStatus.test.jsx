@@ -1,4 +1,5 @@
 import TestRenderer from 'react-test-renderer';
+import { create } from "react-test-renderer";
 import ProfileStatus from './ProfileStatus';
 
 describe('ProfileStatus Component', () => {
@@ -17,24 +18,25 @@ describe('ProfileStatus Component', () => {
     test('after creation <span> must be displayed', () => {
         const testRenderer = TestRenderer.create(<ProfileStatus status='status' />);
         const testInstance = testRenderer.root;
-        expect(testInstance.findByType(span)).not.toBeNull();
+        let span = testInstance.findByType('span');
+        expect(span).not.toBeNull();
     });
 
     test(`after creation <input> must not be displayed`, () => {
         const testRenderer = TestRenderer.create(<ProfileStatus status='status' />);
         const testInstance = testRenderer.root;
-        expect(testInstance.findByType(input)).toThrow();
+        expect(testInstance.findByType('input')).toThrow();
     });
 
     test('after creation <span> must contains correct status', () => {
         const testRenderer = TestRenderer.create(<ProfileStatus status='status' />);
         const testInstance = testRenderer.root;
-        expect(testInstance.findByType(span).children[0]).toBe('status');
+        expect(testInstance.findByType('span').children[0]).toBe('status');
     });
 
     test('input must be displayed in editMode instead of span', () => {
         const testRenderer = TestRenderer.create(<ProfileStatus status='status' />);
         const testInstance = testRenderer.root;
-        expect(testInstance.findByType(input).props.value).toBe('status');
+        expect(testInstance.findByType('input').props.value).toBe('status');
     });
 });

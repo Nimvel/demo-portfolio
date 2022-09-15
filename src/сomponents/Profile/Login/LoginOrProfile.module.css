@@ -1,23 +1,40 @@
 .profilePage {
     height: 100%;
-    position: relative;
-    top: 20px;
-    left: 15px;
-    
-    display: grid;
-    grid-template-areas: 
-    'short_description'
-    'description';
-    grid-template-rows: 40% 60%;
-    gap: 15px;
 
     cursor: default;
     user-select: none;
 
-    color: #939393;
 }
 
-.profilePage a{
-    text-decoration: none;
+.profileSmallPhoto {
+    grid-area: 'profile_small_photo';
+
+    position: relative;
+    top: 10px;
+}
+
+.profileSmallPhoto img {
+    width: 100px;
+    height: 100px;
+
+    position: relative;
+
+    left: 50%;
+    transform: translate(-50%);
+
+    border-radius: 50%;
+}
+
+.login {
+    padding-top: 25px;
+    max-width: 200px;
+    text-align: center;
+    color: #715678
+}
+
+.status {
+    padding-top: 25px;
+    max-width: 200px;
+    text-align: center;
     color: #939393;
 }

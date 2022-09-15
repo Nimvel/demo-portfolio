@@ -12,13 +12,11 @@ const LoginOrProfileContainer = ({ getAuthUserProfile, getAuthUserStatus, authUs
     useEffect(() => { getAuthUserProfile(authUserId) }, [isAuth]);
     useEffect(() => { getAuthUserStatus(authUserId) }, [isAuth, props.status]);
 
-    return <div>
-        {isAuth
+    return isAuth
             ? <MiniAuthUserProfile
                 profile={props.profile} status={props.status}
                 updateStatus={props.updateStatus} />
-            : <LoginPageContainer />}
-    </div>
+            : <LoginPageContainer />
 }
 
 const mapStateToProps = (state) => {

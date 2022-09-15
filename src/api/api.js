@@ -54,4 +54,10 @@ export const profileAPI = {
     updateStatus(status) {
         return instance.put(`profile/status`, { status }).then(response => response.data)
     },
+
+    sevePhoto(photoFile) {
+        const formData = new FormData();
+        formData.append('image: file', photoFile)
+        return instance.put(`profile/photo`, formData).then(response => response.data)
+    },
 }
