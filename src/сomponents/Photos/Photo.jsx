@@ -1,27 +1,18 @@
 import style from './Photos.module.css';
 import '../../App.js';
-// import './Photo.css';
+import React from 'react';
 
-const Photo = ({ id, photo, classes, screenStyle, bigPhoto, fullScreen }) => {
-    let onClickSmallPhoto = () => {
-        bigPhoto(id)
+const Photo = ({ photo, ...props }) => {
+    let [isClicked, setIsClicked] = React.useState(false);
+    React.useEffect(() => { }, [isClicked])
+
+    const onImageResizing = () => {
+        setIsClicked(!isClicked)
     }
 
-    // let onFullScreen = () => {
-    //     fullScreen(id)
-    // }
-    return (
-        // <div className={screenStyle} onClick={onFullScreen}>
-        <div>
-            <div className={style[classes]} onClick={onClickSmallPhoto}>
-                <img src={photo} alt='photo' />
-            </div>
-        </div>
-
-
-    )
+    return <div className={isClicked ? style.full_screen : style.photo} onClick={onImageResizing}>
+        <img src={photo} alt='image' />
+    </div>
 }
 
 export default Photo;
-
-

@@ -5,13 +5,18 @@ import { logIn } from '../../redux/auth/auth-reducer';
 import { getIsAuth } from "../../redux/auth/auth-selectors";
 
 import LoginPage from "./LoginPage";
+import styles from './LoginPage.module.css'
 
 class LoginPageContainer extends React.Component {
     componentDidMount() {}
 
     render() {
         return (
-            <LoginPage isAuth={this.props.isAuth} logIn={this.props.logIn} />
+            <div className='login_page' >
+                <div className={styles.login_page_form}>
+                <LoginPage isAuth={this.props.isAuth} logIn={this.props.logIn} />
+                </div>
+            </div>
         )
     }
 }

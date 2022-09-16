@@ -5,8 +5,10 @@ import { getAuthUserProfile, getAuthUserStatus, updateStatus } from '../../../re
 import { getAuthId, getIsAuth } from '../../../redux/auth/auth-selectors';
 
 import MiniAuthUserProfile from './MiniAuthUserProfile';
-import LoginPageContainer from '../../Login/LoginPageContainer';
+import LoginPage from '../../Login/LoginPage';
 import { getAuthProfileData, getAuthStatus } from '../../../redux/profile/profile-selectors';
+
+import style from './LoginOrProfile.module.css';
 
 const LoginOrProfileContainer = ({ getAuthUserProfile, getAuthUserStatus, authUserId, isAuth, ...props }) => {
     useEffect(() => { getAuthUserProfile(authUserId) }, [isAuth]);
@@ -16,7 +18,7 @@ const LoginOrProfileContainer = ({ getAuthUserProfile, getAuthUserStatus, authUs
             ? <MiniAuthUserProfile
                 profile={props.profile} status={props.status}
                 updateStatus={props.updateStatus} />
-            : <LoginPageContainer />
+            : <div className={style.mini_login_form} ><LoginPage/></div>
 }
 
 const mapStateToProps = (state) => {

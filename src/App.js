@@ -22,7 +22,7 @@ import Settings from './сomponents/Settings/Settings';
 
 const PostsContainer = React.lazy(() => import('./сomponents/Posts/PostsContainer'));
 const DialogsContainer = React.lazy(() => import('./сomponents/Dialogs/DialogsContainer'));
-const PhotosContainer = React.lazy(() => import('./сomponents/Photos/PhotosContainer'));
+const PhotosContainer = React.lazy(() => import('./сomponents/Photos/Photos'));
 const UsersContainer = React.lazy(() => import('./сomponents/Users/UsersContainer'));
 const LoginPageContainer = React.lazy(() => import('./сomponents/Login/LoginPageContainer'));
 

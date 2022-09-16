@@ -38,3 +38,16 @@
     text-align: center;
     color: #939393;
 }
+
+.mini_login_form {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 10px;
+
+    /* display: grid;
+    gap: 15px; */
+
+    height: 200px;
+    width: 200px;
+}
