@@ -6,33 +6,28 @@
     
     display: grid;
     grid-template-areas: 
-    'photo' 'name'
-    'photo' 'status';
+    'photo profileData'
+    'status profileData';
+    /* 'contacts' 'profileData'; */
     grid-template-columns: 35% 65%;
-    gap: 15px;
+    grid-template-rows: 40% 65%;
+    /* gap: 15px; */
 
     cursor: default;
     user-select: none;
 
     color: #939393;
+
+    /* background-color: cadetblue; */
 }
 
-.name {
-    grid-area: 'name';
-    color: #715678;
-    padding-bottom: 20px;
-}
-
-.status {
-    grid-area: 'status';
-}
 
 .holder {
-    position: absolute;
+    grid-area: photo;
+    position: relative;
 }
 
 .holder img {
-    grid-area: 'photo';
     width: auto;
     height: auto;
     max-width: 300px;
@@ -80,6 +75,32 @@
     
     cursor: pointer;
     user-select: none;
+}
+
+/* .name {
+    color: #715678;
+    padding-bottom: 20px;
+} */
+
+.status {
+    grid-area: status;
+}
+
+
+.contacts {
+    grid-area: contacts;
+    color: #715678;
+}
+
+.contact {
+    padding-left: 20px;
+}
+
+.profileData {
+    grid-area: profileData;
+
+    /* position: relative;
+    left: 400px; */
 }
 
 /* .file__label .file__text {

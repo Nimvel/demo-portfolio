@@ -3,8 +3,10 @@ import style from './Profile.module.css';
 import ProfileStatus from './ProfileStatus';
 import userPhoto from '../../assets/icons/comrade.png';
 import React from 'react';
+import ProfileInfoFormRedux from './ProfileInfoForm';
+import ProfileInfo from './ProfileInfo';
 
-const Profile = ({ profile, status, updateStatus, isAuthUserProfile, userId, authUserId, ...props }) => {
+const Profile = ({ profile, status, updateStatus, isAuthUserProfile, editMode, ...props }) => {
     if (!profile) {
         return <Preloader />
     }
@@ -16,7 +18,6 @@ const Profile = ({ profile, status, updateStatus, isAuthUserProfile, userId, aut
     }
     return (
         <div className={style.profilePage}>
-            <div>
                 <div className={style.holder}>
                     <img src={profile.photos.large || userPhoto} alt='avatar' />
                     {isAuthUserProfile &&
@@ -28,23 +29,20 @@ const Profile = ({ profile, status, updateStatus, isAuthUserProfile, userId, aut
                         </label>
                     </div>}
                 </div>
-            </div>
 
-            <div>
-                <div className={style.name}>
-                    {profile.fullName}
-                </div>
                 <div className={style.status}>
                     {isAuthUserProfile
                         ? <ProfileStatus status={status} updateStatus={updateStatus} />
                         : <span>{status || '------'}</span>}
                 </div>
-                <div>
-                    {profile.aboutMe}
-                </div>
-            </div>
+                {editMode
+                    ? <ProfileInfoFormRedux profile={profile} onSubmit={props.onSubmit} />
+                    : <ProfileInfo profile={profile} isAuthUserProfile={isAuthUserProfile} onClickEditProfile={props.onClickEditProfile} />
+                }
         </div>
     )
 }
 
 export default Profile;
+
+

@@ -60,4 +60,8 @@ export const profileAPI = {
         formData.append('image: file', photoFile)
         return instance.put(`profile/photo`, formData).then(response => response.data)
     },
+
+    seveProfileData(profileData) {
+        return instance.put(`profile`, profileData).then(response => response.data)
+    },
 }

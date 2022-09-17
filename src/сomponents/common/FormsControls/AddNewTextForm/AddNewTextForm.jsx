@@ -1,5 +1,5 @@
 import { Field, reduxForm } from 'redux-form'
-import { FormElement } from '../FormsControls';
+import { Textarea } from '../FormsControls';
 import { maxLengthCreator } from '../validators/validators';
 
 import style from './AddNewTextForm.module.css';
@@ -7,10 +7,9 @@ import style from './AddNewTextForm.module.css';
 const maxLength15 = maxLengthCreator(15);
 
 const AddNewTextForm = (props) => {
-    const TextArea = FormElement('textarea');
     return (
         <form onSubmit={props.handleSubmit} className={style.new_text} >
-            <Field autoFocus component={TextArea} validate={[maxLength15]} name='newText' placeholder='Enter your message' />
+            <Field autoFocus component={Textarea} validate={[maxLength15]} name='newText' placeholder='Enter your message' />
             <button type='submit'>send</button>
         </form>
     )

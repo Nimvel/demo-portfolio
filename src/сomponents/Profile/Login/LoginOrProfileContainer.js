@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { getAuthUserProfile, getAuthUserStatus, updateStatus } from '../../../redux/profile/profile-reducer';
+import { logIn } from '../../../redux/auth/auth-reducer';
 import { getAuthId, getIsAuth } from '../../../redux/auth/auth-selectors';
 
 import MiniAuthUserProfile from './MiniAuthUserProfile';
@@ -18,7 +19,7 @@ const LoginOrProfileContainer = ({ getAuthUserProfile, getAuthUserStatus, authUs
             ? <MiniAuthUserProfile
                 profile={props.profile} status={props.status}
                 updateStatus={props.updateStatus} />
-            : <div className={style.mini_login_form} ><LoginPage/></div>
+            : <div className={style.mini_login_form} ><LoginPage isAuth={isAuth} logIn={props.logIn} /></div>
 }
 
 const mapStateToProps = (state) => {
@@ -30,4 +31,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getAuthUserProfile, getAuthUserStatus, updateStatus })(LoginOrProfileContainer);
+export default connect(mapStateToProps, { getAuthUserProfile, getAuthUserStatus, updateStatus, logIn })(LoginOrProfileContainer);

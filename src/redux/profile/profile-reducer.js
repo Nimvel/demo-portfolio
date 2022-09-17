@@ -50,36 +50,44 @@ export const setStatus = (status) => ({ type: SET_STATUS, status });
 export const setNewProfilePhoto = (photos) => ({ type: SET_NEW_PROFILE_PHOTO, photos });
 
 export const getAuthUserProfile = (userId) => async (dispatch) => {
-    let data = await profileAPI.getPropfile(userId);
+    const data = await profileAPI.getPropfile(userId);
     dispatch(setAuthProfile(data))
 }
 
 export const getAuthUserStatus = (userId) => async (dispatch) => {
-    let data = await profileAPI.getStatus(userId);
+    const data = await profileAPI.getStatus(userId);
     dispatch(setAuthUserStatus(data))
 }
 
 export const getProfile = (userId) => async (dispatch) => {
-    let data = await profileAPI.getPropfile(userId);
+    const data = await profileAPI.getPropfile(userId);
     dispatch(setProfile(data))
 }
 
 export const getStatus = (userId) => async (dispatch) => {
-    let data = await profileAPI.getStatus(userId);
+    const data = await profileAPI.getStatus(userId);
     dispatch(setStatus(data))
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-    let data = await profileAPI.updateStatus(status)
+    const data = await profileAPI.updateStatus(status)
     if (data.resultCode === 0) {
         dispatch(setAuthUserStatus(status));
     }
 }
 
 export const saveNewProfilePhoto = (photo) => async (dispatch) => {
-    let data = await profileAPI.sevePhoto(photo);
+    const data = await profileAPI.sevePhoto(photo);
     if (data.resultCode === 0) {
         dispatch(setNewProfilePhoto(data.data.photos));
+    }
+}
+
+export const saveProfileData = (profileData) => async (dispatch, setState) => {
+    const userId = setState().auth.id;
+    const data = await profileAPI.seveProfileData(profileData);
+    if (data.resultCode === 0) {
+        dispatch(getAuthUserProfile(userId));
     }
 }
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-import { getProfile, getStatus, getAuthUserStatus, updateStatus, saveNewProfilePhoto } from '../../redux/profile/profile-reducer';
+import { getProfile, getStatus, getAuthUserStatus, updateStatus, saveNewProfilePhoto, saveProfileData } from '../../redux/profile/profile-reducer';
 import { getAuthUserId, getAuthStatus, getProfileData, getProfileStatus } from '../../redux/profile/profile-selectors';
 
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
@@ -14,31 +14,27 @@ const ProfileContainer = ({ getProfile, getStatus, profile, getAuthUserStatus, .
     let userId = props.router.params.userId;
     if (!userId) userId = props.authUserId;
 
-    React.useEffect(() => { getProfile(userId) }, [userId])
+    let [editMode, setEditMode] = React.useState(false);
+
+    const onClickEditProfile = () => {
+        setEditMode(true);
+    }
+
+    const onSubmit = (profileData) => {
+        props.saveProfileData(profileData);
+        console.log(profileData);
+        setEditMode(false);
+    }
+
+    React.useEffect(() => { getProfile(userId) }, [userId, profile])
     // React.useEffect(() => { getNewProfilePhoto(profile.photos) }, [profile.photos])
     React.useEffect(() => { getStatus(userId) }, [userId, props.authUserStatus])
 
-    return <Profile 
+    return <Profile editMode={editMode} onClickEditProfile={onClickEditProfile} onSubmit={onSubmit}
     isAuthUserProfile={userId === props.authUserId}
-    // userId={userId} authUserId={props.authUserId} 
     profile={profile} status={props.status}
     saveNewProfilePhoto={props.saveNewProfilePhoto} updateStatus={props.updateStatus} />
 }
-
-// class ProfileContainer extends React.Component {
-
-//     componentDidMount() {
-//         let userId = this.props.router.params.userId;
-//         if (!userId) userId = this.props.authUserId;
-
-//         this.props.getProfile(userId);
-//         this.props.getStatus(userId);
-//     }
-
-//     render() {
-//         return <Profile userId={this.userId} authUserId={this.props.authUserId} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatus} />
-//     }
-// }
 
 function withRouter(Component) {
     function ComponentWithRouterProp(props) {
@@ -65,9 +61,7 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, { getProfile, getStatus, getAuthUserStatus, updateStatus, saveNewProfilePhoto }),
+    connect(mapStateToProps, { getProfile, getStatus, getAuthUserStatus, updateStatus, saveNewProfilePhoto, saveProfileData }),
     withRouter,
     withAuthRedirect
 )(ProfileContainer);
-
-//P.S. переделать классовую компоненту на функциональную и сделать все через хуки
