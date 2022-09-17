@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import { profileAPI } from "../../api/api";
 
 let SET_AUTH_PROFILE = 'profile/SET_AUTH_PROFILE';
@@ -88,6 +89,9 @@ export const saveProfileData = (profileData) => async (dispatch, setState) => {
     const data = await profileAPI.seveProfileData(profileData);
     if (data.resultCode === 0) {
         dispatch(getAuthUserProfile(userId));
+    }
+    else {
+        dispatch(stopSubmit('profile', { _error: data.messages[0] }))
     }
 }
 

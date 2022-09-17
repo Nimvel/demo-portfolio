@@ -5,6 +5,7 @@ import userPhoto from '../../assets/icons/comrade.png';
 import React from 'react';
 import ProfileInfoFormRedux from './ProfileInfoForm';
 import ProfileInfo from './ProfileInfo';
+import FollowContainer from '../Users/Follow/FollowContainer';
 
 const Profile = ({ profile, status, updateStatus, isAuthUserProfile, editMode, ...props }) => {
     if (!profile) {
@@ -36,7 +37,7 @@ const Profile = ({ profile, status, updateStatus, isAuthUserProfile, editMode, .
                         : <span>{status || '------'}</span>}
                 </div>
                 {editMode
-                    ? <ProfileInfoFormRedux profile={profile} onSubmit={props.onSubmit} />
+                    ? <ProfileInfoFormRedux initialValues={profile} profile={profile} onSubmit={props.onSubmit} />
                     : <ProfileInfo profile={profile} isAuthUserProfile={isAuthUserProfile} onClickEditProfile={props.onClickEditProfile} />
                 }
         </div>

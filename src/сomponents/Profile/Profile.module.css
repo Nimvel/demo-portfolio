@@ -3,22 +3,19 @@
     position: relative;
     top: 20px;
     left: 15px;
+    right: 15px;
     
     display: grid;
     grid-template-areas: 
     'photo profileData'
     'status profileData';
-    /* 'contacts' 'profileData'; */
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 35% 55%;
     grid-template-rows: 40% 65%;
-    /* gap: 15px; */
 
     cursor: default;
     user-select: none;
 
     color: #939393;
-
-    /* background-color: cadetblue; */
 }
 
 
@@ -42,7 +39,7 @@
 
     background:rgba(255,255,255, 0.7);
     padding-top: 15px;
-    padding-bottom: 20px;
+    padding-bottom: 60px;
     display: none;
 }
 
@@ -77,11 +74,6 @@
     user-select: none;
 }
 
-/* .name {
-    color: #715678;
-    padding-bottom: 20px;
-} */
-
 .status {
     grid-area: status;
 }
@@ -98,9 +90,6 @@
 
 .profileData {
     grid-area: profileData;
-
-    /* position: relative;
-    left: 400px; */
 }
 
 /* .file__label .file__text {

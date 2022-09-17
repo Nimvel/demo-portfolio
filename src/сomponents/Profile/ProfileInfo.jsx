@@ -21,7 +21,7 @@ const ProfileInfo = ({ profile, isAuthUserProfile, ...props }) => {
 
 
 export const ContactElement = ({ contactsKey, contactsValue, ...props }) => {
-    return <div className={style.contact} ><b>{contactsKey}: </b>{contactsValue}</div>
+    return <div className={style.contact} ><b>{contactsKey}: </b>{contactsValue || '---'}</div>
 }
 
 export default ProfileInfo;

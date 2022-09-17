@@ -3,7 +3,9 @@ import { reduxForm } from 'redux-form';
 import { createField, Input, Textarea } from '../common/FormsControls/FormsControls';
 import { required } from '../common/FormsControls/validators/validators';
 import { ContactElement } from './ProfileInfo';
+
 import style from './Profile.module.css';
+import styleError from '../common/FormsControls/FormsControls.module.css'
 
 const ProfileInfoForm = ({ profile, ...props }) => {
     return (
@@ -21,7 +23,8 @@ const ProfileInfoForm = ({ profile, ...props }) => {
                 {createField(Textarea, [], 'lookingForAJobDescription', '', 'Tell about your skills')}
                 <div className={style.contacts}>
                     {Object.keys(profile.contacts).map(key => <ContactElement key={key} contactsKey={key}
-                        contactsValue={createField(Input, [], key, '', key)} />)}
+                        contactsValue={createField(Input, [], 'contacts.' + key, '', key)} />)}
+                        {props.error && <span className={styleError.loginFormError} >{props.error}</span>}
                 </div>
             </div>
             <button>save</button>
@@ -29,7 +32,7 @@ const ProfileInfoForm = ({ profile, ...props }) => {
     )
 }
 
-const ProfileInfoFormRedux = reduxForm({ form: 'profile' })(ProfileInfoForm)
+const ProfileInfoFormRedux = reduxForm({ form: 'profile', enableReinitialize: true, destroyOnUnmount: false })(ProfileInfoForm)
 
 
 export default ProfileInfoFormRedux;

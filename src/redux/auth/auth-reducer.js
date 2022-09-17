@@ -37,8 +37,7 @@ export const logIn = ({ email, password, rememberMe }) => async (dispatch) => {
         dispatch(getAuthUserData());
     }
     else {
-        let message = data.messages ? data.messages[0] : 'Some error';
-        dispatch(stopSubmit('login', { _error: message }))
+        dispatch(stopSubmit('login', { _error: data.messages[0] }))
     }
 }
 
