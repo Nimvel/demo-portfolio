@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
-import { getProfile, getStatus, updateStatus, setNewProfilePhoto, saveNewProfilePhoto, saveProfileData } from '../../redux/profile/profile-reducer';
+import { getProfile, getStatus, updateStatus, saveNewProfilePhoto, saveProfileData } from '../../redux/profile/profile-reducer';
 import { getAuthUserId, getAuthStatus, getProfileData, getProfileStatus, getAuthProfileData } from '../../redux/profile/profile-selectors';
 
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
@@ -26,9 +26,8 @@ const ProfileContainer = ({ profile, ...props }) => {
         )
     }
 
-    React.useEffect(() => { props.getProfile(userId) }, [userId, props.authUserProfile])
-    React.useEffect(() => { props.setNewProfilePhoto(profile.photos) }, [profile.photos])
-    React.useEffect(() => { props.getStatus(userId) }, [userId, props.authUserStatus])
+    React.useEffect(() => { props.getProfile(userId) }, [userId, props.authUserProfile]);
+    React.useEffect(() => { props.getStatus(userId) }, [userId, props.authUserStatus]);
 
     return <Profile editMode={editMode} onClickEditProfile={onClickEditProfile} onSubmit={onSubmit}
         isAuthUserProfile={userId === props.authUserId}
@@ -62,7 +61,7 @@ const mapStateToProps = (state) => {
 }
 
 export default compose(
-    connect(mapStateToProps, { getProfile, getStatus, updateStatus, setNewProfilePhoto, saveNewProfilePhoto, saveProfileData }),
+    connect(mapStateToProps, { getProfile, getStatus, updateStatus, saveNewProfilePhoto, saveProfileData }),
     withRouter,
     withAuthRedirect
 )(ProfileContainer);

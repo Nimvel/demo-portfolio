@@ -1,10 +1,10 @@
 .login_page_form {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    height: 300px;
+    height: 400px;
     width: 300px;
 
     background-color: white;
@@ -13,9 +13,12 @@
 
 .login_form {
     position: absolute;
-    top: 50%;
+    padding-top: auto;
+    padding-bottom: auto;
+    /* top: 50%; */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
+    /* transform: translate(-50%, -50%); */
     padding: 10px;
 
     display: grid;
@@ -34,22 +37,43 @@
     border: #c2c6c5 solid 1px;
     border-radius: 10px;
 }
-
-.login_form input:hover {
-    /* box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1); */
-}
   
 .login_form input:focus  {
     outline: #715678 solid 1px;
 }
 
-.login_form_checkbox {
+/* .login_form_checkbox {
     vertical-align: middle;
-}
+} */
 
 .login_form button {
     position: relative;
     left: 50%;
     transform: translate(-50%);
     width: 150px;
+}
+
+.error {
+    position: absolute;
+    left: 250px;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    padding: 10px;
+
+    width: 250px;
+
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+}
+
+.error::after {
+    content: ''; 
+    position: absolute;
+    top: 50%; 
+    transform: translate(0, -50%);
+    left: -30px;
+    border: 15px solid transparent;
+    border-right: 20px solid red;
 }

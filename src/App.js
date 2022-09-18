@@ -15,7 +15,7 @@ import './App.css';
 import Preloader from './сomponents/common/Preloader/Preloader';
 import HeaderContainer from './сomponents/Header/HeaderContainer';
 import Navbar from './сomponents/Navbar/Navbar';
-import LoginOrProfileContainer from './сomponents/Profile/Login/LoginOrProfileContainer';
+import LoginOrProfileContainer from './сomponents/Profile/LoginOrProfile/LoginOrProfileContainer';
 
 import ProfileContainer from './сomponents/Profile/ProfileContainer';
 import Settings from './сomponents/Settings/Settings';
