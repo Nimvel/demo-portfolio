@@ -13,47 +13,42 @@ import Preloader from '../common/Preloader/Preloader';
 
 import Users from './Users'
 
-class UsersContainer extends React.Component {
+const UsersContainer = (props) => {
 
-    componentDidMount() {
-        this.props.getUsers(this.props.usersCurrentPage, this.props.size)
-        this.props.getFriends(this.props.friendsCurrentPage, this.props.size)
+    React.useEffect(() => { props.getUsers(props.usersCurrentPage, props.size) }, []);
+    React.useEffect(() => { props.getFriends(props.friendsCurrentPage, props.size) }, []);
+
+    const onUsersPageChanged = (pageNumber) => {
+        props.getUsers(pageNumber, props.size)
     }
 
-    onUsersPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.size)
+    const onFriendsPageChanged = (pageNumber) => {
+        props.getFriends(pageNumber, props.size)
     }
 
-    onFriendsPageChanged = (pageNumber) => {
-        this.props.getFriends(pageNumber, this.props.size)
-    }
+    if (props.isFetching) {
+        return <Preloader />
+    } else {
+        return props.getPeople === 'getUsers'
+            ? <Users
+                getUsers={props.getUsers}
+                usersData={props.usersData}
+                currentPage={props.usersCurrentPage}
+                setCurrentPage={props.setUsersCurrentPage}
+                size={props.size}
+                count={props.totalUsersCount}
+                isFetching={props.isFetching}
+                onPageChanged={onUsersPageChanged} />
 
-    render() {
-        if (this.props.isFetching) {
-            return <Preloader />
-        } else {
-            return this.props.getPeople === 'getUsers'
-
-                ? <Users
-                    getUsers={this.props.getUsers}
-                    usersData={this.props.usersData}
-                    currentPage={this.props.usersCurrentPage}
-                    setCurrentPage={this.props.setUsersCurrentPage}
-                    size={this.props.size}
-                    count={this.props.totalUsersCount}
-                    isFetching={this.props.isFetching}
-                    onPageChanged={this.onUsersPageChanged} />
-
-                : <Users
-                    getUsers={this.props.getFriends}
-                    usersData={this.props.friendsData}
-                    currentPage={this.props.friendsCurrentPage}
-                    setCurrentPage={this.props.setFriendsCurrentPage}
-                    size={this.props.size}
-                    count={this.props.totalFriendsCount}
-                    isFetching={this.props.isFetching}
-                    onPageChanged={this.onFriendsPageChanged} />
-        }
+            : <Users
+                getUsers={props.getFriends}
+                usersData={props.friendsData}
+                currentPage={props.friendsCurrentPage}
+                setCurrentPage={props.setFriendsCurrentPage}
+                size={props.size}
+                count={props.totalFriendsCount}
+                isFetching={props.isFetching}
+                onPageChanged={onFriendsPageChanged} />
     }
 }
 

@@ -26,46 +26,42 @@ const PhotosContainer = React.lazy(() => import('./сomponents/Photos/Photos'));
 const UsersContainer = React.lazy(() => import('./сomponents/Users/UsersContainer'));
 const LoginPageContainer = React.lazy(() => import('./сomponents/Login/LoginPageContainer'));
 
-class App extends React.Component {
-  componentDidMount() {
-    this.props.initializeApp();
+const App = (props) => {
+  React.useEffect( () => { props.initializeApp() }, [])
+
+  if (!props.initialized) {
+    return <Preloader />
   }
 
-  render() {
-    if (!this.props.initialized) {
-      return <Preloader />
-    }
-
-    return (
-      <div className='App'>
-        <div className='header'>
-          <HeaderContainer />
-        </div>
-        <div className='login_or_profile'>
-          <LoginOrProfileContainer />
-        </div>
-        <div>
-          <Navbar navigation={this.props.state.navigation} />
-        </div>
-        <div className='content'>
-          <Routes>
-            <Route path='/profile/:userId' element={<ProfileContainer />} />
-            <Route path='/profile/*' element={<ProfileContainer />} />
-            <Route path='/posts' element={withSuspense(PostsContainer)} />
-            <Route path='/dialogs/*' element={withSuspense(DialogsContainer)} />
-
-            <Route path='/friends' element={withSuspense(UsersContainer, {getPeople: 'getFriends'})} />
-            <Route path='/users' element={withSuspense(UsersContainer, {getPeople: 'getUsers'})} />
-
-            <Route path='/photos' element={withSuspense(PhotosContainer)} />
-            <Route path='/settings' element={<Settings />} />
-
-            <Route path='/login' element={withSuspense(LoginPageContainer)} />
-          </Routes>
-        </div>
+  return (
+    <div className='App'>
+      <div className='header'>
+        <HeaderContainer />
       </div>
-    );
-  }
+      <div className='login_or_profile'>
+        <LoginOrProfileContainer />
+      </div>
+      <div>
+        <Navbar navigation={props.state.navigation} />
+      </div>
+      <div className='content'>
+        <Routes>
+          <Route path='/profile/:userId' element={<ProfileContainer />} />
+          <Route path='/profile/*' element={<ProfileContainer />} />
+          <Route path='/posts' element={withSuspense(PostsContainer)} />
+          <Route path='/dialogs/*' element={withSuspense(DialogsContainer)} />
+
+          <Route path='/friends' element={withSuspense(UsersContainer, { getPeople: 'getFriends' })} />
+          <Route path='/users' element={withSuspense(UsersContainer, { getPeople: 'getUsers' })} />
+
+          <Route path='/photos' element={withSuspense(PhotosContainer)} />
+          <Route path='/settings' element={<Settings />} />
+
+          <Route path='/login' element={withSuspense(LoginPageContainer)} />
+        </Routes>
+      </div>
+    </div>
+  );
 }
 
 export const withRouter = (Component) => {
