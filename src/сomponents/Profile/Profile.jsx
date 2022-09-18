@@ -5,7 +5,6 @@ import userPhoto from '../../assets/icons/comrade.png';
 import React from 'react';
 import ProfileInfoFormRedux from './ProfileInfoForm';
 import ProfileInfo from './ProfileInfo';
-import FollowContainer from '../Users/Follow/FollowContainer';
 
 const Profile = ({ profile, status, updateStatus, isAuthUserProfile, editMode, ...props }) => {
     if (!profile) {

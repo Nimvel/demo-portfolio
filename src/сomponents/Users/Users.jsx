@@ -7,8 +7,6 @@ import User from './User/User';
 import style from './Users.module.css';
 
 const Users = ({ currentPage, onPageChanged, usersData, setCurrentPage, getUsers, size, ...props }) => {
-    console.log(usersData);
-
     let usersElements =
         usersData.map(u => <User key={u.id}
             userId={u.id} userName={u.name}
@@ -27,7 +25,6 @@ const Users = ({ currentPage, onPageChanged, usersData, setCurrentPage, getUsers
                 <PaginatorContainer pages={pages} currentPage={currentPage} size={size}
                 setCurrentPage={setCurrentPage} onPageChanged={onPageChanged} getUsers={getUsers} />
             </div>
-
             <div className={style.users}>
                 {usersElements}
             </div>

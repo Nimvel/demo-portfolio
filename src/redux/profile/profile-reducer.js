@@ -91,7 +91,11 @@ export const saveProfileData = (profileData) => async (dispatch, setState) => {
         dispatch(getAuthUserProfile(userId));
     }
     else {
-        dispatch(stopSubmit('profile', { _error: data.messages[0] }))
+        const errorKey = data.messages[0].substring(30, data.messages[0].length - 1).toLowerCase();
+        const errorValue = data.messages[0].substring(0, 18);
+
+        dispatch(stopSubmit('profile', { 'contacts': {[errorKey]: errorValue} }));
+        return Promise.reject(data.messages[0]);
     }
 }
 
