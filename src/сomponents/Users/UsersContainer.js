@@ -28,7 +28,8 @@ const UsersContainer = (props) => {
 
     if (props.isFetching) {
         return <Preloader />
-    } else {
+    }
+    else {
         return props.getPeople === 'getUsers'
             ? <Users
                 getUsers={props.getUsers}

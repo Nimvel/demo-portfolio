@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 import { connect, Provider } from 'react-redux';
 
@@ -10,7 +9,7 @@ import store from './redux/store';
 
 import { withSuspense } from './hoc/withSuspense';
 
-import './App.css';
+import './App.scss';
 
 import Preloader from './сomponents/common/Preloader/Preloader';
 import HeaderContainer from './сomponents/Header/HeaderContainer';
@@ -64,26 +63,12 @@ const App = (props) => {
   );
 }
 
-export const withRouter = (Component) => {
-  function ComponentWithRouterProp(props) {
-    let location = useLocation();
-    let navigate = useNavigate();
-    let params = useParams();
-    return (
-      <Component
-        {...props}
-        router={{ location, navigate, params }}
-      />
-    );
-  }
-  return ComponentWithRouterProp;
-}
 
 const mapStateToProps = (state) => ({
   initialized: state.app.initialized
 })
 
-const AppContainer = withRouter(connect(mapStateToProps, { getAuthUserData, initializeApp })(App));
+const AppContainer = connect(mapStateToProps, { getAuthUserData, initializeApp })(App);
 
 const MainApp = (props) => {
   return <React.StrictMode>

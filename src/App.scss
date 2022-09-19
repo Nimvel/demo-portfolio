@@ -1,0 +1,140 @@
+$amethystColor: #715678;
+$lightAmethystColor: #c1b0c8;
+$lightGrayColor: #c2c6c5;
+$whiteColor: white;
+
+$borderRadius: 10px;
+
+@mixin border($color, $radius) {
+  border: $color solid 1px;
+  border-radius: $radius;
+}
+
+@mixin possitionLeft($position, $left) {
+  position: $position;
+  left: $left;
+}
+
+@mixin dimensions($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin maxDimensions($maxWidth, $maxHeight) {
+  max-width: $maxWidth;
+  max-height: $maxHeight;
+}
+
+@mixin darkenedBackground() {
+  @include dimensions(100%, 100%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.App {
+  display: grid;
+  grid-template-areas: 
+  'navbar header'
+  'navbar content';
+  grid-template-columns: 16rem;
+  grid-template-rows: 7% 93%;
+
+  position: fixed;
+
+  @include dimensions(100%, 100%);
+
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+
+  button {
+    min-width: 70px;
+    @include dimensions(auto, 30px);
+
+    font-size: 13px;
+
+    background: $amethystColor;
+    color: $whiteColor;
+
+    @include border($lightGrayColor, 10px);
+    
+    cursor: pointer;
+    user-select: none;
+  }
+
+  button:disabled {
+    background: $lightAmethystColor;
+  }
+
+  input {
+    @include border($lightGrayColor, 5px);
+  }
+
+  textarea {
+    @include dimensions(400px, auto);
+    @include border($lightGrayColor, 10px);
+  }
+
+  textarea:hover {
+    box-shadow: 0 0 1rem 0.2rem rgba(194, 194, 194, 1);
+  }
+
+  textarea:focus  {
+    outline: $amethystColor solid 1px;
+  } 
+}
+
+.login_page {
+  @include possitionLeft(fixed, 0);
+  top: 0;
+  @include darkenedBackground;
+}
+
+.image_full_screen {
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  // height: 100%;
+  // z-index: 1;
+  // background-color: rgba(0, 0, 0, 0.7);
+}
+
+.header {
+  grid-area: header;
+  @include dimensions(1000px, null);
+  @include possitionLeft(relative, 10px);
+  padding-top: 15px;
+  border-bottom: rgb(194, 198, 197) solid 1px;
+}
+
+.login_or_profile {
+  @include dimensions(225px, 25%);
+  @include possitionLeft(absolute, 125px);
+
+  bottom: 50%;
+  transform: translate(-50%);
+
+  background-color: $whiteColor;
+  border-radius: 15px;
+  
+  cursor: default;
+  z-index: 1;
+}
+
+.content {
+  grid-area: content;
+}
+
+.active_friends {
+  grid-area: active_friends;
+}
+
+@media (max-width: 1100px) {
+  .App {
+    grid-template-columns: 60px;
+  }  
+
+  .login_or_profile {
+    display: none;
+  }
+}

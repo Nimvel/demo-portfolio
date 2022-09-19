@@ -4,7 +4,7 @@ import PaginatorContainer from '../common/Paginator/PaginatorContainer';
 import ActiveFriends from '../Friends/ActiveFriends';
 import User from './User/User';
 
-import style from './Users.module.css';
+import styles from './Users.module.scss';
 
 const Users = ({ currentPage, onPageChanged, usersData, setCurrentPage, getUsers, size, ...props }) => {
     let usersElements =
@@ -18,17 +18,16 @@ const Users = ({ currentPage, onPageChanged, usersData, setCurrentPage, getUsers
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
+    console.log(usersElements)
 
     return (
-        <div className={style.usersPage}>
-            <div>
+        <div className={styles.usersPage}>
                 <PaginatorContainer pages={pages} currentPage={currentPage} size={size}
                 setCurrentPage={setCurrentPage} onPageChanged={onPageChanged} getUsers={getUsers} />
-            </div>
-            <div className={style.users}>
+            <div className={styles.users}>
                 {usersElements}
             </div>
-            <div className={style.active_friends}>
+            <div className={styles.active_friends}>
                 <ActiveFriends />
             </div>
         </div>

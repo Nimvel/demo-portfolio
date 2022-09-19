@@ -1,0 +1,112 @@
+$amethystColor: #715678;
+$lightGrayColor: #c2c6c5;
+
+$borderRadius: 10px;
+
+@mixin border($color, $radius) {
+  border: $color solid 1px;
+  border-radius: $radius;
+}
+
+@mixin positionTop($position, $top) {
+  position: $position;
+  top: $top;
+}
+
+@mixin dimensions($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+.usersPage {
+    @include positionTop(relative, 20px);
+
+    display: grid;
+    grid-template-areas:
+    'paginator active_friends'
+    'users active_friends';
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 35px;
+    gap: 10px;
+
+    span {
+        cursor: pointer;
+        font-size: 15px;
+        user-select: none;
+    }
+    
+    span:hover {
+        font-size: 20px;
+    }
+}
+
+.users {
+    grid-area: users;
+    max-width: 500px;
+
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.user {
+    @include dimensions(95%, 70px);
+
+    margin-bottom: 15px;
+    padding: 10px;
+
+    display: grid;
+    grid-template-areas: 
+    'img name button';
+    grid-template-columns: 60px 300px 30px;
+
+    @include border($lightGrayColor, 15px);
+
+    img {
+        grid-area: img;
+        @include dimensions(60px, 60px);
+        @include positionTop(relative, 35px);
+        transform: translate(0, -50%);
+    
+        border-radius: 50%;
+    }
+
+    button {
+        grid-area: button;
+        @include dimensions(100px, 35px);
+        @include positionTop(relative, 50%);
+        transform: translate(0, -50%);
+    }
+}
+
+.user:hover {
+    border-color: $amethystColor;
+    box-shadow: 0 0 10px 2px rgba(194, 194, 194, 1);
+}
+
+.user__name {
+    grid-area: name;
+    text-align: center;
+    line-height: 50px;
+    @include positionTop(relative, 10px);
+}
+
+.active_friends {
+    grid-area: active_friends;
+}
+
+@media (max-width: 900px) {
+    .usersPage {
+        grid-template-columns: 100%;
+    }
+
+    .active_friends {
+        display: none;
+    }
+}
+
+@media (min-width: 1500px) {
+    .usersPage {
+        grid-template-columns: 65% 35%;
+    }
+}

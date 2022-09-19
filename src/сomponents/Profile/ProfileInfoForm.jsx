@@ -1,15 +1,15 @@
 import React from 'react';
-import { reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import { createField, Input, Textarea } from '../common/FormsControls/FormsControls';
 import { required } from '../common/FormsControls/validators/validators';
 import { ContactElement } from './ProfileInfo';
 
-import style from './Profile.module.css';
+import styles from './Profile.module.scss';
 import styleError from '../common/FormsControls/FormsControls.module.css'
 
 const ProfileInfoForm = ({ profile, ...props }) => {
     return (
-        <form onSubmit={props.handleSubmit} className={style.profileData}>
+        <form onSubmit={props.handleSubmit} className={styles.profileDataForm}>
             <div> <b>fullName:</b>
                 {createField(Input, [required], 'fullName', '', 'Enter your name')}
             </div>
@@ -17,17 +17,17 @@ const ProfileInfoForm = ({ profile, ...props }) => {
                 {createField(Textarea, [required], 'aboutMe', '', 'Tell about yourself')}
             </div>
             <div> <b>lookingForAJob:</b>
-                {createField(Input, [], 'lookingForAJob', 'checkbox', null)}
+                <Field className={styles.profileDataForm_checkbox} component={Input} name='lookingForAJob' type='checkbox' /> 
             </div>
             <div> <b>Skills:</b>
                 {createField(Textarea, [], 'lookingForAJobDescription', '', 'Tell about your skills')}
-                <div className={style.contacts}>
+                <div className={styles.contacts}>
                     {Object.keys(profile.contacts).map(key => <ContactElement key={key} contactsKey={key}
                         contactsValue={createField(Input, [], 'contacts.' + key, '', key)} />)}
-                        {props.error && <span className={styleError.loginFormError} >{props.error}</span>}
+                    {props.error && <span className={styleError.loginFormError} >{props.error}</span>}
                 </div>
             </div>
-            <button>save</button>
+            <button>Save</button>
         </form>
     )
 }

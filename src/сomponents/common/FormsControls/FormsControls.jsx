@@ -23,9 +23,9 @@ export const Input = (props) => {
 }
 
 export const createField = (component, validators, name, type, placeholder, props = {}, text = '') => {
-    return <div>
+    return <>
         <Field component={component} validate={validators}
             name={name} type={type} placeholder={placeholder} {...props}
         /> {text}
-    </div>
+    </>
 }
