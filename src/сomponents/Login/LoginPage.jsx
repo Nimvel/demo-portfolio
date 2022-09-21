@@ -4,8 +4,7 @@ import { reduxForm } from 'redux-form'
 import { createField, Input } from '../common/FormsControls/FormsControls'
 import { required } from '../common/FormsControls/validators/validators'
 
-import styleError from '../common/FormsControls/FormsControls.module.css'
-import styles from './LoginPage.module.css'
+import styles from './LoginPage.module.scss'
 
 let LoginForm = ({ error, captchaUrl, ...props }) => {
     return <form onSubmit={props.handleSubmit} className={styles.login_form}>

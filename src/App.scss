@@ -81,6 +81,10 @@ $borderRadius: 10px;
   textarea:focus  {
     outline: $amethystColor solid 1px;
   } 
+
+  @media (max-width: 1100px) {
+      grid-template-columns: 60px;
+  }
 }
 
 .login_page {
@@ -101,7 +105,7 @@ $borderRadius: 10px;
 
 .header {
   grid-area: header;
-  @include dimensions(1000px, null);
+  @include dimensions(90%, null);
   @include possitionLeft(relative, 10px);
   padding-top: 15px;
   border-bottom: rgb(194, 198, 197) solid 1px;
@@ -119,6 +123,10 @@ $borderRadius: 10px;
   
   cursor: default;
   z-index: 1;
+
+  @media (max-width: 1100px) {
+      display: none;
+  }
 }
 
 .content {
@@ -127,14 +135,4 @@ $borderRadius: 10px;
 
 .active_friends {
   grid-area: active_friends;
-}
-
-@media (max-width: 1100px) {
-  .App {
-    grid-template-columns: 60px;
-  }  
-
-  .login_or_profile {
-    display: none;
-  }
 }

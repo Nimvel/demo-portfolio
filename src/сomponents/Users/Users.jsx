@@ -18,7 +18,6 @@ const Users = ({ currentPage, onPageChanged, usersData, setCurrentPage, getUsers
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i)
     }
-    console.log(usersElements)
 
     return (
         <div className={styles.usersPage}>
