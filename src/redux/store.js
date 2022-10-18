@@ -9,7 +9,7 @@ import dialogsReducer from './dialogs-reducer';
 import photosReducer from './photos-reducer';
 import usersReducer from './users/users-reducer';
 import authReducer from './auth/auth-reducer';
-import appReducer from './app-reducer';
+import appReducer from './app-reducer.ts';
 
 let reducers = combineReducers({
     app: appReducer,

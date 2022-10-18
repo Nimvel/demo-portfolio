@@ -3,7 +3,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import { connect, Provider } from 'react-redux';
 
-import { initializeApp } from './redux/app-reducer'
+import { initializeApp } from './redux/app-reducer.ts'
 import { getAuthUserData } from './redux/auth/auth-reducer';
 import store from './redux/store';
 

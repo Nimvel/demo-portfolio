@@ -1,4 +1,8 @@
-let initialState = {
+type InitialStateType = {
+    navData: any[]
+}
+
+const initialState: InitialStateType = {
     navData: [
         { id: 1, name: 'profile' },
         { id: 2, name: 'posts' },
@@ -10,8 +14,8 @@ let initialState = {
     ]
 }
 
-const navigationReducer = (state = initialState, action) => {
-    return state;
+const navigationReducer = (state = initialState, action: any) => {
+    return state
 }
 
-export default navigationReducer;
+export default navigationReducer
