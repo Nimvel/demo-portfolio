@@ -7,11 +7,11 @@ const ADD_NEW_POST = 'posts/ADD_NEW_POST'
 const LIKE = 'posts/LIKE'
 
 type PostsDataType = {
-    id: number, 
-    comradeName: string, 
-    comradeImg: string, 
-    message: string, 
-    likesCount: number, 
+    id: number
+    comradeName: string
+    comradeImg: string
+    message: string
+    likesCount: number
     isLiked: boolean
 } 
 

@@ -15,12 +15,12 @@ const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING'
 const SET_FOLLOWED = 'users/SET_FOLLOWED'
 const FOLLOWING_IN_PROGRESS = 'follow/FOLLOWING_IN_PROGRESS'
 
-type UsersDataType = {
-    followed: boolean,
-    id: number, 
-    name: string,
+export type UserDataType = {
+    followed: boolean
+    id: number
+    name: string
     photos: {
-        small: null | string, 
+        small: null | string
         large: null | string
     }
     status: null | string,
@@ -28,18 +28,18 @@ type UsersDataType = {
 }
 
 type InitialStateType = {
-    usersData: Array<UsersDataType>,
-    friendsData: Array<UsersDataType>,
+    usersData: Array<UserDataType>
+    friendsData: Array<UserDataType>
 
-    usersCurrentPage: number,
-    friendsCurrentPage: number,
+    usersCurrentPage: number
+    friendsCurrentPage: number
 
-    totalUsersCount: number,
-    totalFriendsCount: number,
+    totalUsersCount: number
+    totalFriendsCount: number
 
-    size: number,
-    isFetching: boolean,
-    isFollowing: Array<Number>
+    size: number
+    isFetching: boolean
+    isFollowing: Array<number> //id
 }
 
 const initialState = {
@@ -100,15 +100,15 @@ const usersReducer = (state = initialState, action: any): InitialStateType => {
 
 type SetUsersType = {
     type: typeof SET_USERS, 
-    users: any[]
+    users: Array<UserDataType>
 }
-export const setUsers = (users: any[]): SetUsersType => ({ type: SET_USERS, users })
+export const setUsers = (users: Array<UserDataType>): SetUsersType => ({ type: SET_USERS, users })
 
 type SetFriendsType = {
     type: typeof SET_FRIENDS, 
-    friends: any[]
+    friends: Array<UserDataType>
 }
-export const setFriends = (friends: any[]): SetFriendsType => ({ type: SET_FRIENDS, friends })
+export const setFriends = (friends: Array<UserDataType>): SetFriendsType => ({ type: SET_FRIENDS, friends })
 
 type SetUsersCurrentPageType = {
     type: typeof SET_USERS_CURRENT_PAGE, 

@@ -5,10 +5,10 @@ const SET_USER_DATA = 'auth/SET_USER_DATA'
 const SET_CAPTCHA_URL = 'auth/SET_CAPTCHA_URL'
 
 type InitialStateType = {
-    id: null | string,
-    email: null | string,
-    login: null | string,
-    isAuth: boolean,
+    id: null | string
+    email: null | string
+    login: null | string
+    isAuth: boolean
     captchaUrl: null | string
 }
 const initialState = {
@@ -28,15 +28,15 @@ const authReducer = (state = initialState, action: any): InitialStateType => {
                 ...action.payload
             }
     }
-    return state;
+    return state
 }
 
 type SetAuthUserDataType = {
-    type: typeof SET_USER_DATA,
+    type: typeof SET_USER_DATA
     payload: {
-        id: null | string,
-        email: null | string,
-        login: null | string,
+        id: null | string
+        email: null | string
+        login: null | string
         isAuth: boolean
     }
 }
@@ -44,7 +44,7 @@ export const setAuthUserData = (id: string, email: string, login: string, isAuth
     ({ type: SET_USER_DATA, payload: { id, email, login, isAuth } })
 
 type SetCaptchaUrlType = {
-    type: typeof SET_CAPTCHA_URL,
+    type: typeof SET_CAPTCHA_URL
     payload: {
         captchaUrl: null | string
     }

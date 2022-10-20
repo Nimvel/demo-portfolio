@@ -6,7 +6,7 @@ const img_5 = require('../assets/images/img_5.jpg')
 const img_6 = require('../assets/images/img_6.jpg')
 
 type PhotosDatatype = {
-    id: number, 
+    id: number
     photo: string
 }
 

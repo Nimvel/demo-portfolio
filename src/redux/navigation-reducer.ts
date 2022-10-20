@@ -1,5 +1,5 @@
 type NavDataType = {
-    id: number, 
+    id: number
     name: string
 }
 

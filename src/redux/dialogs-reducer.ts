@@ -5,21 +5,21 @@ const lucifer = require('../assets/avatars/lucifer_face.jpg')
 const SEND_MESSAGE = 'dialogs/SEND_MESSAGE'
 
 type ComradesDataType = {
-    id: number, 
-    comradeName: string, 
-    comradeImg: string, 
-    comradeId: number, 
+    id: number
+    comradeName: string
+    comradeImg: string
+    comradeId: number
     lastMessage: string
 }
 
 type MessagesDataType = {
-    id: number, 
-    comradeId: number, 
+    id: number
+    comradeId: number
     message: string
 }
 
 type InitialStateType = {
-    comradesData: Array<ComradesDataType>,
+    comradesData: Array<ComradesDataType>
     messagesData: Array<MessagesDataType>
 }
 

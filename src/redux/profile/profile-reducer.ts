@@ -9,13 +9,37 @@ const SET_STATUS = 'profile/SET_USER_STATUS'
 
 const SET_NEW_PROFILE_PHOTO = 'profile/SET_NEW_PROFILE_PHOTO'
 
-type InitialStateType = {
-    authUserProfileData: any,
-    authUserStatus: string,
+type PhotosType = {
+        small: string
+        large: string
+}
 
-    profileData: any,
+type ProfileDataType = {
+    aboutMe: string
+    contacts: {
+        facebook: string
+        website: string
+        vk: string
+        twitter: string
+        instagram: string
+        mainLink: string
+        youtube: null | string
+    }
+    fullName: string
+    lookingForAJob: boolean
+    lookingForAJobDescription: string
+    photos: PhotosType
+    userId: number
+}
+
+type InitialStateType = {
+    authUserProfileData: null | ProfileDataType
+    authUserStatus: string
+
+    profileData: null | ProfileDataType
     status: string
 }
+
 const initialState = {
     authUserProfileData: null,
     authUserStatus: '',
@@ -51,9 +75,9 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
 
 type SetAuthProfileType = {
     type: typeof SET_AUTH_PROFILE, 
-    profile: any
+    profile: ProfileDataType
 }
-export const setAuthProfile = (profile: any): SetAuthProfileType => ({ type: SET_AUTH_PROFILE, profile })
+export const setAuthProfile = (profile: ProfileDataType): SetAuthProfileType => ({ type: SET_AUTH_PROFILE, profile })
 
 type SetAuthUserStatusType = {
     type: typeof SET_AUTH_USER_STATUS, 
@@ -63,9 +87,9 @@ export const setAuthUserStatus = (status: string): SetAuthUserStatusType => ({ t
 
 type SetProfileType = {
     type: typeof SET_PROFILE, 
-    profile: any
+    profile: ProfileDataType
 }
-export const setProfile = (profile: any): SetProfileType => ({ type: SET_PROFILE, profile })
+export const setProfile = (profile: ProfileDataType): SetProfileType => ({ type: SET_PROFILE, profile })
 
 type SetStatusType = {
     type: typeof SET_STATUS, 
@@ -77,7 +101,7 @@ type SetNewProfilePhotoType = {
     type: typeof SET_NEW_PROFILE_PHOTO, 
     photos: any
 }
-export const setNewProfilePhoto = (photos: any): SetNewProfilePhotoType => ({ type: SET_NEW_PROFILE_PHOTO, photos })
+export const setNewProfilePhoto = (photos: PhotosType): SetNewProfilePhotoType => ({ type: SET_NEW_PROFILE_PHOTO, photos })
 
 export const getAuthUserProfile = (userId: number) => async (dispatch: any) => {
     const data = await profileAPI.getPropfile(userId)
@@ -113,7 +137,7 @@ export const saveNewProfilePhoto = (photo: any) => async (dispatch: any) => {
     }
 }
 
-export const saveProfileData = (profileData: any) => async (dispatch: any, setState: any) => {
+export const saveProfileData = (profileData: ProfileDataType) => async (dispatch: any, setState: any) => {
     const userId = setState().auth.id
     const data = await profileAPI.seveProfileData(profileData)
     if (data.resultCode === 0) {

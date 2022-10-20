@@ -9,9 +9,9 @@ import dialogsReducer from './dialogs-reducer'
 import photosReducer from './photos-reducer'
 import usersReducer from './users/users-reducer'
 import authReducer from './auth/auth-reducer'
-import appReducer from './app-reducer.ts'
+import appReducer from './app-reducer'
 
-const reducers = combineReducers({
+const rootReducer = combineReducers({
     app: appReducer,
     navigation: navigationReducer ,
     profile: profileReducer,
@@ -23,8 +23,12 @@ const reducers = combineReducers({
     form: formReducer
 })
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleWare))
+type RootReducertype = typeof rootReducer
+export type AppStateType = ReturnType<RootReducertype>
+
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleWare))
 
 export default store
 
+//@ts-ignore
 window.store = store
