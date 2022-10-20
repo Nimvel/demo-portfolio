@@ -1,8 +1,13 @@
-type InitialStateType = {
-    navData: any[]
+type NavDataType = {
+    id: number, 
+    name: string
 }
 
-const initialState: InitialStateType = {
+type InitialStateType = {
+    navData: Array<NavDataType>
+}
+
+const initialState = {
     navData: [
         { id: 1, name: 'profile' },
         { id: 2, name: 'posts' },
@@ -14,7 +19,7 @@ const initialState: InitialStateType = {
     ]
 }
 
-const navigationReducer = (state = initialState, action: any) => {
+const navigationReducer = (state = initialState, action: any): InitialStateType => {
     return state
 }
 

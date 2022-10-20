@@ -6,11 +6,11 @@ type InitialStateType = {
     initialized: boolean
 }
 
-const initialState : InitialStateType = {
+const initialState= {
     initialized: false
 }
 
-const appReducer = (state = initialState, action: any) => {
+const appReducer = (state = initialState, action: any): InitialStateType  => {
     switch (action.type) {
         case SET_INITIALIZED:
             return {

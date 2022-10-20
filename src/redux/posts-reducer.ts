@@ -6,11 +6,20 @@ const comrade = require('../assets/icons/comrade.png')
 const ADD_NEW_POST = 'posts/ADD_NEW_POST'
 const LIKE = 'posts/LIKE'
 
+type PostsDataType = {
+    id: number, 
+    comradeName: string, 
+    comradeImg: string, 
+    message: string, 
+    likesCount: number, 
+    isLiked: boolean
+} 
+
 type InitialStateType = {
-    postsData: any[]
+    postsData: Array<PostsDataType>
 }
 
-const initialState: InitialStateType = {
+const initialState = {
     postsData: [
         { id: 1, comradeName: 'Kurapika', comradeImg: kurapika, message: 'The only principle is that there are no principles.', likesCount: 0, isLiked: false },
         { id: 2, comradeName: 'Lady Maria', comradeImg: ladyMaria, message: 'Hm... A visitor? How unexpected...', likesCount: 4, isLiked: false },
@@ -18,11 +27,11 @@ const initialState: InitialStateType = {
     ]
 }
 
-const postsReducer = (state = initialState, action: any) => {
+const postsReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
 
         case ADD_NEW_POST:
-            const newPost = { id: 4, comradeName: 'User', comradeImg: comrade, message: action.newPostText, likesCount: 0 }
+            const newPost = { id: 4, comradeName: 'User', comradeImg: comrade, message: action.newPostText, likesCount: 0, isLiked: false }
             return {
                 ...state,
                 postsData: [...state.postsData, newPost]

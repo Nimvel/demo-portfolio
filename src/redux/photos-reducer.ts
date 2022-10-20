@@ -5,11 +5,16 @@ const img_4 = require('../assets/images/img_4.jpg')
 const img_5 = require('../assets/images/img_5.jpg')
 const img_6 = require('../assets/images/img_6.jpg')
 
-type InitialStateType = {
-    photosData: any[]
+type PhotosDatatype = {
+    id: number, 
+    photo: string
 }
 
-const initialState:InitialStateType = {
+type InitialStateType = {
+    photosData: Array<PhotosDatatype>
+}
+
+const initialState = {
     photosData: [
         { id: 1, photo: img_1 },
         { id: 2, photo: img_2 },
@@ -20,7 +25,7 @@ const initialState:InitialStateType = {
     ]
 }
 
-const photosReducer = (state = initialState, action: any) => {
+const photosReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
             
         default: return state

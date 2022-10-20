@@ -16,7 +16,7 @@ type InitialStateType = {
     profileData: any,
     status: string
 }
-const initialState: InitialStateType = {
+const initialState = {
     authUserProfileData: null,
     authUserStatus: '',
 
@@ -24,7 +24,7 @@ const initialState: InitialStateType = {
     status: ''
 }
 
-const profileReducer = (state = initialState, action: any) => {
+const profileReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case SET_AUTH_PROFILE:
             return { ...state, authUserProfileData: action.profile };

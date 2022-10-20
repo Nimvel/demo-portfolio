@@ -4,7 +4,6 @@ import { authAPI, securityAPI } from '../../api/api'
 const SET_USER_DATA = 'auth/SET_USER_DATA'
 const SET_CAPTCHA_URL = 'auth/SET_CAPTCHA_URL'
 
-
 type InitialStateType = {
     id: null | string,
     email: null | string,
@@ -12,7 +11,7 @@ type InitialStateType = {
     isAuth: boolean,
     captchaUrl: null | string
 }
-const initialState: InitialStateType = {
+const initialState = {
     id: null,
     email: null,
     login: null,
@@ -20,7 +19,7 @@ const initialState: InitialStateType = {
     captchaUrl: null
 }
 
-const authReducer = (state = initialState, action: any) => {
+const authReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case SET_USER_DATA:
         case SET_CAPTCHA_URL:

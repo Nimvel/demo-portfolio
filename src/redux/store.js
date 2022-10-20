@@ -1,17 +1,17 @@
-import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux';
-import thunkMiddleWare from 'redux-thunk';
-import { reducer as formReducer } from 'redux-form';
+import { applyMiddleware, combineReducers, legacy_createStore as createStore } from 'redux'
+import thunkMiddleWare from 'redux-thunk'
+import { reducer as formReducer } from 'redux-form'
 
-import navigationReducer from './navigation-reducer';
-import profileReducer from './profile/profile-reducer';
-import postsReducer from './posts-reducer';
-import dialogsReducer from './dialogs-reducer';
-import photosReducer from './photos-reducer';
-import usersReducer from './users/users-reducer';
-import authReducer from './auth/auth-reducer';
-import appReducer from './app-reducer.ts';
+import navigationReducer from './navigation-reducer'
+import profileReducer from './profile/profile-reducer'
+import postsReducer from './posts-reducer'
+import dialogsReducer from './dialogs-reducer'
+import photosReducer from './photos-reducer'
+import usersReducer from './users/users-reducer'
+import authReducer from './auth/auth-reducer'
+import appReducer from './app-reducer.ts'
 
-let reducers = combineReducers({
+const reducers = combineReducers({
     app: appReducer,
     navigation: navigationReducer ,
     profile: profileReducer,
@@ -23,8 +23,8 @@ let reducers = combineReducers({
     form: formReducer
 })
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleWare));
+const store = createStore(reducers, applyMiddleware(thunkMiddleWare))
 
-export default store;
+export default store
 
-window.store = store;
+window.store = store

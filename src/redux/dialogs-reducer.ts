@@ -4,12 +4,26 @@ const lucifer = require('../assets/avatars/lucifer_face.jpg')
 
 const SEND_MESSAGE = 'dialogs/SEND_MESSAGE'
 
-type InitialStateType = {
-    comradesData: any[],
-    messagesData: any[]
+type ComradesDataType = {
+    id: number, 
+    comradeName: string, 
+    comradeImg: string, 
+    comradeId: number, 
+    lastMessage: string
 }
 
-const initialState: InitialStateType = {
+type MessagesDataType = {
+    id: number, 
+    comradeId: number, 
+    message: string
+}
+
+type InitialStateType = {
+    comradesData: Array<ComradesDataType>,
+    messagesData: Array<MessagesDataType>
+}
+
+const initialState = {
     comradesData: [
         { id: 1, comradeName: 'Kurapika', comradeImg: kurapika, comradeId: 1, lastMessage: 'The only principle is ....' },
         { id: 2, comradeName: 'Lady Maria', comradeImg: ladyMaria, comradeId: 2, lastMessage: 'Hm... A visitor?' },
@@ -22,7 +36,7 @@ const initialState: InitialStateType = {
     ]
 }
 
-const dialogsReducer = (state = initialState, action) => {
+const dialogsReducer = (state = initialState, action : any): InitialStateType => {
     switch (action.type) {
 
         case SEND_MESSAGE:

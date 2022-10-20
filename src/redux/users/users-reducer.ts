@@ -1,5 +1,5 @@
-import { usersAPI } from '../../api/api';
-import { updateObjInState } from '../../helpers';
+import { usersAPI } from '../../api/api'
+import { updateObjInState } from '../../helpers'
 
 const SET_USERS = 'users/SET_USERS'
 const SET_FRIENDS = 'users/SET_FRIENDS'
@@ -13,12 +13,23 @@ const SET_TOTAL_FRIENDS_COUNT = 'users/SET_TOTAL_FRIENDS_COUNT'
 const TOGGLE_IS_FETCHING = 'users/TOGGLE_IS_FETCHING'
 
 const SET_FOLLOWED = 'users/SET_FOLLOWED'
-
 const FOLLOWING_IN_PROGRESS = 'follow/FOLLOWING_IN_PROGRESS'
 
+type UsersDataType = {
+    followed: boolean,
+    id: number, 
+    name: string,
+    photos: {
+        small: null | string, 
+        large: null | string
+    }
+    status: null | string,
+    uniqueUrlName: null | number
+}
+
 type InitialStateType = {
-    usersData: any[],
-    friendsData: any[],
+    usersData: Array<UsersDataType>,
+    friendsData: Array<UsersDataType>,
 
     usersCurrentPage: number,
     friendsCurrentPage: number,
@@ -28,9 +39,10 @@ type InitialStateType = {
 
     size: number,
     isFetching: boolean,
-    isFollowing: any[]
+    isFollowing: Array<Number>
 }
-const initialState: InitialStateType = {
+
+const initialState = {
     usersData: [],
     friendsData: [],
 
@@ -45,7 +57,7 @@ const initialState: InitialStateType = {
     isFollowing: []
 }
 
-const usersReducer = (state = initialState, action: any) => {
+const usersReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case SET_USERS:
             return { ...state, usersData: [...action.users] }
