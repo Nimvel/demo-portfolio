@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react'
+import { connect } from 'react-redux'
 
-import { logIn } from '../../redux/auth/auth-reducer';
-import { getIsAuth, getCaptchaUrl } from "../../redux/auth/auth-selectors";
+import { logIn } from '../../redux/auth/auth-reducer'
+import { getIsAuth, getCaptchaUrl } from '../../redux/auth/auth-selectors'
 
-import LoginPage from "./LoginPage";
+import LoginPage from './LoginPage'
 import styles from './LoginPage.module.scss'
 
 const LoginPageContainer = (props) => {

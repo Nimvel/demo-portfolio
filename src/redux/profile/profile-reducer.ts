@@ -1,5 +1,7 @@
+import { Dispatch } from 'redux'
 import { stopSubmit } from 'redux-form'
-import { profileAPI } from '../../api/api'
+import { profileAPI, ResultCodeEnum } from '../../api/api'
+import { GetStateType } from '../app-reducer'
 
 const SET_AUTH_PROFILE = 'profile/SET_AUTH_PROFILE'
 const SET_AUTH_USER_STATUS = 'profile/SET_AUTH_STATUS'
@@ -9,12 +11,12 @@ const SET_STATUS = 'profile/SET_USER_STATUS'
 
 const SET_NEW_PROFILE_PHOTO = 'profile/SET_NEW_PROFILE_PHOTO'
 
-type PhotosType = {
+export type PhotosType = {
         small: string
         large: string
 }
 
-type ProfileDataType = {
+export type ProfileDataType = {
     aboutMe: string
     contacts: {
         facebook: string
@@ -48,7 +50,7 @@ const initialState = {
     status: ''
 }
 
-const profileReducer = (state = initialState, action: any): InitialStateType => {
+const profileReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
     switch (action.type) {
         case SET_AUTH_PROFILE:
             return { ...state, authUserProfileData: action.profile };
@@ -72,6 +74,9 @@ const profileReducer = (state = initialState, action: any): InitialStateType => 
             return state;
     }
 }
+
+type ActionsTypes = SetAuthProfileType | SetAuthUserStatusType | 
+SetProfileType | SetStatusType | SetNewProfilePhotoType
 
 type SetAuthProfileType = {
     type: typeof SET_AUTH_PROFILE, 
@@ -99,48 +104,50 @@ export const setStatus = (status: string): SetStatusType => ({ type: SET_STATUS,
 
 type SetNewProfilePhotoType = {
     type: typeof SET_NEW_PROFILE_PHOTO, 
-    photos: any
+    photos: PhotosType
 }
 export const setNewProfilePhoto = (photos: PhotosType): SetNewProfilePhotoType => ({ type: SET_NEW_PROFILE_PHOTO, photos })
 
-export const getAuthUserProfile = (userId: number) => async (dispatch: any) => {
+type DispatchType = Dispatch<ActionsTypes>
+
+export const getAuthUserProfile = (userId: number) => async (dispatch: DispatchType) => {
     const data = await profileAPI.getPropfile(userId)
     dispatch(setAuthProfile(data))
 }
 
-export const getAuthUserStatus = (userId: number) => async (dispatch: any) => {
+export const getAuthUserStatus = (userId: number) => async (dispatch: DispatchType, getState: GetStateType) => {
     const data = await profileAPI.getStatus(userId)
     dispatch(setAuthUserStatus(data))
 }
 
-export const getProfile = (userId: number) => async (dispatch: any) => {
+export const getProfile = (userId: number) => async (dispatch: DispatchType, getState: GetStateType) => {
     const data = await profileAPI.getPropfile(userId)
     dispatch(setProfile(data))
 }
 
-export const getStatus = (userId: number) => async (dispatch: any) => {
+export const getStatus = (userId: number) => async (dispatch: DispatchType, getState: GetStateType) => {
     const data = await profileAPI.getStatus(userId)
     dispatch(setStatus(data))
 }
 
-export const updateStatus = (status: string) => async (dispatch: any) => {
+export const updateStatus = (status: string) => async (dispatch: DispatchType, getState: GetStateType) => {
     const data = await profileAPI.updateStatus(status)
-    if (data.resultCode === 0) {
-        dispatch(setAuthUserStatus(status));
+    if (data.resultCode === ResultCodeEnum.Success) {
+        dispatch(setAuthUserStatus(status))
     }
 }
 
-export const saveNewProfilePhoto = (photo: any) => async (dispatch: any) => {
-    const data = await profileAPI.sevePhoto(photo)
-    if (data.resultCode === 0) {
+export const saveNewProfilePhoto = (photo: string) => async (dispatch: DispatchType, getState: GetStateType) => {
+    const data = await profileAPI.savePhoto(photo)
+    if (data.resultCode === ResultCodeEnum.Success) {
         dispatch(setNewProfilePhoto(data.data.photos))
     }
 }
 
-export const saveProfileData = (profileData: ProfileDataType) => async (dispatch: any, setState: any) => {
+export const saveProfileData = (profileData: ProfileDataType) => async (dispatch: any, getState: GetStateType, setState: any) => {
     const userId = setState().auth.id
-    const data = await profileAPI.seveProfileData(profileData)
-    if (data.resultCode === 0) {
+    const data = await profileAPI.saveProfileData(profileData)
+    if (data.resultCode === ResultCodeEnum.Success) {
         dispatch(getAuthUserProfile(userId))
     }
     else {
